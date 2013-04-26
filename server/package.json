@@ -9,7 +9,11 @@
   },
   "license": "MIT",
   "dependencies": {
-    "mongodb": "1.2.0"
+    "mongodb": "1.2.0",
+	"restify": "2.4.x"
+  },
+  "devDependencies": {
+    "mocha": "1.9.x"
   },
   "engines": {
     "node": "0.8.x",
