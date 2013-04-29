@@ -17,5 +17,14 @@ xunit:
 
 jshint:
 	$(JSHINT) src test --show-non-errors --config jshint_options.js
+
+checkstyle:
+	@# check if reports folder exists, if not create it
+	@test -d reports || mkdir reports
+	$(JSHINT) src test --config jshint_options.js --reporter=checkstyle > reports/checkstyle.xml
 	
+all: clean test jshint
+
+ci: clean xunit checkstyle 
+
 .PHONY: test xunit jshint
