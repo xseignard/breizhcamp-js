@@ -13,7 +13,9 @@
 	"restify": "2.4.x"
   },
   "devDependencies": {
-    "mocha": "1.9.x"
+    "mocha": "1.9.x",
+	"xunit-file": "0.0.3",
+    "jshint": "~1.1.0"
   },
   "engines": {
     "node": "0.8.x",
