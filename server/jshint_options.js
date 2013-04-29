@@ -1,0 +1,1 @@
+{    "node": true,	/* configure globals for mocha*/	"predef": [		"describe",		"it",		"before",		"beforeEach",		"after",		"afterEach"	]}

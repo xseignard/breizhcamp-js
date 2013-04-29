@@ -16,6 +16,6 @@ xunit:
 	$(MOCHA) -R xunit-file $(TESTS)
 
 jshint:
-	$(JSHINT) src test --show-non-errors
+	$(JSHINT) src test --show-non-errors --config jshint_options.js
 	
 .PHONY: test xunit jshint
