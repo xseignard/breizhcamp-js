@@ -9,8 +9,20 @@ var uri = require('../conf/conf').MONGO_URL;
 // initial data
 var geeks = require('./geeks.json');
 
+var exitWithError = function(err) {
+	console.log('Something went wrong !');
+	console.log(err);
+	process.exit(1);
+};
+
 MongoClient.connect(uri, function(err, db) {
+	if (err) {
+		exitWithError(err);
+	}
 	db.collection('geeks', function(err, collection) {
+		if (err) {
+			exitWithError(err);
+		}
 		async.series(
 			[
 				// 1- remove the collection (if existing)
@@ -30,8 +42,7 @@ MongoClient.connect(uri, function(err, db) {
 			// final callback function
 			function(err, results) {
 				if (err) {
-					console.log('Something went wrong');
-					process.exit(1);
+					exitWithError(err);
 				}
 				results.map(function(result) {
 					console.log(result);
