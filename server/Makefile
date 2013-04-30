@@ -1,5 +1,6 @@
 MOCHA="node_modules/.bin/mocha"
 JSHINT="node_modules/.bin/jshint"
+YUIDOC="node_modules/.bin/yuidoc"
 
 TESTS=$(shell find test/ -name "*.test.js")
 
@@ -16,13 +17,18 @@ xunit:
 	$(MOCHA) -R xunit-file $(TESTS)
 
 jshint:
-	$(JSHINT) src test --show-non-errors --config jshint_options.js
+	$(JSHINT) src test --show-non-errors
 
 checkstyle:
 	@# check if reports folder exists, if not create it
 	@test -d reports || mkdir reports
-	$(JSHINT) src test --config jshint_options.js --reporter=checkstyle > reports/checkstyle.xml
+	$(JSHINT) src test --reporter=checkstyle > reports/checkstyle.xml
 	
+docs:
+	@# check if reports folder exists, if not create it
+	@test -d reports || mkdir reports
+	$(YUIDOC) src -o reports/docs
+
 all: clean test jshint
 
 ci: clean xunit checkstyle 
