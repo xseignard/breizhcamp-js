@@ -1,6 +1,6 @@
 'use strict';
 var restify = require('restify'),
-	geeksRepository = require('./core/geeksRepository')(),
+	GeeksRepository = require('./core/geeksRepository'),
 	GeeksRoutes = require('./routes/geeksRoutes');
 
 // create server
@@ -10,6 +10,7 @@ var server = restify.createServer({
 server.use(restify.queryParser());
 
 // configure routes
+var geeksRepository = new GeeksRepository();
 var routes = new GeeksRoutes(geeksRepository);
 server.post('/geek', routes.create);
 server.get('/geek/search', routes.find);
