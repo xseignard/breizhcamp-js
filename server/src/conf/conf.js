@@ -1,6 +1,15 @@
 'use strict';
+/**
+ * Configuration store
+ * @class Conf
+ * @module conf
+ */
 var Conf = {
-	// mongodb url
+	/**
+	 * Connection URL to mongodb
+	 * @property MONGO_URL
+	 * @type {String}
+	 */
 	MONGO_URL : process.env.MONGO_URL || 'mongodb://localhost:27017/geeksDB'
 };
 

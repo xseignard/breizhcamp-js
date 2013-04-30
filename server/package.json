@@ -10,13 +10,14 @@
   "license": "MIT",
   "dependencies": {
     "mongodb": "1.2.0",
-	"restify": "2.4.x",
-	"async": "0.2.7"
+    "restify": "2.4.x",
+    "async": "0.2.7"
   },
   "devDependencies": {
     "mocha": "1.9.x",
-	"xunit-file": "0.0.3",
-    "jshint": "~1.1.0"
+    "xunit-file": "0.0.3",
+    "jshint": "~1.1.0",
+    "yuidocjs": "~0.3.44"
   },
   "engines": {
     "node": "0.8.x",

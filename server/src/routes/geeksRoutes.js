@@ -1,4 +1,11 @@
 'use strict';
+/**
+ * Routes of the API 
+ * @class GeeksRoutes
+ * @constructor
+ * @param {GeeksRepository} geeksRepo - the repo
+ * @module routes
+ */
 var GeeksRoutes = function(geeksRepo) {
 
 	var _create = function(req, res) {
