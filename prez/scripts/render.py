@@ -25,7 +25,6 @@ def process_slides():
       # Get the content from the rest of the slide.
       content_section = '\n\n'.join(sections[remainder_index:])
       html = markdown.markdown(content_section)
-      print html
       slide['content'] = postprocess_html(html, metadata)
 
       slides.append(slide)
