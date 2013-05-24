@@ -1,0 +1,9 @@
+{
+  "name": "breizhcamp-js_prez",
+  "version": "0.0.1",
+  "description": "breizhcamp-js slides",
+  "devDependencies": {
+    "grunt-contrib-watch": "~0.4.3",
+    "grunt": "~0.4.1"
+  }
+}
