@@ -19,7 +19,7 @@ var SLIDE_CONFIG = {
   // Author information
   presenters: [{
     name: 'Sebastien Prunier',
-    company: 'Serli',
+    company: 'Super coder',
     twitter: '@sebprunier',
     //www: 'http://www.you.com',
     //github: 'http://github.com/you'
