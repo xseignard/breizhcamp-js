@@ -4,6 +4,7 @@
   "description": "breizhcamp-js slides",
   "devDependencies": {
     "grunt-contrib-watch": "~0.4.3",
-    "grunt": "~0.4.1"
+    "grunt": "~0.4.1",
+    "grunt-contrib-compass": "~0.2.0"
   }
 }

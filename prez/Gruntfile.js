@@ -22,6 +22,16 @@ module.exports = function(grunt) {
 
 	// grunt conf
 	grunt.initConfig({
+		// compile sass files
+		compass: {
+			dev: {
+				options: {
+					sassDir: 'theme/scss',
+					cssDir: 'theme/css'
+				}
+			}
+		},
+		// check for changes
 		watch: {
 			// re-generate slides when a change occurs
 			slides: {
@@ -35,11 +45,19 @@ module.exports = function(grunt) {
 				options: { livereload: true },
 				files: ['index.html',
 						'slide_config.js',
-						'theme/**/*.*',
+						'theme/css/*.*',
 						'js/**/*.*',
 						'images/**/*.*']
+			},
+			// recompile theme with compass
+			// install compass first : sudo gem install compass
+			style: {
+				files: ['theme/scss/*.*'],
+				tasks: ['compass']
 			}
 		}
 	});
+
 	grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.loadNpmTasks('grunt-contrib-compass');
 };
