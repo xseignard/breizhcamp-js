@@ -1,0 +1,5 @@
+{
+	"predef": ["describe", "it", "before", "beforeEach", "after", "afterEach"],
+	"browser":true
+}
+

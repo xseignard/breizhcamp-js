@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html ng-app="Geektic" ng-controller="AppCtrl">
+<head>
+  <title>Geektic</title>
+  <link rel="stylesheet" type="text/css" href="../components/gumby/css/gumby.css" />
+  <link rel="stylesheet" type="text/css" href="./styles/app.css" />
+  <script src="http://localhost:35729/livereload.js"></script>
+</head>
+<body app-scroll>
+  <main id="wrapper">
+    <header>
+      <div class="website-header">
+        <div class="row">
+          <h1>Geektic</h1>
+          <nav>
+            <a href="https://github.com/xseignard/breizhcamp-js" target="_blank" rel="nofollow" class="btn info medium">
+              <i class="icon-github icon-left"></i> View Github Repo
+            </a>
+            <a href="http://xseignard.github.io/breizhcamp-js/prez/" target="_blank" rel="nofollow" class="btn info red medium">
+              <i class="icon-picture icon-left"></i> View Slides
+            </a>
+          </nav>
+        </div>
+      </div>
+      <div class="navbar nav1 website-nav">
+        <nav class="row">
+          <form class="search-website-form field">
+            <input type="search" placeholder="Search for geeks..." class="search input" ng-model="q" />
+          </form>
+        </nav>
+      </div>
+    </header>
+    <div id="content">
+      <div ng-view id="view"></div>
+    </div>
+  </main>
+  <footer class="navbar nav1">
+    <div class="row">
+      <div class="inner">
+        <div class="title">
+          <span>Geektic</span>
+        </div>
+          <nav>
+            <a href="https://github.com/xseignard/breizhcamp-js" target="_blank" rel="nofollow" class="btn info medium">
+              <i class="icon-github icon-left"></i> View Github Repo
+            </a>
+            <a href="http://xseignard.github.io/breizhcamp-js/prez/" target="_blank" rel="nofollow" class="btn info red medium">
+              <i class="icon-picture icon-left"></i> View Slides
+            </a>
+          </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.js"></script>
+  <script>window.jQuery || document.write('<script src="../components/jquery/jquery.js">\x3C/script>')</script>
+
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.js"></script>
+  <script>window.angular || document.write('<script src="../components/angular/index.js">\x3C/script>')</script>
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.9.7/TweenMax.min.js"></script>
+  <script>window.TweenMax || document.write('<script src="../components/tweenMax/src/uncompressed/TweenMax.js">\x3C/script>')</script>
+
+  <script src="../components/JavaScript-MD5/md5.js"></script>
+  <script src="./db/geeks.js"></script>
+  <script src="./scripts/animations.js"></script>
+  <script src="./scripts/app.js"></script>
+
+</body>
+</html>
