@@ -8,30 +8,33 @@ var assert = require('assert'),
 	// tested module
 	routes = new GeeksRoutes(geeksRepository);
 
-// TODO take a look at : http://tech.flurry.com/regression-testing-api-services-with-restify
-	
 describe('GeeksRoutes', function() {
 
-	describe('#find()', function() {
-		it('should return 400', function() {
-			var response = new Response();
-			var req = {
-				params : {}
-			};
-			routes.find(req, response);
-			assert.equal(response.getStatus(), 400);
-		});
-
+	describe('#likes()', function() {
 		it('should return geeks', function() {
 			var response = new Response();
 			var req = {
 				params : {
-					keywords : "java"
+					"like" : "java"
 				}
 			};
-			routes.find(req, response);
+			routes.likes(req, response);
 			assert.equal(response.getStatus(), 200);
 			assert.notEqual(response.getData(), undefined);
+		});
+	});
+
+	describe('#create()', function() {
+		it('should create geek', function() {
+			var response = new Response();
+			var req = {
+				body : {
+					"NOM" : "test-geek"
+				}
+			};
+			routes.create(req, response);
+			assert.equal(response.getStatus(), 201);
+			assert.equal(response.getData(), undefined);
 		});
 	});
 
