@@ -15,9 +15,10 @@ var GeeksRoutes = function(geeksRepo) {
 	};
 	
 	var _find = function(req, res) {
-		var keywords = req.params.keywords;
+		var keywords = req.query.keywords;
 		if (keywords) {
-			geeksRepo.find(keywords, function(geeks) {
+			var query = {"LIKES" : keywords};
+			geeksRepo.find(query, function(geeks) {
 				res.status(200).send(geeks);
 			});
 		}
