@@ -1,0 +1,9 @@
+# Find geeks by keyword (strict search)
+db.geeks.find({"LIKES" : "java"})
+
+# Find geeks by keyword (ignoring case)
+db.geeks.find({"LIKES" : /^java$/i})
+
+# Insert a geek
+db.geeks.insert({"NOM": "Prunier", "PRENOM": "Sébastien", "EMAIL": "me@my-domain.com", "VILLE": "Nantes", "LIKES" : ["Java","Javascript","Breizhcamp"], "HATES": ["fish"]})
+
