@@ -10,7 +10,7 @@ var GeeksRoutes = function(geeksRepo) {
 
 	var _create = function(req, res) {
 		geeksRepo.insert(req.body, function() {
-			res.send(201);
+			res.status(201).send();
 		});
 	};
 	
@@ -18,11 +18,11 @@ var GeeksRoutes = function(geeksRepo) {
 		var keywords = req.params.keywords;
 		if (keywords) {
 			geeksRepo.find(keywords, function(geeks) {
-				res.send(200, geeks);
+				res.status(200).send(geeks);
 			});
 		}
 		else {
-			res.send(400, {"message" : "request parameter needed : keywords"});
+			res.status(400).send({"message" : "request parameter needed : keywords"});
 		}
 	};
 

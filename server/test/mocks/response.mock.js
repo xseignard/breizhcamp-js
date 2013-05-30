@@ -2,9 +2,15 @@
 var Response = function() {
     var _data, _statusCode;
 
-    var _send = function(code, responseData) {
-		_statusCode = code;
+    var _send = function(responseData) {
 		_data = responseData;
+    };
+
+    var _status = function(statusCode) {
+		_statusCode = statusCode;
+		return {
+			send : _send
+		};
     };
 
     var _getData = function() {
@@ -12,11 +18,12 @@ var Response = function() {
     };
 
     var _getStatus = function() {
-		return _statusCode;
+		return _statusCode || 200;
     };
 
     return {
 		send      : _send,
+		status    : _status,
 		getData   : _getData,
 		getStatus : _getStatus
     };
