@@ -1,0 +1,41 @@
+<script type="text/ng-template" id="focus">
+  <div class="focus-inner">
+    <div class="inner">
+      <h4 class="ani">{{result.prenom}} {{result.nom}}</h4>
+      <div class="ani line">
+        <img ng-src="{{gravatar(result.email, 140)}}" />
+      </div>
+      <div class="ani line">
+        <p ng-hide="!result.ville" class="ani line">Living in {{result.ville}}</p>
+        <p><i class="icon-thumbs-up" /> : 
+          <span ng-hide="!result.like1">{{result.like1}}</span>
+          <span ng-hide="!result.like2">, {{result.like2}}</span>
+          <span ng-hide="!result.like3">, {{result.like3}}</span>
+        </p>
+        <p><i class="icon-thumbs-down" /> : 
+          <span ng-hide="!result.hate1">{{result.hate1}}</span>
+          <span ng-hide="!result.hate2">, {{result.hate2}}</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</script>
+
+<div class="results">
+  <a href="" 
+     app-focus="{enter:'focus-enter',leave:'focus-leave',show:'focus-show',hide:'focus-hide'}"
+     id="id-{{result.nom}}{{result.prenom}}" 
+     ng-repeat="result in fetchGeeks(limit) | filter:q" 
+     class="result" 
+     ng-animate="{leave:'list-out', enter:'list-in', move:'list-move'}">
+    <div class="inner">
+      <h5>{{result.prenom}} {{result.nom}}</h5>
+      <img ng-src="{{gravatar(result.email, 140)}}" />
+    </div>
+  </a>
+  <div ng-show="limit < totalGeeks" class="load-more-results">
+    <a href="" ng-click="more()" class="medium default btn">
+      Load More Results
+    </a>
+  </div>
+</div>

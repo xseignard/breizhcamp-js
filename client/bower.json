@@ -1,0 +1,11 @@
+{
+  "name": "breizhcamp-js_frontend",
+  "version": "0.0.1",
+  "dependencies": {
+    "angular": "https://ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.js",
+    "tweenMax": "~1.9.7",
+    "JavaScript-MD5": "latest",
+    "jquery": "~2.0.0",
+    "gumby": "~2.2.9"
+  }
+}

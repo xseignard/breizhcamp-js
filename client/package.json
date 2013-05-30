@@ -1,0 +1,17 @@
+{
+  "name": "breizhcamp-js_frontend",
+  "description": "BreizhCamp JS Frontend",
+  "version": "0.0.1",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xseignard/breizhcamp-js.git"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-jshint": "~0.5.4",
+    "grunt-contrib-watch": "~0.4.3",
+    "grunt-contrib-connect": "~0.3.0"
+  }
+}
