@@ -45,7 +45,7 @@ var GeeksRepository = function(dbUrl, collectionName) {
 	var _insert = function(geek, callback) {
 		coll.insert(geek, function(err, item) {
 			if (err) throw err;
-            		callback(err, item);
+			callback(err, item);
 		});
 	};
 

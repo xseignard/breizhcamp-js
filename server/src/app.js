@@ -11,15 +11,17 @@ geeksRepository.connect();
 // configure routes
 var routes = new GeeksRoutes(geeksRepository);
 app.post('/geek', routes.create);
-app.get('/geek/search', routes.find);
+app.get('/geek/likes/:like', routes.likes);
 
 // start server
 var port = process.env.PORT || 9999;
 app.listen(port);
 console.log('geeks-backend listening on port %s', port);
 
-// shutdown hook
-process.on('exit', function () {
+// TODO shutdown hook
+/*
+process.on('SIGTERM', function () {
 	console.log('geeks-backend is shutting down...');
-	geeksRepository.connect();
+	geeksRepository.close();
 });
+*/

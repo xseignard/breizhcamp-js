@@ -14,22 +14,17 @@ var GeeksRoutes = function(geeksRepo) {
 		});
 	};
 	
-	var _find = function(req, res) {
-		var keywords = req.query.keywords;
-		if (keywords) {
-			var query = {"LIKES" : keywords};
-			geeksRepo.find(query, function(geeks) {
-				res.status(200).send(geeks);
-			});
-		}
-		else {
-			res.status(400).send({"message" : "request parameter needed : keywords"});
-		}
+	var _likes = function(req, res) {
+		var like = req.params.like || "";
+		var query = {"LIKES" : like};
+		geeksRepo.find(query, function(geeks) {
+			res.status(200).send(geeks);
+		});
 	};
 
 	return {
 		create : _create,
-		find : _find
+		likes : _likes
 	};
 
 };
