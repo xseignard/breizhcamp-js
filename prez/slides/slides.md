@@ -4,10 +4,20 @@ You need to have the following installed, if not, too bad for you, we won't help
 
 - A command line tool!
 - A `Make` tool
+- Git : see [http://git-scm.com/](http://git-scm.com/)
+	- `git --version` must work
 - Node.js : see [http://nodejs.org/](http://nodejs.org/)
 	- `node -v` and `npm -v` must work
 - MongoDB : see [http://docs.mongodb.org/manual/installation/](http://docs.mongodb.org/manual/installation/)
 	- `mongo --version` must work
+
+---
+
+title: Prerequisites
+subtitle: Windows users
+
+- Git for windows comes with a command line tool
+- For the make tool, you can install `mingw32-make`
 
 ---
 
