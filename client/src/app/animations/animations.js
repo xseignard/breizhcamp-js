@@ -1,4 +1,4 @@
-angular.module('AppAnimations', [])
+angular.module('bzh.geektic.animations', [])
   
   .animation('list-out', ['$window',function($window) {
     return {
