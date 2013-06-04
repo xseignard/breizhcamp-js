@@ -3,6 +3,7 @@ angular.module('AppAnimations', [])
   .animation('list-out', ['$window',function($window) {
     return {
       start : function(element, done) {
+        var duration = 1;
         TweenMax.set(element, {position:'relative'});
         TweenMax.to(element, duration, {opacity:0, width:0});
         $window.setTimeout(done, duration * 1000);
