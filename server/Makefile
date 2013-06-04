@@ -22,7 +22,7 @@ jshint:
 checkstyle:
 	@# check if reports folder exists, if not create it
 	@test -d reports || mkdir reports
-	$(JSHINT) src test --reporter=checkstyle > reports/checkstyle.xml
+	$(JSHINT) src test --reporter=checkstyle > reports/checkstyle.xml || exit 0
 	
 docs:
 	@# check if reports folder exists, if not create it
