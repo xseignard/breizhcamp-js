@@ -54,6 +54,10 @@ URL: https://code.google.com/p/io-2012-slides
 <ul>
 <li>A command line tool!</li>
 <li>A <code>Make</code> tool</li>
+<li>Git : see <a href="http://git-scm.com/">http://git-scm.com/</a><ul>
+<li><code>git --version</code> must work</li>
+</ul>
+</li>
 <li>Node.js : see <a href="http://nodejs.org/">http://nodejs.org/</a><ul>
 <li><code>node -v</code> and <code>npm -v</code> must work</li>
 </ul>
@@ -62,6 +66,19 @@ URL: https://code.google.com/p/io-2012-slides
 <li><code>mongo --version</code> must work</li>
 </ul>
 </li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Prerequisites</h2>
+      <h3>Windows users</h3>
+    </hgroup>
+    <article ><ul>
+<li>Git for windows comes with a command line tool</li>
+<li>For the make tool, you can install <code>mingw32-make</code></li>
 </ul></article>
  
 </slide>
@@ -79,10 +96,132 @@ URL: https://code.google.com/p/io-2012-slides
 <slide  >
   
     <hgroup>
-      <h2>Pouet</h2>
+      <h2>Geek document</h2>
       <h3></h3>
     </hgroup>
-    <article ><p>Some blah blah</p></article>
+    <article ><p>MongoDB is a document-oriented NoSQL database.</p>
+<p>This kind of JSON documents will be inserted into the Mongo database : </p>
+<pre class="prettyprint" data-lang="json">
+{
+    "firstname" : "Prunier",
+    "lastname" : "Sébastien",
+    "email" : "me@my-domain.com",
+    "city" : "Nantes",
+    "likes" : ["Javascript", "Breizhcamp"],
+    "hates" : ["Rain"]
+}
+</pre>
+
+<p><img alt="mongodb_logo" src="http://api.mongodb.org/scala/casbah/2.1.5.0/_static/logo-mongodb.png" /></p></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Start mongod</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><p>Use the <code>--dbpath</code> argument to set the mongo data directory</p>
+<pre class="prettyprint" data-lang="cmd">
+mongod --dbpath=/home/sebprunier/data/mongo/breizhcamp-js/
+</pre>
+
+<p>Check the logs in the console</p>
+<pre><code>...
+Tue Jun  4 16:47:17 [websvr] admin web console waiting for connections on port 28017
+Tue Jun  4 16:47:17 [initandlisten] waiting for connections on port 27017
+</code></pre></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Mongo shell</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><p>Connect to the <code>geeksDB</code> database</p>
+<pre class="prettyprint" data-lang="cmd">
+mongo geeksDB
+</pre>
+
+<p>Great ! Here is the mongo shell !</p>
+<pre><code>MongoDB shell version: 2.2.4
+connecting to: geeksDB
+&gt;
+</code></pre></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Insert geeks</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><p>Insert geeks into the <code>geeks</code> collection :</p>
+<pre class="prettyprint" data-lang="cmd">
+db.geeks.insert({"firstname": "Prunier", "lastname": "Sébastien", 
+        "email": "seb@domain.com", "city": "Nantes", 
+        "likes" : ["java","javascript","breizhcamp"], "hates": ["fish"]})
+
+db.geeks.insert({"firstname": "Seignard", "lastname": "Xavier", 
+        "email": "xav@domain.com", "city": "Nantes", 
+        "likes" : ["javascript","arduino","node.js"], "hates": ["scala", "idea"]})
+
+db.geeks.insert({"firstname": "your first name", "lastname": "your last name", 
+        "email": "your email", "city": "your city", 
+        "likes" : ["things you like"], "hates": ["things you hate"]})
+</pre></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Find a geek</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><p>Execute this query to find a geek :</p>
+<pre class="prettyprint" data-lang="cmd">
+db.geeks.findOne()
+</pre>
+
+<p>Results should look like :</p>
+<pre class="prettyprint" data-lang="json">
+{
+    "_id" : ObjectId("51ae04733579e9826523e0fb"),
+    "firstname" : "Prunier",
+    "lastname" : "Sébastien",
+    "email" : "seb@domain.com",
+    "city" : "Nantes",
+    "likes" : ["java", "javascript", "breizhcamp"],
+    "hates" : ["fish"]
+}
+</pre></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Find geeks</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><p>Geeks that love javascript (ignoring case)</p>
+<pre class="prettyprint" data-lang="cmd">
+db.geeks.find( { "likes" : /^javascript$/i } )
+</pre>
+
+<p>First 3 geeks that love javascript
+<pre class="prettyprint" data-lang="cmd">
+db.geeks.find( { "likes" : /^javascript$/i } ).limit(3)
+</pre></p>
+<p>3 geeks that love javascript, skiping the first one
+<pre class="prettyprint" data-lang="cmd">
+db.geeks.find( { "likes" : /^javascript$/i } ).limit(3).skip(1)
+</pre></p></article>
  
 </slide>
 
@@ -99,31 +238,27 @@ URL: https://code.google.com/p/io-2012-slides
 <slide  >
   
     <hgroup>
-      <h2>Ponies!</h2>
+      <h2>"Hello World" with Node.js</h2>
       <h3></h3>
     </hgroup>
-    <article ><script type="text/javascript" src="http://panzi.github.io/Browser-Ponies/basecfg.js" id="browser-ponies-config"></script>
+    <article ><p>Create a file named <code>hello.js</code></p>
+<pre class="prettyprint" data-lang="javascript">
+var http = require('http');
 
-<script type="text/javascript" src="http://panzi.github.io/Browser-Ponies/browserponies.js" id="browser-ponies-script"></script>
+http.createServer(function (req, res) {
+    res.writeHead(200, {'Content-Type': 'text/plain'});
+    res.end('Hello World\n');
+}).listen(8888, 'localhost');
 
-<script type="text/javascript">/* <![CDATA[ */ (function (cfg) {BrowserPonies.setBaseUrl(cfg.baseurl);BrowserPonies.loadConfig(BrowserPoniesBaseConfig);BrowserPonies.loadConfig(cfg);})({"baseurl":"http://panzi.github.io/Browser-Ponies/","fadeDuration":500,"volume":1,"fps":25,"speed":3,"audioEnabled":false,"showFps":false,"showLoadProgress":true,"speakProbability":0.1,"spawn":{"applejack":1,"fluttershy":1,"pinkie pie":1,"rainbow dash":1,"rarity":1,"twilight sparkle":1},"autostart":true}); /* ]]> */</script>
+console.log('Server running at http://localhost:8888/');
+</pre>
 
-<p>We all love ponies! We just don't admit it!</p>
-<footer class="source">source: <a href="http://panzi.github.io/Browser-Ponies/">http://panzi.github.io/Browser-Ponies/</a></footer></article>
- 
-</slide>
+<p>Run the script</p>
+<pre class="prettyprint" data-lang="cmd">
+node hello.js
+</pre>
 
-<slide  >
-  
-    <hgroup>
-      <h2>Code Example</h2>
-      <h3></h3>
-    </hgroup>
-    <article ><pre class="prettyprint" data-lang="javascript">
-function watman() {
-  return Array(16).join('wat' - 1) + ' Batman!';
-}
-</pre></article>
+<p>Test with your favorite browser (<code>http://localhost:8888/</code>) !</p></article>
  
 </slide>
 

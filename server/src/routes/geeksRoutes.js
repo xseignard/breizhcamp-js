@@ -10,25 +10,23 @@ var GeeksRoutes = function(geeksRepo) {
 
 	var _create = function(req, res) {
 		geeksRepo.insert(req.body, function() {
-			res.send(201);
+			res.status(201).send();
 		});
 	};
 	
-	var _find = function(req, res) {
-		var keywords = req.params.keywords;
-		if (keywords) {
-			geeksRepo.find(keywords, function(geeks) {
-				res.send(200, geeks);
-			});
-		}
-		else {
-			res.send(400, {"message" : "request parameter needed : keywords"});
-		}
+	var _likes = function(req, res) {
+		var like = req.params.like || "";
+		var query = {"likes" : like};
+		var limit = req.query.limit || "12";
+		var skip = req.query.skip || "0";
+		geeksRepo.find(query, parseInt(limit, 10), parseInt(skip, 10), function(geeks) {
+			res.status(200).send(geeks);
+		});
 	};
 
 	return {
 		create : _create,
-		find : _find
+		likes : _likes
 	};
 
 };
