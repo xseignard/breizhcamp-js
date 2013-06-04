@@ -1,9 +1,9 @@
 # Find geeks by keyword (strict search)
-db.geeks.find({"LIKES" : "java"})
+db.geeks.find({"likes" : "java"})
 
 # Find geeks by keyword (ignoring case)
-db.geeks.find({"LIKES" : /^java$/i})
+db.geeks.find({"likes" : /^java$/i})
 
 # Insert a geek
-db.geeks.insert({"NOM": "Prunier", "PRENOM": "Sébastien", "EMAIL": "me@my-domain.com", "VILLE": "Nantes", "LIKES" : ["Java","Javascript","Breizhcamp"], "HATES": ["fish"]})
+db.geeks.insert({"firstname": "Prunier", "lastname": "Sébastien", "email": "me@my-domain.com", "city": "Nantes", "likes" : ["Java","Javascript","Breizhcamp"], "hates": ["fish"]})
 

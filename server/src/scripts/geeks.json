@@ -1,498 +1,498 @@
 [
 	{
-		"NOM": "Antoine",
-		"PRENOM": "Philippe",
-		"EMAIL": "phil.antoine@gmail.com",
-		"VILLE": "Paris",
-		"LIKES" : ["HTML5","JavaScript","Barcamps"],
-		"HATES": ["Passwords","Configs xml"]
+		"firstname": "Antoine",
+		"lastname": "Philippe",
+		"email": "phil.antoine@gmail.com",
+		"city": "Paris",
+		"likes" : ["HTML5","JavaScript","Barcamps"],
+		"hates": ["Passwords","Configs xml"]
 	},
 	{
-		"NOM": "Ardhuin",
-		"PRENOM": "Alexandre",
-		"EMAIL": "alexandre.ardhuin@gmail.com",
-		"VILLE": "Nancy",
-		"LIKES" : ["Coder","java","web"],
-		"HATES": ["IE","le code pourri"]
+		"firstname": "Ardhuin",
+		"lastname": "Alexandre",
+		"email": "alexandre.ardhuin@gmail.com",
+		"city": "Nancy",
+		"likes" : ["Coder","java","web"],
+		"hates": ["IE","le code pourri"]
 	},
 	{
-		"NOM": "Baligand",
-		"PRENOM": "Fabien",
-		"EMAIL": "fbaligand@gmail.com",
-		"VILLE": "Palaiseau",
-		"LIKES" : ["java","web","jQuery"],
-		"HATES": ["le code illisible et inmaintenable","Liferay"]
+		"firstname": "Baligand",
+		"lastname": "Fabien",
+		"email": "fbaligand@gmail.com",
+		"city": "Palaiseau",
+		"likes" : ["java","web","jQuery"],
+		"hates": ["le code illisible et inmaintenable","Liferay"]
 	},
 	{
-		"NOM": "Bernard",
-		"PRENOM": "Emmanuel",
-		"EMAIL": "emmanuel@lescastcodeurs.com",
-		"VILLE": "",
-		"LIKES" : [],
-		"HATES": []
+		"firstname": "Bernard",
+		"lastname": "Emmanuel",
+		"email": "emmanuel@lescastcodeurs.com",
+		"city": "",
+		"likes" : [],
+		"hates": []
 	},
 	{
-		"NOM": "Biville",
-		"PRENOM": "Florent",
-		"EMAIL": "florent.biville@gmail.com",
-		"VILLE": "Paris",
-		"LIKES" : ["Apprendre","Java","JS"],
-		"HATES": ["deprecated stuff","so-called opinionated people"]
+		"firstname": "Bicity",
+		"lastname": "Florent",
+		"email": "florent.bicity@gmail.com",
+		"city": "Paris",
+		"likes" : ["Apprendre","Java","JS"],
+		"hates": ["deprecated stuff","so-called opinionated people"]
 	},
 	{
-		"NOM": "Bonnel",
-		"PRENOM": "Yan",
-		"EMAIL": "ybonnel@gmail.com",
-		"VILLE": "Rouen",
-		"LIKES" : ["Java (sous IntelliJ)","Android","Coder avec d'autres languages (actuellement Scala)"],
-		"HATES": ["La complexite pour rien","Le temps normand (je veux retourner dans le sud...)"]
+		"firstname": "Bonnel",
+		"lastname": "Yan",
+		"email": "ybonnel@gmail.com",
+		"city": "Rouen",
+		"likes" : ["Java (sous IntelliJ)","Android","Coder avec d'autres languages (actuellement Scala)"],
+		"hates": ["La complexite pour rien","Le temps normand (je veux retourner dans le sud...)"]
 	},
 	{
-		"NOM": "Bonvillain",
-		"PRENOM": "Damien",
-		"EMAIL": "night.kame@gmail.com",
-		"VILLE": "Montoire sur le Loir",
-		"LIKES" : ["Coder","Prendre du recul","Java"],
-		"HATES": ["Les amnesiques","Maven"]
+		"firstname": "Bonvillain",
+		"lastname": "Damien",
+		"email": "night.kame@gmail.com",
+		"city": "Montoire sur le Loir",
+		"likes" : ["Coder","Prendre du recul","Java"],
+		"hates": ["Les amnesiques","Maven"]
 	},
 	{
-		"NOM": "Bourdon",
-		"PRENOM": "Ugo",
-		"EMAIL": "bourdon.ugo@gmail.com",
-		"VILLE": "Paris",
-		"LIKES" : ["Scala","extreme programming","git"],
-		"HATES": ["le code complique (different de complexe)","faire toujours la meme chose"]
+		"firstname": "Bourdon",
+		"lastname": "Ugo",
+		"email": "bourdon.ugo@gmail.com",
+		"city": "Paris",
+		"likes" : ["Scala","extreme programming","git"],
+		"hates": ["le code complique (different de complexe)","faire toujours la meme chose"]
 	},
 	{
-		"NOM": "Broca",
-		"PRENOM": "Didier",
-		"EMAIL": "didier.broca@libertysurf.fr",
-		"VILLE": "",
-		"LIKES" : [],
-		"HATES": []
+		"firstname": "Broca",
+		"lastname": "Didier",
+		"email": "didier.broca@libertysurf.fr",
+		"city": "",
+		"likes" : [],
+		"hates": []
 	},
 	{
-		"NOM": "Cazaux",
-		"PRENOM": "Jean-Baptiste",
-		"EMAIL": "jbcazaux@gmail.com",
-		"VILLE": "Ermont",
-		"LIKES" : ["play tennis","eat","video games"],
-		"HATES": ["no time for...","to lose"]
+		"firstname": "Cazaux",
+		"lastname": "Jean-Baptiste",
+		"email": "jbcazaux@gmail.com",
+		"city": "Ermont",
+		"likes" : ["play tennis","eat","video games"],
+		"hates": ["no time for...","to lose"]
 	},
 	{
-		"NOM": "Chammah",
-		"PRENOM": "Tarek",
-		"EMAIL": "tchammah@google.com",
-		"VILLE": "Paris",
-		"LIKES" : ["OCAML","dependent types","Hindley-Milner"],
-		"HATES": []
+		"firstname": "Chammah",
+		"lastname": "Tarek",
+		"email": "tchammah@google.com",
+		"city": "Paris",
+		"likes" : ["OCAML","dependent types","Hindley-Milner"],
+		"hates": []
 	},
 	{
-		"NOM": "Cheype",
-		"PRENOM": "Julien",
-		"EMAIL": "cheype@gmail.com",
-		"VILLE": "Paris",
-		"LIKES" : ["java","les lapins","scala"],
-		"HATES": ["eclipse RCP","perdre mon temps"]
+		"firstname": "Cheype",
+		"lastname": "Julien",
+		"email": "cheype@gmail.com",
+		"city": "Paris",
+		"likes" : ["java","les lapins","scala"],
+		"hates": ["eclipse RCP","perdre mon temps"]
 	},
 	{
-		"NOM": "Courtine",
-		"PRENOM": "Benoit",
-		"EMAIL": "benoit.courtine@gmail.com",
-		"VILLE": "Paris",
-		"LIKES" : ["Java (avec son indispensable IntelliJ)","Linux (et plus generalement l'OSS)","Git"],
-		"HATES": ["les reunions inutiles (et chronophages)","les evolutions \"\"urgentes\"\" et importantes a faire sur un code sans tests"]
+		"firstname": "Courtine",
+		"lastname": "Benoit",
+		"email": "benoit.courtine@gmail.com",
+		"city": "Paris",
+		"likes" : ["Java (avec son indispensable IntelliJ)","Linux (et plus generalement l'OSS)","Git"],
+		"hates": ["les reunions inutiles (et chronophages)","les evolutions \"\"urgentes\"\" et importantes a faire sur un code sans tests"]
 	},
 	{
-		"NOM": "David",
-		"PRENOM": "Michel",
-		"EMAIL": "mimah35@gmail.com",
-		"VILLE": "",
-		"LIKES" : [],
-		"HATES": []
+		"firstname": "David",
+		"lastname": "Michel",
+		"email": "mimah35@gmail.com",
+		"city": "",
+		"likes" : [],
+		"hates": []
 	},
 	{
-		"NOM": "De Loof",
-		"PRENOM": "Nicolas",
-		"EMAIL": "nicolas.deloof@gmail.com",
-		"VILLE": "Rennes",
-		"LIKES" : ["Coder en Java (sous Idea) avec mon Chat sur les genoux et une bonne biere","Git","Maven (si si)"],
-		"HATES": ["Devoir assurer la compatibilite ascendant sur du code legacy (ah, jenkins...)","Maven (si si)"]
+		"firstname": "De Loof",
+		"lastname": "Nicolas",
+		"email": "nicolas.deloof@gmail.com",
+		"city": "Rennes",
+		"likes" : ["Coder en Java (sous Idea) avec mon Chat sur les genoux et une bonne biere","Git","Maven (si si)"],
+		"hates": ["Devoir assurer la compatibilite ascendant sur du code legacy (ah, jenkins...)","Maven (si si)"]
 	},
 	{
-		"NOM": "de Morlhon",
-		"PRENOM": "Jean-Laurent",
-		"EMAIL": "jeanlaurent@morlhon.net",
-		"VILLE": "Houilles",
-		"LIKES" : ["coffeescript","clean coding","hacking stuff"],
-		"HATES": ["Meetings","scala"]
+		"firstname": "de Morlhon",
+		"lastname": "Jean-Laurent",
+		"email": "jeanlaurent@morlhon.net",
+		"city": "Houilles",
+		"likes" : ["coffeescript","clean coding","hacking stuff"],
+		"hates": ["Meetings","scala"]
 	},
 	{
-		"NOM": "Detante",
-		"PRENOM": "Antoine",
-		"EMAIL": "antoine.detante@gmail.com",
-		"VILLE": "Metz",
-		"LIKES" : ["Scala","Mac OS X","Biere"],
-		"HATES": ["Grippe","WebSphere"]
+		"firstname": "Detante",
+		"lastname": "Antoine",
+		"email": "antoine.detante@gmail.com",
+		"city": "Metz",
+		"likes" : ["Scala","Mac OS X","Biere"],
+		"hates": ["Grippe","WebSphere"]
 	},
 	{
-		"NOM": "Dhordain",
-		"PRENOM": "Gautier",
-		"EMAIL": "g.dhordain@gmail.com",
-		"VILLE": "Lille",
-		"LIKES" : ["Java","Apprendre des trucs utiles","Apprendre des trucs inutiles"],
-		"HATES": ["Grippe","Code non indente"]
+		"firstname": "Dhordain",
+		"lastname": "Gautier",
+		"email": "g.dhordain@gmail.com",
+		"city": "Lille",
+		"likes" : ["Java","Apprendre des trucs utiles","Apprendre des trucs inutiles"],
+		"hates": ["Grippe","Code non indente"]
 	},
 	{
-		"NOM": "Dumont",
-		"PRENOM": "Antoine",
-		"EMAIL": "eniotna.t@gmail.com",
-		"VILLE": "Livry Gargan",
-		"LIKES" : ["Clojure/Haskell (functional prog)","Linux/Unix","Simplicity"],
-		"HATES": ["Transports en commun","closed source"]
+		"firstname": "Dumont",
+		"lastname": "Antoine",
+		"email": "eniotna.t@gmail.com",
+		"city": "Livry Gargan",
+		"likes" : ["Clojure/Haskell (functional prog)","Linux/Unix","Simplicity"],
+		"hates": ["Transports en commun","closed source"]
 	},
 	{
-		"NOM": "Finance",
-		"PRENOM": "Cedric",
-		"EMAIL": "cedric.finance@soat.fr",
-		"VILLE": "",
-		"LIKES" : [],
-		"HATES": []
+		"firstname": "Finance",
+		"lastname": "Cedric",
+		"email": "cedric.finance@soat.fr",
+		"city": "",
+		"likes" : [],
+		"hates": []
 	},
 	{
-		"NOM": "Gageot",
-		"PRENOM": "David",
-		"EMAIL": "david@gageot.net",
-		"VILLE": "Paris",
-		"LIKES" : ["Java","Tests","Chats"],
-		"HATES": ["Duplication","Usines a gaz"]
+		"firstname": "Gageot",
+		"lastname": "David",
+		"email": "david@gageot.net",
+		"city": "Paris",
+		"likes" : ["Java","Tests","Chats"],
+		"hates": ["Duplication","Usines a gaz"]
 	},
 	{
-		"NOM": "Guerin",
-		"PRENOM": "Thomas",
-		"EMAIL": "tguerin@xebia.fr",
-		"VILLE": "Paris",
-		"LIKES" : ["Java","Android","Scala"],
-		"HATES": ["RER A","TU de 4000 lignes"]
+		"firstname": "Guerin",
+		"lastname": "Thomas",
+		"email": "tguerin@xebia.fr",
+		"city": "Paris",
+		"likes" : ["Java","Android","Scala"],
+		"hates": ["RER A","TU de 4000 lignes"]
 	},
 	{
-		"NOM": "Hanin",
-		"PRENOM": "Xavier",
-		"EMAIL": "xavier.hanin@gmail.com",
-		"VILLE": "Bordeaux",
-		"LIKES" : ["Developpement","Java","Web"],
-		"HATES": ["Perdre du temps","Le closed source"]
+		"firstname": "Hanin",
+		"lastname": "Xavier",
+		"email": "xavier.hanin@gmail.com",
+		"city": "Bordeaux",
+		"likes" : ["Developpement","Java","Web"],
+		"hates": ["Perdre du temps","Le closed source"]
 	},
 	{
-		"NOM": "Labaye",
-		"PRENOM": "Denis",
-		"EMAIL": "denis.labaye@gmail.com",
-		"VILLE": "Paris",
-		"LIKES" : ["Simplicity","Clojure, Emacs","Mindfulness meditation"],
-		"HATES": ["Complexity","To hate"]
+		"firstname": "Labaye",
+		"lastname": "Denis",
+		"email": "denis.labaye@gmail.com",
+		"city": "Paris",
+		"likes" : ["Simplicity","Clojure, Emacs","Mindfulness meditation"],
+		"hates": ["Complexity","To hate"]
 	},
 	{
-		"NOM": "Labouisse",
-		"PRENOM": "Christophe",
-		"EMAIL": "consulting@labouisse.com",
-		"VILLE": "Bordeaux",
-		"LIKES" : ["Java","Linux/Unix","Git"],
-		"HATES": ["Qui veut epouser mon fils","Recuperer du code qui \"\"marche presque\"\""]
+		"firstname": "Labouisse",
+		"lastname": "Christophe",
+		"email": "consulting@labouisse.com",
+		"city": "Bordeaux",
+		"likes" : ["Java","Linux/Unix","Git"],
+		"hates": ["Qui veut epouser mon fils","Recuperer du code qui \"\"marche presque\"\""]
 	},
 	{
-		"NOM": "Lacôte",
-		"PRENOM": "Cyril",
-		"EMAIL": "cyril@ninja-squad.com",
-		"VILLE": "",
-		"LIKES" : [],
-		"HATES": []
+		"firstname": "Lacôte",
+		"lastname": "Cyril",
+		"email": "cyril@ninja-squad.com",
+		"city": "",
+		"likes" : [],
+		"hates": []
 	},
 	{
-		"NOM": "Lagarde",
-		"PRENOM": "Jeremie",
-		"EMAIL": "jeremie.codestory@gmail.com",
-		"VILLE": "Paris",
-		"LIKES" : ["meet people","get feedback","open discussion"],
-		"HATES": ["lose patience","rain"]
+		"firstname": "Lagarde",
+		"lastname": "Jeremie",
+		"email": "jeremie.codestory@gmail.com",
+		"city": "Paris",
+		"likes" : ["meet people","get feedback","open discussion"],
+		"hates": ["lose patience","rain"]
 	},
 	{
-		"NOM": "Le Merdy",
-		"PRENOM": "Eric",
-		"EMAIL": "eric.lemerdy@gmail.com",
-		"VILLE": "Suresnes",
-		"LIKES" : ["Java","Code","Raspberrypi"],
-		"HATES": ["Haters","untested code"]
+		"firstname": "Le Merdy",
+		"lastname": "Eric",
+		"email": "eric.lemerdy@gmail.com",
+		"city": "Suresnes",
+		"likes" : ["Java","Code","Raspberrypi"],
+		"hates": ["Haters","untested code"]
 	},
 	{
-		"NOM": "Le Merdy",
-		"PRENOM": "Sebastian",
-		"EMAIL": "sebastian.lemerdy@gmail.com",
-		"VILLE": "Colombes",
-		"LIKES" : ["Java","Software Craftsmanship","Smart UI"],
-		"HATES": ["Architecture"]
+		"firstname": "Le Merdy",
+		"lastname": "Sebastian",
+		"email": "sebastian.lemerdy@gmail.com",
+		"city": "Colombes",
+		"likes" : ["Java","Software Craftsmanship","Smart UI"],
+		"hates": ["Architecture"]
 	},
 	{
-		"NOM": "Leclaire",
-		"PRENOM": "Mathieu",
-		"EMAIL": "mat.leclaire@gmail.com",
-		"VILLE": "Metz",
-		"LIKES" : ["Chat","Linux","java"],
-		"HATES": ["le poussin piou","flex"]
+		"firstname": "Leclaire",
+		"lastname": "Mathieu",
+		"email": "mat.leclaire@gmail.com",
+		"city": "Metz",
+		"likes" : ["Chat","Linux","java"],
+		"hates": ["le poussin piou","flex"]
 	},
 	{
-		"NOM": "Lemee",
-		"PRENOM": "Mathilde",
-		"EMAIL": "mathilde.lemee.pmu@gmail.com",
-		"VILLE": "",
-		"LIKES" : [],
-		"HATES": []
+		"firstname": "Lemee",
+		"lastname": "Mathilde",
+		"email": "mathilde.lemee.pmu@gmail.com",
+		"city": "",
+		"likes" : [],
+		"hates": []
 	},
 	{
-		"NOM": "Lemee",
-		"PRENOM": "Jean-Baptiste",
-		"EMAIL": "jblemee@gmail.com",
-		"VILLE": "Pontarme",
-		"LIKES" : ["Clean code","Big Data","Demain"],
-		"HATES": ["Les embouteillages","Attendre"]
+		"firstname": "Lemee",
+		"lastname": "Jean-Baptiste",
+		"email": "jblemee@gmail.com",
+		"city": "Pontarme",
+		"likes" : ["Clean code","Big Data","Demain"],
+		"hates": ["Les embouteillages","Attendre"]
 	},
 	{
-		"NOM": "Lerman",
-		"PRENOM": "Benjamin",
-		"EMAIL": "Benjamin.Lerman@google.com",
-		"VILLE": "Paris",
-		"LIKES" : ["scala","Un defi interessant","vi"],
-		"HATES": ["XCode","Perdre mon temps"]
+		"firstname": "Lerman",
+		"lastname": "Benjamin",
+		"email": "Benjamin.Lerman@google.com",
+		"city": "Paris",
+		"likes" : ["scala","Un defi interessant","vi"],
+		"hates": ["XCode","Perdre mon temps"]
 	},
 	{
-		"NOM": "Lussiez",
-		"PRENOM": "Jeremie",
-		"EMAIL": "jeremie.lussiez@gmail.com",
-		"VILLE": "Seclin",
-		"LIKES" : ["Inventer des trucs","Les robots","Les chats"],
-		"HATES": ["Le code \"\"legacy driven\"\"","Le manque de curiosite"]
+		"firstname": "Lussiez",
+		"lastname": "Jeremie",
+		"email": "jeremie.lussiez@gmail.com",
+		"city": "Seclin",
+		"likes" : ["Inventer des trucs","Les robots","Les chats"],
+		"hates": ["Le code \"\"legacy driven\"\"","Le manque de curiosite"]
 	},
 	{
-		"NOM": "Mandrikov",
-		"PRENOM": "Evgeny",
-		"EMAIL": "mandrikov@gmail.com",
-		"VILLE": "La Roche-sur-Foron",
-		"LIKES" : ["CodeStory","SonarSource","Linux/Java/Git/Maven"],
-		"HATES": ["7 deadly sins of developer","slow builds"]
+		"firstname": "Mandrikov",
+		"lastname": "Evgeny",
+		"email": "mandrikov@gmail.com",
+		"city": "La Roche-sur-Foron",
+		"likes" : ["CodeStory","SonarSource","Linux/Java/Git/Maven"],
+		"hates": ["7 deadly sins of developer","slow builds"]
 	},
 	{
-		"NOM": "Martignole",
-		"PRENOM": "Nicolas",
-		"EMAIL": "nicolas@martignole.net",
-		"VILLE": "",
-		"LIKES" : [],
-		"HATES": []
+		"firstname": "Martignole",
+		"lastname": "Nicolas",
+		"email": "nicolas@martignole.net",
+		"city": "",
+		"likes" : [],
+		"hates": []
 	},
 	{
-		"NOM": "Moulou",
-		"PRENOM": "Mouhcine",
-		"EMAIL": "mouhcine.moulou@soat.fr",
-		"VILLE": "Vitry/Seine",
-		"LIKES" : ["Java & scala","video Games","Intellij"],
-		"HATES": ["Microsoft Products","Java (jdk 8)"]
+		"firstname": "Moulou",
+		"lastname": "Mouhcine",
+		"email": "mouhcine.moulou@soat.fr",
+		"city": "Vitry/Seine",
+		"likes" : ["Java & scala","video Games","Intellij"],
+		"hates": ["Microsoft Products","Java (jdk 8)"]
 	},
 	{
-		"NOM": "Muller",
-		"PRENOM": "Alain",
-		"EMAIL": "alain.muller@gmail.com",
-		"VILLE": "",
-		"LIKES" : [],
-		"HATES": []
+		"firstname": "Muller",
+		"lastname": "Alain",
+		"email": "alain.muller@gmail.com",
+		"city": "",
+		"likes" : [],
+		"hates": []
 	},
 	{
-		"NOM": "Neveu",
-		"PRENOM": "Audrey",
-		"EMAIL": "neveu.audrey@gmail.com",
-		"VILLE": "Paris",
-		"LIKES" : ["Java & JS","Linux","Git"],
-		"HATES": ["Me battre contre des moulins a vents","Ceux qui savent tout mieux que tout le monde"]
+		"firstname": "Neveu",
+		"lastname": "Audrey",
+		"email": "neveu.audrey@gmail.com",
+		"city": "Paris",
+		"likes" : ["Java & JS","Linux","Git"],
+		"hates": ["Me battre contre des moulins a vents","Ceux qui savent tout mieux que tout le monde"]
 	},
 	{
-		"NOM": "Nizet",
-		"PRENOM": "Jean-Baptiste",
-		"EMAIL": "jb+codestory@ninja-squad.com",
-		"VILLE": "",
-		"LIKES" : [],
-		"HATES": []
+		"firstname": "Nizet",
+		"lastname": "Jean-Baptiste",
+		"email": "jb+codestory@ninja-squad.com",
+		"city": "",
+		"likes" : [],
+		"hates": []
 	},
 	{
-		"NOM": "Nopre",
-		"PRENOM": "Xavier",
-		"EMAIL": "xnopre@gmail.com",
-		"VILLE": "Gap",
-		"LIKES" : ["Java, JS, WEB2","Clean Code","Decouvrir"],
-		"HATES": ["Legacy","code pourri"]
+		"firstname": "Nopre",
+		"lastname": "Xavier",
+		"email": "xnopre@gmail.com",
+		"city": "Gap",
+		"likes" : ["Java, JS, WEB2","Clean Code","Decouvrir"],
+		"hates": ["Legacy","code pourri"]
 	},
 	{
-		"NOM": "Peru",
-		"PRENOM": "Nicolas",
-		"EMAIL": "nicolas.peru@gmail.com",
-		"VILLE": "Geneve",
-		"LIKES" : ["Clean Code","Jouer","Neige"],
-		"HATES": ["Joe les bonnes idees","overkill"]
+		"firstname": "Peru",
+		"lastname": "Nicolas",
+		"email": "nicolas.peru@gmail.com",
+		"city": "Geneve",
+		"likes" : ["Clean Code","Jouer","Neige"],
+		"hates": ["Joe les bonnes idees","overkill"]
 	},
 	{
-		"NOM": "Philippart",
-		"PRENOM": "Gilles",
-		"EMAIL": "gilles.philippart@sgcib.com",
-		"VILLE": "",
-		"LIKES" : [],
-		"HATES": []
+		"firstname": "Philippart",
+		"lastname": "Gilles",
+		"email": "gilles.philippart@sgcib.com",
+		"city": "",
+		"likes" : [],
+		"hates": []
 	},
 	{
-		"NOM": "Renou",
-		"PRENOM": "Morgan",
-		"EMAIL": "mrenou@gmail.com",
-		"VILLE": "Versailles",
-		"LIKES" : ["Clean Code","Java","Idea"],
-		"HATES": ["les epinards","les methodes de 50 lignes"]
+		"firstname": "Renou",
+		"lastname": "Morgan",
+		"email": "mrenou@gmail.com",
+		"city": "Versailles",
+		"likes" : ["Clean Code","Java","Idea"],
+		"hates": ["les epinards","les methodes de 50 lignes"]
 	},
 	{
-		"NOM": "Rose",
-		"PRENOM": "Guillaume",
-		"EMAIL": "guillaume.rose@gmail.com",
-		"VILLE": "Issy",
-		"LIKES" : ["Robotique","Logiciels libres","Agile"],
-		"HATES": ["Legacy","Complexite inutile"]
+		"firstname": "Rose",
+		"lastname": "Guillaume",
+		"email": "guillaume.rose@gmail.com",
+		"city": "Issy",
+		"likes" : ["Robotique","Logiciels libres","Agile"],
+		"hates": ["Legacy","Complexite inutile"]
 	},
 	{
-		"NOM": "Roux",
-		"PRENOM": "Julien",
-		"EMAIL": "roujul@gmail.com",
-		"VILLE": "Geneve",
-		"LIKES" : ["Moto","Football","Biere"],
-		"HATES": ["Mes voisins","Paris"]
+		"firstname": "Roux",
+		"lastname": "Julien",
+		"email": "roujul@gmail.com",
+		"city": "Geneve",
+		"likes" : ["Moto","Football","Biere"],
+		"hates": ["Mes voisins","Paris"]
 	},
 	{
-		"NOM": "Sirot",
-		"PRENOM": "Jean-Christophe",
-		"EMAIL": "jcsirot@gmail.com",
-		"VILLE": "Ivry-sur-Seine",
-		"LIKES" : ["coder (en java mais pas que)","l'Irlande","les jeux video"],
-		"HATES": ["la RATP","ceux qui pense que c'etait mieux avant"]
+		"firstname": "Sirot",
+		"lastname": "Jean-Christophe",
+		"email": "jcsirot@gmail.com",
+		"city": "Ivry-sur-Seine",
+		"likes" : ["coder (en java mais pas que)","l'Irlande","les jeux video"],
+		"hates": ["la RATP","ceux qui pense que c'etait mieux avant"]
 	},
 	{
-		"NOM": "Tremblay",
-		"PRENOM": "Henri",
-		"EMAIL": "henri.tremblay@gmail.com",
-		"VILLE": "Paris",
-		"LIKES" : ["Java","Performance","EasyMock"],
-		"HATES": ["Le manque de pragmatisme","Tout de qui est lent"]
+		"firstname": "Tremblay",
+		"lastname": "Henri",
+		"email": "henri.tremblay@gmail.com",
+		"city": "Paris",
+		"likes" : ["Java","Performance","EasyMock"],
+		"hates": ["Le manque de pragmatisme","Tout de qui est lent"]
 	},
 	{
-		"NOM": "Vilbe",
-		"PRENOM": "Yves",
-		"EMAIL": "uv0.xtr@gmail.com",
-		"VILLE": "",
-		"LIKES" : [],
-		"HATES": []
+		"firstname": "Vilbe",
+		"lastname": "Yves",
+		"email": "uv0.xtr@gmail.com",
+		"city": "",
+		"likes" : [],
+		"hates": []
 	},
 	{
-		"NOM": "Voisin",
-		"PRENOM": "Benoit",
-		"EMAIL": "bvo123@123mail.org",
-		"VILLE": "Paris",
-		"LIKES" : ["Java","Agile","Scala"],
-		"HATES": ["le rouge","ne pas s'ameliorer"]
+		"firstname": "Voisin",
+		"lastname": "Benoit",
+		"email": "bvo123@123mail.org",
+		"city": "Paris",
+		"likes" : ["Java","Agile","Scala"],
+		"hates": ["le rouge","ne pas s'ameliorer"]
 	},
 	{
-		"NOM": "Wauquier",
-		"PRENOM": "Francois",
-		"EMAIL": "wokier@gmail.com",
-		"VILLE": "Paris",
-		"LIKES" : ["Java","TDD","Agile"],
-		"HATES": ["duplication","le rouge"]
+		"firstname": "Wauquier",
+		"lastname": "Francois",
+		"email": "wokier@gmail.com",
+		"city": "Paris",
+		"likes" : ["Java","TDD","Agile"],
+		"hates": ["duplication","le rouge"]
 	},
 	{
-		"NOM": "Wursteisen",
-		"PRENOM": "David",
-		"EMAIL": "david.wursteisen@gmail.com",
-		"VILLE": "Boulogne",
-		"LIKES" : ["le vide","photo","Starcraft II"],
-		"HATES": ["Starcraft II","la complexite inutile"]
+		"firstname": "Wursteisen",
+		"lastname": "David",
+		"email": "david.wursteisen@gmail.com",
+		"city": "Boulogne",
+		"likes" : ["le vide","photo","Starcraft II"],
+		"hates": ["Starcraft II","la complexite inutile"]
 	},
 	{
-		"NOM": "Zoritchak",
-		"PRENOM": "Gaetan",
-		"EMAIL": "g.zoritchak@gmail.com",
-		"VILLE": "Geneve",
-		"LIKES" : ["Clean Code","kotlin","Intellij"],
-		"HATES": ["xml","le code perdu dans la doc"]
+		"firstname": "Zoritchak",
+		"lastname": "Gaetan",
+		"email": "g.zoritchak@gmail.com",
+		"city": "Geneve",
+		"likes" : ["Clean Code","kotlin","Intellij"],
+		"hates": ["xml","le code perdu dans la doc"]
 	},
 	{
-		"NOM": "Mitnick",
-		"PRENOM": "Kevin",
-		"EMAIL": "kevin@condor.net",
-		"VILLE": "Equateur",
-		"LIKES" : ["hacking","vms","tcp"],
-		"HATES": ["fbi","Shimomura"]
+		"firstname": "Mitnick",
+		"lastname": "Kevin",
+		"email": "kevin@condor.net",
+		"city": "Equateur",
+		"likes" : ["hacking","vms","tcp"],
+		"hates": ["fbi","Shimomura"]
 	},
 	{
-		"NOM": "Torvald",
-		"PRENOM": "Linus",
-		"EMAIL": "torvalds@osdl.org",
-		"VILLE": "Helsinki",
-		"LIKES" : ["linux","git","plongee"],
-		"HATES": ["fsf","rms"]
+		"firstname": "Torvald",
+		"lastname": "Linus",
+		"email": "torvalds@osdl.org",
+		"city": "Helsinki",
+		"likes" : ["linux","git","plongee"],
+		"hates": ["fsf","rms"]
 	},
 	{
-		"NOM": "Gates",
-		"PRENOM": "Bill",
-		"EMAIL": "bill@gates.org",
-		"VILLE": "Seattle",
-		"LIKES" : ["Windows","ms-dos","visual studio"],
-		"HATES": ["Blue Screen","Cash"]
+		"firstname": "Gates",
+		"lastname": "Bill",
+		"email": "bill@gates.org",
+		"city": "Seattle",
+		"likes" : ["Windows","ms-dos","visual studio"],
+		"hates": ["Blue Screen","Cash"]
 	},
 	{
-		"NOM": "Laforge",
-		"PRENOM": "Guillaume",
-		"EMAIL": "glaforge@gmail.com",
-		"VILLE": "Villiers sur Marne",
-		"LIKES" : ["Groovy","Grails","Blagues"],
-		"HATES": ["Devoxx FR","Erlang"]
+		"firstname": "Laforge",
+		"lastname": "Guillaume",
+		"email": "glaforge@gmail.com",
+		"city": "Villiers sur Marne",
+		"likes" : ["Groovy","Grails","Blagues"],
+		"hates": ["Devoxx FR","Erlang"]
 	},
 	{
-		"NOM": "Carmack",
-		"PRENOM": "John",
-		"EMAIL": "john@doom.com",
-		"VILLE": "Roeland Park",
-		"LIKES" : ["Doom","Quake","3D"],
-		"HATES": ["sprites","unreal tournament"]
+		"firstname": "Carmack",
+		"lastname": "John",
+		"email": "john@doom.com",
+		"city": "Roeland Park",
+		"likes" : ["Doom","Quake","3D"],
+		"hates": ["sprites","unreal tournament"]
 	},
 	{
-		"NOM": "Gosling",
-		"PRENOM": "James",
-		"EMAIL": "james@javawillneverdie.com",
-		"VILLE": "MoutainView",
-		"LIKES" : ["Java","JVM","Robots"],
-		"HATES": ["surcharge d'operateur","oracle"]
+		"firstname": "Gosling",
+		"lastname": "James",
+		"email": "james@javawillneverdie.com",
+		"city": "MoutainView",
+		"likes" : ["Java","JVM","Robots"],
+		"hates": ["surcharge d'operateur","oracle"]
 	},
 	{
-		"NOM": "Zuckerberg",
-		"PRENOM": "Mark",
-		"EMAIL": "imceobitch@facebook.com",
-		"VILLE": "Palo Alto",
-		"LIKES" : ["Facebook","Tongues","PHP"],
-		"HATES": ["Tyler Winklevoss","Cameron Winklevoss"]
+		"firstname": "Zuckerberg",
+		"lastname": "Mark",
+		"email": "imceobitch@facebook.com",
+		"city": "Palo Alto",
+		"likes" : ["Facebook","Tongues","PHP"],
+		"hates": ["Tyler Winklevoss","Cameron Winklevoss"]
 	},
 	{
-		"NOM": "Ordersky",
-		"PRENOM": "Martin",
-		"EMAIL": "martin@scalaftw.net",
-		"VILLE": "Lausanne",
-		"LIKES" : ["Scala","Java Generics","javac"],
-		"HATES": ["Untyped Language","scripting"]
+		"firstname": "Ordersky",
+		"lastname": "Martin",
+		"email": "martin@scalaftw.net",
+		"city": "Lausanne",
+		"likes" : ["Scala","Java Generics","javac"],
+		"hates": ["Untyped Language","scripting"]
 	},
 	{
-		"NOM": "Beck",
-		"PRENOM": "Kent",
-		"EMAIL": "kent@tdd.org",
-		"VILLE": "Medford",
-		"LIKES" : ["Smalltalk","JUnit","TDD"],
-		"HATES": ["Waterfall","Big Design UpFront"]
+		"firstname": "Beck",
+		"lastname": "Kent",
+		"email": "kent@tdd.org",
+		"city": "Medford",
+		"likes" : ["Smalltalk","JUnit","TDD"],
+		"hates": ["Waterfall","Big Design UpFront"]
 	}
 ]

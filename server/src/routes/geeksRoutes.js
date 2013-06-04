@@ -16,7 +16,7 @@ var GeeksRoutes = function(geeksRepo) {
 	
 	var _likes = function(req, res) {
 		var like = req.params.like || "";
-		var query = {"LIKES" : like};
+		var query = {"likes" : like};
 		geeksRepo.find(query, function(geeks) {
 			res.status(200).send(geeks);
 		});
