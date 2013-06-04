@@ -27,7 +27,7 @@ class: segue dark nobackground
 
 ---
 
-title: G33k document
+title: Geek document
 
 MongoDB is a document-oriented NoSQL database.
 
@@ -35,14 +35,16 @@ This kind of JSON documents will be inserted into the Mongo database :
 
 <pre class="prettyprint" data-lang="json">
 {
-    "FIRSTNAME" : "Prunier",
-    "LASTNAME" : "Sébastien",
-    "MAIL" : "me@my-domain.com",
-    "TOWN" : "Nantes",
-    "LIKES" : ["Javascript", "Breizhcamp"],
-    "HATES" : ["Rain"]
+    "firstname" : "Prunier",
+    "lastname" : "Sébastien",
+    "email" : "me@my-domain.com",
+    "city" : "Nantes",
+    "likes" : ["Javascript", "Breizhcamp"],
+    "hates" : ["Rain"]
 }
 </pre>
+
+![mongodb_logo](http://api.mongodb.org/scala/casbah/2.1.5.0/_static/logo-mongodb.png)
 
 ---
 
@@ -54,21 +56,92 @@ Use the `--dbpath` argument to set the mongo data directory
 mongod --dbpath=/home/sebprunier/data/mongo/breizhcamp-js/
 </pre>
 
+Check the logs in the console
+
+    ...
+    Tue Jun  4 16:47:17 [websvr] admin web console waiting for connections on port 28017
+    Tue Jun  4 16:47:17 [initandlisten] waiting for connections on port 27017
+
+
 ---
 
-title: Populate database
+title: Mongo shell
 
-Run the `PopulateDB.js` script to insert geeks into the database :
+Connect to the `geeksDB` database
 
-- `node server/src/scripts/PopulateDB.js`
+<pre class="prettyprint" data-lang="cmd">
+mongo geeksDB
+</pre>
 
-Connect to the `geeksDB` database : 
+Great ! Here is the mongo shell !
 
-- `mongo geeksDB`
+    MongoDB shell version: 2.2.4
+    connecting to: geeksDB
+    > 
 
-Use the mongo shell to find geeks that love javascript : 
+---
 
-- `db.geeks.find( { "LIKES" : /^javascript$/i } )`
+title: Insert geeks
+
+Insert geeks into the `geeks` collection :
+
+<pre class="prettyprint" data-lang="cmd">
+db.geeks.insert({"firstname": "Prunier", "lastname": "Sébastien", 
+        "email": "seb@domain.com", "city": "Nantes", 
+        "likes" : ["java","javascript","breizhcamp"], "hates": ["fish"]})
+
+db.geeks.insert({"firstname": "Seignard", "lastname": "Xavier", 
+        "email": "xav@domain.com", "city": "Nantes", 
+        "likes" : ["javascript","arduino","node.js"], "hates": ["scala", "idea"]})
+
+db.geeks.insert({"firstname": "your first name", "lastname": "your last name", 
+        "email": "your email", "city": "your city", 
+        "likes" : ["things you like"], "hates": ["things you hate"]})
+</pre>
+
+---
+
+title: Find a geek
+
+Execute this query to find a geek :
+
+<pre class="prettyprint" data-lang="cmd">
+db.geeks.findOne()
+</pre>
+
+Results should look like :
+
+<pre class="prettyprint" data-lang="json">
+{
+    "_id" : ObjectId("51ae04733579e9826523e0fb"),
+    "firstname" : "Prunier",
+    "lastname" : "Sébastien",
+    "email" : "seb@domain.com",
+    "city" : "Nantes",
+    "likes" : ["java", "javascript", "breizhcamp"],
+    "hates" : ["fish"]
+}
+</pre>
+
+---
+
+title: Find geeks 
+
+Geeks that love javascript (ignoring case)
+
+<pre class="prettyprint" data-lang="cmd">
+db.geeks.find( { "likes" : /^javascript$/i } )
+</pre>
+
+First 3 geeks that love javascript
+<pre class="prettyprint" data-lang="cmd">
+db.geeks.find( { "likes" : /^javascript$/i } ).limit(3)
+</pre>
+
+3 geeks that love javascript, skiping the first one
+<pre class="prettyprint" data-lang="cmd">
+db.geeks.find( { "likes" : /^javascript$/i } ).limit(3).skip(1)
+</pre>
 
 ---
 

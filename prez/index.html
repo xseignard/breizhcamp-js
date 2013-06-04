@@ -96,21 +96,23 @@ URL: https://code.google.com/p/io-2012-slides
 <slide  >
   
     <hgroup>
-      <h2>G33k document</h2>
+      <h2>Geek document</h2>
       <h3></h3>
     </hgroup>
     <article ><p>MongoDB is a document-oriented NoSQL database.</p>
 <p>This kind of JSON documents will be inserted into the Mongo database : </p>
 <pre class="prettyprint" data-lang="json">
 {
-    "FIRSTNAME" : "Prunier",
-    "LASTNAME" : "Sébastien",
-    "MAIL" : "me@my-domain.com",
-    "TOWN" : "Nantes",
-    "LIKES" : ["Javascript", "Breizhcamp"],
-    "HATES" : ["Rain"]
+    "firstname" : "Prunier",
+    "lastname" : "Sébastien",
+    "email" : "me@my-domain.com",
+    "city" : "Nantes",
+    "likes" : ["Javascript", "Breizhcamp"],
+    "hates" : ["Rain"]
 }
-</pre></article>
+</pre>
+
+<p><img alt="mongodb_logo" src="http://api.mongodb.org/scala/casbah/2.1.5.0/_static/logo-mongodb.png" /></p></article>
  
 </slide>
 
@@ -123,6 +125,54 @@ URL: https://code.google.com/p/io-2012-slides
     <article ><p>Use the <code>--dbpath</code> argument to set the mongo data directory</p>
 <pre class="prettyprint" data-lang="cmd">
 mongod --dbpath=/home/sebprunier/data/mongo/breizhcamp-js/
+</pre>
+
+<p>Check the logs in the console</p>
+<pre><code>...
+Tue Jun  4 16:47:17 [websvr] admin web console waiting for connections on port 28017
+Tue Jun  4 16:47:17 [initandlisten] waiting for connections on port 27017
+</code></pre></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Mongo shell</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><p>Connect to the <code>geeksDB</code> database</p>
+<pre class="prettyprint" data-lang="cmd">
+mongo geeksDB
+</pre>
+
+<p>Great ! Here is the mongo shell !</p>
+<pre><code>MongoDB shell version: 2.2.4
+connecting to: geeksDB
+&gt;
+</code></pre></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Insert geeks</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><p>Insert geeks into the <code>geeks</code> collection :</p>
+<pre class="prettyprint" data-lang="cmd">
+db.geeks.insert({"firstname": "Prunier", "lastname": "Sébastien", 
+        "email": "seb@domain.com", "city": "Nantes", 
+        "likes" : ["java","javascript","breizhcamp"], "hates": ["fish"]})
+
+db.geeks.insert({"firstname": "Seignard", "lastname": "Xavier", 
+        "email": "xav@domain.com", "city": "Nantes", 
+        "likes" : ["javascript","arduino","node.js"], "hates": ["scala", "idea"]})
+
+db.geeks.insert({"firstname": "your first name", "lastname": "your last name", 
+        "email": "your email", "city": "your city", 
+        "likes" : ["things you like"], "hates": ["things you hate"]})
 </pre></article>
  
 </slide>
@@ -130,21 +180,48 @@ mongod --dbpath=/home/sebprunier/data/mongo/breizhcamp-js/
 <slide  >
   
     <hgroup>
-      <h2>Populate database</h2>
+      <h2>Find a geek</h2>
       <h3></h3>
     </hgroup>
-    <article ><p>Run the <code>PopulateDB.js</code> script to insert geeks into the database :</p>
-<ul>
-<li><code>node server/src/scripts/PopulateDB.js</code></li>
-</ul>
-<p>Connect to the <code>geeksDB</code> database : </p>
-<ul>
-<li><code>mongo geeksDB</code></li>
-</ul>
-<p>Use the mongo shell to find geeks that love javascript : </p>
-<ul>
-<li><code>db.geeks.find( { "LIKES" : /^javascript$/i } )</code></li>
-</ul></article>
+    <article ><p>Execute this query to find a geek :</p>
+<pre class="prettyprint" data-lang="cmd">
+db.geeks.findOne()
+</pre>
+
+<p>Results should look like :</p>
+<pre class="prettyprint" data-lang="json">
+{
+    "_id" : ObjectId("51ae04733579e9826523e0fb"),
+    "firstname" : "Prunier",
+    "lastname" : "Sébastien",
+    "email" : "seb@domain.com",
+    "city" : "Nantes",
+    "likes" : ["java", "javascript", "breizhcamp"],
+    "hates" : ["fish"]
+}
+</pre></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Find geeks</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><p>Geeks that love javascript (ignoring case)</p>
+<pre class="prettyprint" data-lang="cmd">
+db.geeks.find( { "likes" : /^javascript$/i } )
+</pre>
+
+<p>First 3 geeks that love javascript
+<pre class="prettyprint" data-lang="cmd">
+db.geeks.find( { "likes" : /^javascript$/i } ).limit(3)
+</pre></p>
+<p>3 geeks that love javascript, skiping the first one
+<pre class="prettyprint" data-lang="cmd">
+db.geeks.find( { "likes" : /^javascript$/i } ).limit(3).skip(1)
+</pre></p></article>
  
 </slide>
 
