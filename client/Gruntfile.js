@@ -19,6 +19,12 @@ module.exports = function(grunt) {
 				}
 			}
 		},
+		// open your prefered browser on the index dev page
+		open : {
+			dev : {
+				path: 'http://localhost:8100/src'
+			}
+		},
 		// check for changes
 		watch: {
 			// reload web page when a change occurs
@@ -35,7 +41,8 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-connect');
 	grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.loadNpmTasks('grunt-open');
 
 	// dev task
-	grunt.registerTask('dev', ['connect', 'watch']);
+	grunt.registerTask('dev', ['connect', 'open', 'watch']);
 };

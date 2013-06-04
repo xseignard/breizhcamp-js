@@ -14,6 +14,7 @@ body {
   margin:0;
   position:relative;
   z-index:1000;
+  background: #4a4d50;
 }
 
 .website-header {
@@ -23,7 +24,6 @@ body {
 }
 .website-header .row {
   background:url(../images/logo.png) 50px center no-repeat;
-  box-shadow:0 0 20px #eee;
   min-height:200px;
   padding-left:250px;
 }
@@ -34,7 +34,7 @@ body {
 
 /* Results */
 .results {
-  background:white;
+  background:url(../images/escheresque.png) white 50px 50px;
 }
 .result {
   border:1px solid #eee;
@@ -56,6 +56,7 @@ body {
 .result img {
   width:140px;
   max-width:140px;
+  margin: 0 auto;
 }
 
 
@@ -66,7 +67,6 @@ body {
   overflow:hidden;
   height:250px;
   position:relative;
-  box-shadow:inset 0 0 30px #000;
   color:white;
 }
 
@@ -95,7 +95,6 @@ body {
 
 .result:hover {
   border:1px solid black;
-  background:#eee;
 }
 
 .load-more-results {
@@ -106,14 +105,16 @@ body {
   border-top:1px solid #ddd;
 }
 
-.btn {
-  padding:0 10px!important;
-}
+
 .btn.info {
   color:white!important;
+  border: none;
 }
 .btn.red {
-  background:rgb(139,43,40);
+  background: rgb(139,43,40);
+}
+.btn.red:hover {
+  background: rgb(179,88,66);
 }
 
 

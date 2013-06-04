@@ -93,7 +93,7 @@ angular.module('Geektic', ['AppAnimations'])
      */
     var appScroll = function($scope) {
       $scope.$on('more', function() {
-        $("html, body").animate({ scrollTop: $(document).height() }, "slow");
+        TweenMax.to(window, 0.5, {delay:0.9, scrollTo:"max", ease:Power2.easeOut});
       });
     };
     return appScroll;
