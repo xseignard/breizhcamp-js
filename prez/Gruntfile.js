@@ -31,6 +31,21 @@ module.exports = function(grunt) {
 				}
 			}
 		},
+		// a dev server
+		connect: {
+			server: {
+				options: {
+					port: 8100,
+					base: '.'
+				}
+			}
+		},
+		// open your prefered browser on the index dev page
+		open : {
+			dev : {
+				path: 'http://localhost:8100/'
+			}
+		},
 		// check for changes
 		watch: {
 			// re-generate slides when a change occurs
@@ -58,6 +73,12 @@ module.exports = function(grunt) {
 		}
 	});
 
+	// task loading
+	grunt.loadNpmTasks('grunt-contrib-connect');
 	grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.loadNpmTasks('grunt-open');
 	grunt.loadNpmTasks('grunt-contrib-compass');
+
+	// dev task
+	grunt.registerTask('dev', ['connect', 'open', 'watch']);
 };
