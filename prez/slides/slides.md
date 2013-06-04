@@ -151,25 +151,28 @@ class: segue dark nobackground
 
 ---
 
-title: Ponies!
+title: "Hello World" with Node.js
 
-<!--
-<script type="text/javascript" src="http://panzi.github.io/Browser-Ponies/basecfg.js" id="browser-ponies-config"></script><script type="text/javascript" src="http://panzi.github.io/Browser-Ponies/browserponies.js" id="browser-ponies-script"></script><script type="text/javascript">/* <![CDATA[ */ (function (cfg) {BrowserPonies.setBaseUrl(cfg.baseurl);BrowserPonies.loadConfig(BrowserPoniesBaseConfig);BrowserPonies.loadConfig(cfg);})({"baseurl":"http://panzi.github.io/Browser-Ponies/","fadeDuration":500,"volume":1,"fps":25,"speed":3,"audioEnabled":false,"showFps":false,"showLoadProgress":true,"speakProbability":0.1,"spawn":{"applejack":1,"fluttershy":1,"pinkie pie":1,"rainbow dash":1,"rarity":1,"twilight sparkle":1},"autostart":true}); /* ]]> */</script>
--->
-
-We all love ponies! We just don't admit it!
-
-<footer class="source">source: <a href="http://panzi.github.io/Browser-Ponies/">http://panzi.github.io/Browser-Ponies/</a></footer>
-
----
-
-title: Code Example
+Create a file named `hello.js`
 
 <pre class="prettyprint" data-lang="javascript">
-function watman() {
-  return Array(16).join('wat' - 1) + ' Batman!';
-}
+var http = require('http');
+
+http.createServer(function (req, res) {
+    res.writeHead(200, {'Content-Type': 'text/plain'});
+    res.end('Hello World\n');
+}).listen(8888, 'localhost');
+
+console.log('Server running at http://localhost:8888/');
 </pre>
+
+Run the script
+
+<pre class="prettyprint" data-lang="cmd">
+node hello.js
+</pre>
+
+Test with your favorite browser (`http://localhost:8888/`) !
 
 ---
 

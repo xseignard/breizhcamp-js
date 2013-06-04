@@ -238,29 +238,27 @@ db.geeks.find( { "likes" : /^javascript$/i } ).limit(3).skip(1)
 <slide  >
   
     <hgroup>
-      <h2>Ponies!</h2>
+      <h2>"Hello World" with Node.js</h2>
       <h3></h3>
     </hgroup>
-    <article ><!--
-<script type="text/javascript" src="http://panzi.github.io/Browser-Ponies/basecfg.js" id="browser-ponies-config"></script><script type="text/javascript" src="http://panzi.github.io/Browser-Ponies/browserponies.js" id="browser-ponies-script"></script><script type="text/javascript">/* <![CDATA[ */ (function (cfg) {BrowserPonies.setBaseUrl(cfg.baseurl);BrowserPonies.loadConfig(BrowserPoniesBaseConfig);BrowserPonies.loadConfig(cfg);})({"baseurl":"http://panzi.github.io/Browser-Ponies/","fadeDuration":500,"volume":1,"fps":25,"speed":3,"audioEnabled":false,"showFps":false,"showLoadProgress":true,"speakProbability":0.1,"spawn":{"applejack":1,"fluttershy":1,"pinkie pie":1,"rainbow dash":1,"rarity":1,"twilight sparkle":1},"autostart":true}); /* ]]> */</script>
--->
+    <article ><p>Create a file named <code>hello.js</code></p>
+<pre class="prettyprint" data-lang="javascript">
+var http = require('http');
 
-<p>We all love ponies! We just don't admit it!</p>
-<footer class="source">source: <a href="http://panzi.github.io/Browser-Ponies/">http://panzi.github.io/Browser-Ponies/</a></footer></article>
- 
-</slide>
+http.createServer(function (req, res) {
+    res.writeHead(200, {'Content-Type': 'text/plain'});
+    res.end('Hello World\n');
+}).listen(8888, 'localhost');
 
-<slide  >
-  
-    <hgroup>
-      <h2>Code Example</h2>
-      <h3></h3>
-    </hgroup>
-    <article ><pre class="prettyprint" data-lang="javascript">
-function watman() {
-  return Array(16).join('wat' - 1) + ' Batman!';
-}
-</pre></article>
+console.log('Server running at http://localhost:8888/');
+</pre>
+
+<p>Run the script</p>
+<pre class="prettyprint" data-lang="cmd">
+node hello.js
+</pre>
+
+<p>Test with your favorite browser (<code>http://localhost:8888/</code>) !</p></article>
  
 </slide>
 
