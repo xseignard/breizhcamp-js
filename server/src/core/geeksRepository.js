@@ -55,8 +55,8 @@ var GeeksRepository = function(dbUrl, collectionName) {
 	 * @param {Object} query - query to search against
 	 * @param {Function} callback - function to be called with error and data objects in param after the find
 	 */
-	var _find = function(query, callback) {
-		coll.find(query).toArray(function(err, items) {
+	var _find = function(query, limit, skip, callback) {
+		coll.find(query).limit(limit).skip(skip).toArray(function(err, items) {
 			if (err) throw err;
 			callback(items);
 		});

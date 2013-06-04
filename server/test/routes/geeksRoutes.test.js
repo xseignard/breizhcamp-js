@@ -16,7 +16,8 @@ describe('GeeksRoutes', function() {
 			var req = {
 				params : {
 					"like" : "java"
-				}
+				},
+				query : {}
 			};
 			routes.likes(req, response);
 			assert.equal(response.getStatus(), 200);
