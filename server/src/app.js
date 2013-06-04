@@ -14,6 +14,11 @@ var routes = new GeeksRoutes(geeksRepository);
 app.post('/geek', routes.create);
 app.get('/geek/likes/:like', routes.likes);
 
+// configure index.html
+app.use(express.static(__dirname + '/../../client/src'));
+app.use('/components', express.static(__dirname + '/../../client/components'));
+app.use(express.bodyParser());
+
 // shutdown hook
 var cleanup = function () {
 	console.log('geeks-backend is shutting down...');
@@ -27,4 +32,3 @@ process.on('SIGINT', cleanup);
 var port = process.env.PORT || 9999;
 app.listen(port);
 console.log('geeks-backend listening on port %s', port);
-
