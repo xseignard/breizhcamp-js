@@ -24,6 +24,9 @@ angular.module('bzh.geektic.appCtrl', ['ngResource']).
      */
     $scope.more = function() {
       var opts = {limit : 6, skip : $scope.geeks.length};
+      if ($scope.q && $scope.q.length > 0) {
+        opts.like = $scope.q;
+      }
       Geek.query(opts, function(newGeeks) {
         // push each new Geek to the scope
         angular.forEach(newGeeks, function(newGeek, key){
