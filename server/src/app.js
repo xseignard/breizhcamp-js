@@ -12,7 +12,7 @@ geeksRepository.connect();
 // configure routes
 var routes = new GeeksRoutes(geeksRepository);
 app.post('/geek', routes.create);
-app.get('/geek/likes/:like', routes.likes);
+app.get('/geek/likes/:like?', routes.likes);
 
 // configure index.html
 app.use(express.static(__dirname + '/../../client/src'));
