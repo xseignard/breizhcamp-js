@@ -1,41 +1,39 @@
-angular.module('bzh.geektic.appCtrl', []).
+angular.module('bzh.geektic.appCtrl', ['ngResource']).
   /**
    * App controller 
    * @class AppCtrl
    * @module bzh.geektic.index
    */
-  controller('AppCtrl', ['$scope', '$rootScope', '$location', '$http', function($scope, $rootScope, $location, $http) {
+  controller('AppCtrl', ['$scope', '$rootScope', '$location', '$resource', function($scope, $rootScope, $location, $resource) {
+    
+    /**
+     * Resource that handle the REST call to the server to fetch geeks
+     */
+    var Geek = $resource('/geek/likes/:like');
+    
     /**
      * Loaded geeks from the server
      * @property $scope.geeks
      * @type {Array}
      */
-    // TODO : load it from the server
-    $scope.geeks = geeks;
-    /**
-     * Number of loaded geeks
-     * @property $scope.totalGeeks
-     * @type {Number}
-     */
-    $scope.totalGeeks = $scope.geeks.length;
-    /**
-     * Number of geeks to display, defaults to 12
-     * @property $scope.limit
-     * @property $scope.defaultLimit
-     * @type {Array}
-     */
-    $scope.limit = $scope.defaultLimit = 12;
-
+    $scope.geeks = Geek.query();
+    
     /**
      * Load 6 more geeks
      * @method $scope.more
      */
     $scope.more = function() {
-      $scope.limit += 6;
-      // tell the rootscope to broadcast that new results are available
-      $rootScope.$broadcast('results');
-      // scroll down the page
-      $scope.scroll();
+      var opts = {limit : 6, skip : $scope.geeks.length};
+      Geek.query(opts, function(newGeeks) {
+        // push each new Geek to the scope
+        angular.forEach(newGeeks, function(newGeek, key){
+          if (newGeek instanceof Geek) $scope.geeks.push(newGeek);
+        });
+        // tell the rootscope to broadcast that new results are available
+        $rootScope.$broadcast('results');
+        // scroll down the page
+        $scope.scroll();
+      });     
     };
 
     /**

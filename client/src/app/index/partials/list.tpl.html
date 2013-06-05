@@ -1,20 +1,23 @@
-<script type="text/ng-template" id="focus">
-  <div class="focus-inner">
+<script type="text/ng-template" id="details">
+  <div class="details-inner">
     <div class="inner">
-      <h4 class="ani">{{result.prenom}} {{result.nom}}</h4>
+      <h4 class="ani">{{result.lastname}} {{result.firstname}}</h4>
       <div class="ani line">
         <img ng-src="{{gravatar(result.email, 140)}}" />
       </div>
       <div class="ani line">
-        <p ng-hide="!result.ville" class="ani line">Living in {{result.ville}}</p>
+        <p ng-hide="!result.city" class="ani line">Living in {{result.city}}</p>
         <p><i class="icon-thumbs-up" /> : 
-          <span ng-hide="!result.like1">{{result.like1}}</span>
-          <span ng-hide="!result.like2">, {{result.like2}}</span>
-          <span ng-hide="!result.like3">, {{result.like3}}</span>
+          <span ng-repeat="like in result.likes">
+            {{like}}
+            <span ng-if="!$last">, </span>
+          </span>
         </p>
         <p><i class="icon-thumbs-down" /> : 
-          <span ng-hide="!result.hate1">{{result.hate1}}</span>
-          <span ng-hide="!result.hate2">, {{result.hate2}}</span>
+          <span ng-repeat="hate in result.hates">
+            {{hate}}
+            <span ng-if="!$last">, </span>
+          </span>
         </p>
       </div>
     </div>
@@ -23,17 +26,17 @@
 
 <div class="results">
   <a href="" 
-     bzh-details="{enter:'focus-enter',leave:'focus-leave',show:'focus-show',hide:'focus-hide'}"
-     id="id-{{result.nom}}{{result.prenom}}" 
-     ng-repeat="result in fetchGeeks(limit) | filter:q" 
+     bzh-details="{enter:'details-enter',leave:'details-leave',show:'details-show',hide:'details-hide'}"
+     id="id-{{result.lastname}}{{result.firstname}}" 
+     ng-repeat="result in geeks | filter: {likes :q}" 
      class="result" 
      ng-animate="{leave:'list-out', enter:'list-in', move:'list-move'}">
     <div class="inner">
-      <h5>{{result.prenom}} {{result.nom}}</h5>
+      <h5>{{result.lastname}} {{result.firstname}}</h5>
       <img ng-src="{{gravatar(result.email, 140)}}" />
     </div>
   </a>
-  <div ng-show="limit < totalGeeks" class="load-more-results">
+  <div class="load-more-results">
     <div  class="medium btn info">
       <a href="" ng-click="more()">
         <i class="icon-search"></i>

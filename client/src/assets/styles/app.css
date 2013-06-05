@@ -60,8 +60,8 @@ body {
 }
 
 
-/* Focus */
-.focus {
+/* Details */
+.details {
   background:#555 url(../images/escheresque_ste.png) -100px -100px;
   border-bottom:1px solid #555;
   overflow:hidden;
@@ -70,12 +70,12 @@ body {
   color:white;
 }
 
-.focus .line {
+.details .line {
   margin-bottom:10px;
   display: inline-block;
 }
 
-.focus .focus-slide {
+.details .details-slide {
   position:absolute;
   top:0;
   left:0;
@@ -83,13 +83,13 @@ body {
   bottom:0;
 } 
 
-.focus .focus-inner {
+.details .details-inner {
   margin:0 auto;
   width:960px;
   padding:10px;
 }
 
-.focus h4 {
+.details h4 {
   color:#00C0F7;
 }
 

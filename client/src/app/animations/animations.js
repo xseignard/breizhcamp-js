@@ -34,7 +34,7 @@ angular.module('bzh.geektic.animations', [])
     };
   }])
 
-  .animation('focus-leave', function() {
+  .animation('details-leave', function() {
     return {
       setup : function(element, done) {
         var items = element.find('.ani');
@@ -47,7 +47,7 @@ angular.module('bzh.geektic.animations', [])
     };
   })
 
-  .animation('focus-enter', ['$window', function($window) {
+  .animation('details-enter', ['$window', function($window) {
     return {
       setup : function(element, done) {
         var items = element.find('.ani');
@@ -55,7 +55,7 @@ angular.module('bzh.geektic.animations', [])
         return items;
       },
       start : function(element, done, items) {
-        var parent = element.parent('.focus');
+        var parent = element.parent('.details');
         var timeout = parent.children().length > 1 ? 300 : 1;
         $window.setTimeout(function() {
           TweenMax.staggerTo(items, 1, {left:0, opacity:1}, 0.1, done);
@@ -64,7 +64,7 @@ angular.module('bzh.geektic.animations', [])
     };
   }])
 
-  .animation('focus-show', function() {
+  .animation('details-show', function() {
     return {
       start : function(element, done, items) {
         TweenMax.set(element, {height:0,display:'block'});
@@ -73,7 +73,7 @@ angular.module('bzh.geektic.animations', [])
     };
   })
 
-  .animation('focus-hide', function() {
+  .animation('details-hide', function() {
     return {
       start : function(element, done, items) {
         TweenMax.to(element, 0.5, {
