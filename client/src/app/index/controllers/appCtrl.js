@@ -4,7 +4,7 @@ angular.module('bzh.geektic.appCtrl', ['ngResource']).
    * @class AppCtrl
    * @module bzh.geektic.index
    */
-  controller('AppCtrl', ['$scope', '$rootScope', '$location', '$resource', function($scope, $rootScope, $location, $resource) {
+  controller('AppCtrl', ['$scope', '$rootScope', '$resource', function($scope, $rootScope, $resource) {
     
     /**
      * Resource that handle the REST call to the server to fetch geeks

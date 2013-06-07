@@ -2,11 +2,16 @@
   "name": "breizhcamp-js_frontend",
   "version": "0.0.1",
   "dependencies": {
-    "angular": "https://ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.js",
-    "angular-resource": "https://ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular-resource.js",
+    "angular": "http://code.angularjs.org/1.1.5/angular.js",
+    "angular-resource": "http://code.angularjs.org/1.1.5/angular-resource.js",
     "tweenMax": "~1.9.7",
     "JavaScript-MD5": "latest",
     "jquery": "~2.0.0",
     "gumby": "~2.2.9"
+  },
+  "devDependencies": {
+    "angular-mocks": "http://code.angularjs.org/1.1.5/angular-mocks.js",
+    "chai": "~1.6.0",
+    "angular-scenario": "http://code.angularjs.org/1.1.5/angular-scenario.js"
   }
 }

@@ -41,7 +41,7 @@ coverage:
 	
 sonar:
 	@# add the sonar sonar-runner executable to the PATH and run it
-	PATH="$$PWD/tools/sonar-runner-2.2.1/bin:$$PATH" sonar-runner -X
+	PATH="$$PWD/tools/sonar-runner-2.2.1/bin:$$PATH" sonar-runner
 
 docs:
 	@# check if reports folder exists, if not create it
