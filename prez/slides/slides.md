@@ -145,6 +145,17 @@ db.geeks.find( { "likes" : /^javascript$/i } ).limit(3).skip(1)
 
 ---
 
+title : Exercise 1
+
+- Play with the Mongo shell !
+    - Insert geeks
+    - Execute some `find` queries
+    - Try `find` with regular expressions
+
+TODO : git checkout -f exercise-1
+
+---
+
 title: Node.js
 subtitle: JS on the server side
 class: segue dark nobackground
@@ -174,15 +185,108 @@ node hello.js
 
 Test with your favorite browser (`http://localhost:8888/`) !
 
-
----
-title: Pony pause!
-
-<iframe src="http://panzi.github.io/Browser-Ponies/ponies-iframe.html#fadeDuration=500&volume=1&fps=25&speed=3&audioEnabled=false&showFps=false&showLoadProgress=true&speakProbability=0.1&spawn.applejack=1&spawn.fluttershy=1&spawn.pinkie%20pie=1&spawn.rainbow%20dash=1&spawn.rarity=1&spawn.twilight%20sparkle=1&paddock=true&grass=true" style="overflow:hidden;border-style:none;margin:0;padding:0;background:transparent;width:100%;max-height:80%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
-
 ---
 
-title: Centered content
-content_class: flexbox vcenter
+title: Node.js and MongoDB
 
-Bayrou is at the center!
+Install the native driver with NPM (Node Packaged Modules)
+
+- `npm install mongodb --save`
+- the `--save` option adds the package in the `dependencies` section of the `package.json` file
+
+<pre class="prettyprint" data-lang="json">
+{
+  "name": "breizhcamp-js_backend",
+  "dependencies": {
+    "mongodb": "~1.3.2",
+  },
+  "engines": {
+    "node": "0.10.x",
+    "npm": "1.2.x"
+  }
+}
+</pre>
+
+---
+
+title: Connect to the Mongo Database
+
+<pre class="prettyprint" data-lang="javascript">
+var MongoClient = require('mongodb').MongoClient;
+
+var uri = require('../conf/conf').MONGO_URL;
+
+MongoClient.connect(uri, function(err, db) {
+    // err : Error object, if an error occured
+    // db : use this object to query the Mongo database !
+}
+</pre>
+
+Configuration
+
+<pre class="prettyprint" data-lang="javascript">
+var Conf = {
+    MONGO_URL : process.env.MONGO_URL || 'mongodb://localhost:27017/geeksDB'
+};
+
+module.exports = Conf;
+</pre>
+
+---
+
+title: Remove existing geeks ...
+
+<pre class="prettyprint" data-lang="javascript">
+db.collection('geeks', function(err, collection) {
+    collection.remove({}, function(err, removed){
+        console.log(removed + " geek(s) removed !");
+    });
+}
+</pre>
+
+With the Mongo shell : 
+
+<pre class="prettyprint" data-lang="cmd">
+db.geeks.remove({});
+</pre>
+
+---
+
+title: Insert geeks !
+
+Geeks are available in the `geeks.json` file
+
+<pre class="prettyprint" data-lang="javascript">
+var geeks = require('./geeks.json');
+
+db.collection('geeks', function(err, collection) {
+    collection.insert(geeks, {safe : true}, function(err, result) {
+        console.log(result.length + " geek(s) inserted !");
+    });
+}
+</pre>
+
+`safe` : the callback is executed after the geeks are saved to the database
+
+---
+
+title : Exercise 2
+
+- Write a script to populate the geeksDB database, from the `geeks.json` file.
+- Check the script execution with the Mongo shell !
+- To go further : if you dive into the `callback hell` and do not like it, try `async` !
+
+<pre class="prettyprint" data-lang="javascript">
+async = require('async');
+async.series(
+    [
+        // 1- remove geeks
+        function(callback) {...};
+        // 2- insert geeks
+        function(callback) {...};
+    ],
+    function(err, results) {...}
+);
+</pre>
+
+TODO : git checkout -f exercise-2

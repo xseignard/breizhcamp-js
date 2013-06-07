@@ -15,7 +15,7 @@ var GeeksRoutes = function(geeksRepo) {
 	};
 	
 	var _likes = function(req, res) {
-		var query = req.params.like ? {"likes": req.params.like} : {};
+		var query = req.params.like ? {"likes": new RegExp(req.params.like, "i")} : {};
 		var limit = req.query.limit || "12";
 		var skip = req.query.skip || "0";
 		console.log(query, limit, skip);
