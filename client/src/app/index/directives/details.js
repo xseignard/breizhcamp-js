@@ -1,13 +1,12 @@
 angular.module('bzh.geektic.details', []).
   /**
-   * Details directive 
+   * Details directive
    * @class bzhDetails
    * @module bzh.geektic.details
    */
   directive('bzhDetails', ['$rootScope','$compile','$animator',function($rootScope, $compile, $animator) {
-    
+
     var former, detailsContainer, formerID, formerIndex = -1;
-    
     /**
      * When the event results is intercepted, remove the previous details page
      */
@@ -24,8 +23,7 @@ angular.module('bzh.geektic.details', []).
      * @return an object containing the row index and the array of the items of this row
      */
     var findRowIndex = function(element) {
-      var parent = element.parent('.results'),
-          children = element.parent().children('.result'),
+      var children = element.parent().children('.result'),
           index = 0,
           elementId = element.attr('id');
 
@@ -49,7 +47,7 @@ angular.module('bzh.geektic.details', []).
       }
       return {index: index, items: items};
     };
-    
+
     /**
      * PostLink function that binds a click on the element with the current directive.
      * This click will display the details view
@@ -62,7 +60,7 @@ angular.module('bzh.geektic.details', []).
       // add a click handler on each element that have the directive
       element.bind('click', function() {
         // do nothing if you clicked on the same detail link that is already opened
-        if(formerID == element.attr('id')) return;
+        if(formerID === element.attr('id')) return;
         // get the animation params from the bzhDetails directive
         // and set up an animator with them
         // see http://code.angularjs.org/1.1.5/docs/api/ng.$animator
@@ -76,7 +74,7 @@ angular.module('bzh.geektic.details', []).
         if(detailsContainer) {
           // when not on the same line, hide the detail view
           // trigger the hide animation event
-          if(rowContent.index != formerIndex) {
+          if(rowContent.index !== formerIndex) {
             animator.hide(detailsContainer);
             detailsContainer = former = null;
           }

@@ -1,23 +1,23 @@
 angular.module('bzh.geektic.appCtrl', ['ngResource']).
   /**
-   * App controller 
+   * App controller
    * @class AppCtrl
    * @module bzh.geektic.index
    */
   controller('AppCtrl', ['$scope', '$rootScope', '$resource', function($scope, $rootScope, $resource) {
-    
+
     /**
      * Resource that handle the REST call to the server to fetch geeks
      */
     var Geek = $resource('/geek/likes/:like');
-    
+
     /**
      * Loaded geeks from the server
      * @property $scope.geeks
      * @type {Array}
      */
     $scope.geeks = Geek.query();
-    
+
     /**
      * Load 6 more geeks
      * @method $scope.more
@@ -36,7 +36,7 @@ angular.module('bzh.geektic.appCtrl', ['ngResource']).
         $rootScope.$broadcast('results');
         // scroll down the page
         $scope.scroll();
-      });     
+      });
     };
 
     /**

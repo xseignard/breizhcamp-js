@@ -15,4 +15,3 @@ angular.module('bzh.geektic', ['bzh.geektic.appCtrl', 'bzh.geektic.details', 'bz
         redirectTo : '/'
       });
   }]);
-  

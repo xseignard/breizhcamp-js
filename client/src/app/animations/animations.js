@@ -1,5 +1,5 @@
 angular.module('bzh.geektic.animations', [])
-  
+
   .animation('list-out', ['$window',function($window) {
     return {
       start : function(element, done) {
@@ -17,7 +17,7 @@ angular.module('bzh.geektic.animations', [])
         TweenMax.set(element, {opacity:0, width:0});
       },
       start : function(element, done) {
-        var duration = 1; 
+        var duration = 1;
         TweenMax.to(element, duration, {opacity:1, width:210});
         $window.setTimeout(done, duration * 1000);
       }
@@ -27,7 +27,7 @@ angular.module('bzh.geektic.animations', [])
   .animation('list-move', ['$window',function($window) {
     return {
       start : function(element, done) {
-        var duration = 1; 
+        var duration = 1;
         TweenMax.to(element, duration, {opacity:1, width:210});
         $window.setTimeout(done, duration * 1000);
       }
