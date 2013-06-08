@@ -67,21 +67,14 @@ module.exports = function(grunt) {
 				browsers: ['Chrome', 'Firefox']
 			},
 			e2e: {
-				configFile: 'conf/karma.e2e.conf.js',
-				singleRun: true,
-				browsers: ['Chrome'],
-				proxies: {'/': 'http://localhost:9999/'},
-				urlRoot: '/_karma/',
-				reporters: ['junit'],
-				junitReporter: {
-					outputFile: 'reports/TEST-IT-xunit.xml'
-				}
+				configFile: 'conf/karma.e2e.conf.js'
 			}
+
 		},
 		// custom shell commands
 		shell: {
 			e2e: {
-				command: 'node ../server/src/app.js&grunt karma:e2e;killall node',
+				command: 'node tools/web-server.js&grunt karma:e2e;killall node',
 				options: {
 					stdout: true
 				}

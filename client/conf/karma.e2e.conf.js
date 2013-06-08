@@ -7,5 +7,13 @@ var files = [
   ANGULAR_SCENARIO,
   ANGULAR_SCENARIO_ADAPTER,
   // test files
-  'test/e2e/**/*.js'
+  'test/e2e/**/*.spec.js'
 ];
+var singleRun = true;
+var browsers = ['Chrome'];
+var proxies = {'/': 'http://localhost:8000/'};
+var urlRoot = '/_karma/';
+var reporters = ['junit'];
+var junitReporter = {
+	outputFile: 'reports/TEST-IT-xunit.xml'
+};
