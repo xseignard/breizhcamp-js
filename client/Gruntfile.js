@@ -119,9 +119,11 @@ module.exports = function(grunt) {
 	// dev task
 	grunt.registerTask('dev', ['karma:dev', 'watch']);
 	// run e2e tasks
-	grunt.registerTask('e2e', ['clean', 'shell:e2e']);
+	grunt.registerTask('e2e', ['shell:e2e']);
+	// run sonar
+	grunt.registerTask('sonar', ['shell:mergeCov', 'shell:sonar']);
 	// ci task
-	grunt.registerTask('ci', ['clean', 'jshint', 'karma:ci', 'shell:e2e', 'shell:mergeCov', 'shell:sonar']);
+	grunt.registerTask('ci', ['jshint', 'karma:ci']);
 	// preview
 	grunt.registerTask('preview', ['connect', 'open', 'watch']);
 };
