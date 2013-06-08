@@ -11,8 +11,6 @@ var files = [
 ];
 var singleRun = true;
 var browsers = ['Chrome'];
-var runnerPort = 9101;
-var port = 9877;
 var proxies = {'/': 'http://localhost:8000/'};
 var urlRoot = '/_karma/';
 var reporters = ['junit'];
