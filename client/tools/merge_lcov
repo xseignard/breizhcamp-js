@@ -5,4 +5,4 @@ done < <( find $1 -name lcov.info )
 
 eval lcov "${LCOV_INPUT_FILES}" -o $1/coverage.lcov
 
-sed -i 's/SF:./SF:/g' $1/coverage.lcov
+sed -i 's#SF:./#SF:#g' $1/coverage.lcov
