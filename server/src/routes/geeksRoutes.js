@@ -20,7 +20,6 @@ var GeeksRoutes = function(geeksRepo) {
 		var skip = req.query.skip || "0";
 		console.log(query, limit, skip);
 		geeksRepo.find(query, parseInt(limit, 10), parseInt(skip, 10), function(geeks) {
-			console.log(geeks);
 			res.status(200).send(geeks);
 		});
 	};
