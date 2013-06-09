@@ -7,7 +7,7 @@ var files = [
   ANGULAR_SCENARIO,
   ANGULAR_SCENARIO_ADAPTER,
   // test files
-  'test/e2e/**/*.spec.js'
+  'test/e2e/**/*.e2e.js'
 ];
 var singleRun = true;
 var browsers = ['Chrome'];

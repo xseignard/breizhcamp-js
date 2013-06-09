@@ -99,7 +99,7 @@ module.exports = function(grunt) {
 			},
 			// re-run tests when code change
 			karma: {
-				files: ['src/app/**/*.js', 'test/app/unit/**/*.js'],
+				files: ['src/app/**/*.js', 'test/unit/**/*.js'],
 				tasks: ['karma:dev:run']
 			}
 		}

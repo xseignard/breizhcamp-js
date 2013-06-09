@@ -12,9 +12,14 @@ var files = [
   'components/jquery/jquery.js',
   'components/angular-resource/index.js',
   'components/angular-mocks/index.js',
+  'components/tweenMax/src/uncompressed/TweenMax.js',
+  'components/tweenMax/src/uncompressed/plugins/ScrollToPlugin.js',
+  'components/JavaScript-MD5/md5.js',
   'components/chai/chai.js',
   // chai config file
   'test/chai.conf.js',
+  // response mock
+  'test/responses.mock.js',
   // app files
   'src/app/**/*.js',
   // template files included:false means files won't be loaded through script tag
