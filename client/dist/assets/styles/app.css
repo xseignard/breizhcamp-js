@@ -1,0 +1,143 @@
+body {
+  background:white;
+}
+
+.search-website-form {
+  float:right;
+  padding:10px 0 0;
+}
+.search-website-form input {
+  width:300px;
+}
+
+.website-nav {
+  margin:0;
+  position:relative;
+  z-index:1000;
+  background: #4a4d50;
+}
+
+.website-header {
+  background:url(../images/escheresque.png) white 50px 50px;
+  position:relative;
+  z-index:1000;
+}
+.website-header .row {
+  background:url(../images/logo.png) 50px center no-repeat;
+  min-height:200px;
+  padding-left:250px;
+}
+.website-header .row h1 {
+  margin-top:20px;
+  text-shadow:0 0 20px #bbb;
+}
+
+/* Results */
+.results {
+  background:url(../images/escheresque.png) white 50px 50px;
+}
+.result {
+  border:1px solid #eee;
+  display:inline-block;
+  box-shadow:0 0 5px #eee;
+  overflow:hidden;
+  width:210px;
+  height:210px;
+  vertical-align:top;
+}
+
+.result > .inner {
+  display:block;
+  padding:10px;
+  width:190px;
+  height:190px;
+}
+
+.result img {
+  width:140px;
+  max-width:140px;
+  margin: 0 auto;
+}
+
+
+/* Details */
+.details {
+  background:#555 url(../images/escheresque_ste.png) -100px -100px;
+  border-bottom:1px solid #555;
+  overflow:hidden;
+  height:250px;
+  position:relative;
+  color:white;
+}
+
+.details .line {
+  margin-bottom:10px;
+  display: inline-block;
+}
+
+.details .details-slide {
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  bottom:0;
+} 
+
+.details .details-inner {
+  margin:0 auto;
+  width:960px;
+  padding:10px;
+}
+
+.details h4 {
+  color:#00C0F7;
+}
+
+.result:hover {
+  border:1px solid black;
+}
+
+.load-more-results {
+  text-align:center;
+  padding:20px;
+  background:#eee;
+  font-size:2em;
+  border-top:1px solid #ddd;
+}
+
+
+.btn.info {
+  color:white!important;
+  border: none;
+}
+.btn.red {
+  background: rgb(139,43,40);
+}
+.btn.red:hover {
+  background: rgb(179,88,66);
+}
+
+
+footer .row {
+  padding:10px 0;
+  overflow:auto;
+}
+footer .inner {
+  display:table;
+  width:100%;
+}
+footer .title,
+footer nav {
+  display:table-cell;
+  width:50%;
+  vertical-align:middle;
+}
+
+footer nav {
+  text-align:right;
+}
+footer .title h4 {
+  color:white;
+  text-align:left;
+  font-size:20px;
+}

@@ -1,4 +1,4 @@
-angular.module('bzh.geektic', ['bzh.geektic.appCtrl', 'bzh.geektic.details', 'bzh.geektic.animations'])
+angular.module('bzh.geektic', ['bzh.geektic.appCtrl', 'bzh.geektic.details', 'bzh.geektic.animations', 'bzh.geektic.templates'])
   /**
    * Route configuration
    * @class Index

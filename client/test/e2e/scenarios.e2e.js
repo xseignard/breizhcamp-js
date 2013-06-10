@@ -1,13 +1,14 @@
 describe('bzh.geektic', function() {
 
+  var index = '../../index-e2e.html';
   beforeEach(function() {
-      browser().navigateTo('../../index.html');
+      browser().navigateTo(index);
     }
   );
 
   it('should redirect everything to /', function() {
     expect(browser().location().url()).toBe('/');
-    browser().navigateTo('../../index.html#/test');
+    browser().navigateTo(index + '#/test');
     expect(browser().location().url()).toBe('/');
   });
 

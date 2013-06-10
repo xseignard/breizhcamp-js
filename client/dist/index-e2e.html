@@ -4,9 +4,9 @@
   <title>Geektic</title>
   <link rel="stylesheet" type="text/css" href="./assets/styles/gumby/css/gumby.css" />
   <link rel="stylesheet" type="text/css" href="./assets/styles/app.css" />
-  <% if (grunt.config.get('dev')) {%>
+  
   <script src="http://localhost:35729/livereload.js"></script>
-  <%}%>
+  
 </head>
 <body app-scroll>
   <main id="wrapper">
@@ -85,21 +85,19 @@
   <script src="./assets/vendor/ScrollToPlugin.js"></script>
   <script src="./assets/vendor/JavaScript-MD5.js"></script>
 
-  <% if (grunt.config.get('dev')) {%>
+  
     <script src="../src/app/index/index.js"></script>
     <script src="../src/app/index/controllers/appCtrl.js"></script>
     <script src="../src/app/index/directives/details.js"></script>
     <script src="../src/app/animations/animations.js"></script>
-  <%}%>
-  <% if (grunt.config.get('prod')) {%>
-    <script src="./assets/breizhcamp-js_frontend.min.js"></script>
-  <%}%>
-  <% if (grunt.config.get('e2e')) {%>
+  
+  
+  
     <!-- mocks and e2e conf only in index-e2e.html -->
     <script src="../test/e2e/e2e.setup.js"></script>
     <script src="../test/responses.mock.js"></script>
     <script src="./assets/vendor/angular-mocks.js"></script>
-  <%}%>
+  
 
 
 </body>

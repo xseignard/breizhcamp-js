@@ -1,7 +1,7 @@
 var express = require('express'),
 	app = express();
 
-app.use(express.static(__dirname + '/../src'));
+app.use(express.static(__dirname + '/../dist'));
 app.use('/components', express.static(__dirname + '/../components'));
 app.use('/test', express.static(__dirname + '/../test'));
 app.use(express.bodyParser());
