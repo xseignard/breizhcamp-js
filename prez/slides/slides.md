@@ -571,7 +571,7 @@ title: Server side
 
 - A POM (Plain Old Makefile), not a `pom.xml`!
 - Get the things done
-- Define targets for each task, i.e. test, linting, 
+- Define targets for each task, e.g. clean, test, linting, etc.
 
 <pre class="prettyprint" data-lang="makefile">
 clean:
