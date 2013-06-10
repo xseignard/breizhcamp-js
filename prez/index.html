@@ -331,14 +331,20 @@ db.geeks.find( { "likes" : /^javascript$/i } ).limit(3).skip(1)
       <h3></h3>
     </hgroup>
     <article ><ul>
+<li>Checkout the workspace for exercise 1</li>
+</ul>
+<pre class="prettyprint" data-lang="cmd">
+$ git checkout -f exercise-1
+</pre>
+
+<ul>
 <li>Play with the Mongo shell !<ul>
 <li>Insert geeks</li>
 <li>Execute some <code>find</code> queries</li>
-<li>Try <code>find</code> with regular expressions</li>
+<li>Try to write a <code>find</code> query that uses a regular expression</li>
 </ul>
 </li>
-</ul>
-<p>TODO : git checkout -f exercise-1</p></article>
+</ul></article>
  
 </slide>
 
@@ -482,8 +488,26 @@ db.collection('geeks', function(err, collection) {
       <h3></h3>
     </hgroup>
     <article ><ul>
+<li>Checkout the workspace for exercise 2 : </li>
+</ul>
+<pre class="prettyprint" data-lang="cmd">
+$ git checkout -f exercise-2
+</pre>
+
+<ul>
 <li>Write a script to populate the geeksDB database, from the <code>geeks.json</code> file.</li>
 <li>Check the script execution with the Mongo shell !</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Exercise 2 - advanced features</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul>
 <li>To go further : if you dive into the <code>callback hell</code> and do not like it, try <code>async</code> !</li>
 </ul>
 <pre class="prettyprint" data-lang="javascript">
@@ -497,10 +521,235 @@ async.series(
     ],
     function(err, results) {...}
 );
+</pre></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>REST API for geeks backend</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><p>POST /geek</p>
+<ul>
+<li>Creates a new geek</li>
+<li>Returns the <code>201 - Created</code> status code</li>
+</ul>
+<p>GET /geek/likes/:like?</p>
+<ul>
+<li>Find geeks by affinity<ul>
+<li><code>like</code> is an optional path parameter. If not set, it returns all the geeks.</li>
+</ul>
+</li>
+<li>Optional query parameters : <ul>
+<li><code>limit</code> : number of geeks to return (default 12)</li>
+<li><code>skip</code> : offset to manage pagination (default 0)</li>
+</ul>
+</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Hello world with Express.js</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><pre class="prettyprint" data-lang="javascript">
+var express = require('express');
+var app = express();
+
+// configure routes
+app.get('/hello', function(req, res){
+  res.send('Hello World');
+});
+
+// start server
+app.listen(3000);
+console.log('Listening on port 3000');
 </pre>
 
-<p>TODO : git checkout -f exercise-2</p></article>
+<p>Run the script and make a test with your browser (<code>http://localhost:3000/hello</code>)</p></article>
  
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Separation Of Concerns (1/3)</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><p>One module for the routes management</p>
+<pre class="prettyprint" data-lang="javascript">
+var GeeksRoutes = function(geeksRepo) {
+
+    var _create = function(req, res) {
+        geeksRepo.insert(req.body, function() {
+            res.status(201).send();
+        });
+    };
+
+    return {
+        create : _create,
+    };
+
+};
+module.exports = GeeksRoutes;
+</pre></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Separation Of Concerns (2/3)</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><p>One module for the repository management</p>
+<pre class="prettyprint" data-lang="javascript">
+var GeeksRepository = function(dbUrl, collectionName) {
+    var MongoClient = require('mongodb'), db, coll;
+    // some stuff here to connect to the database and retrieve the coll object.
+
+    var _insert = function(geek, callback) {
+        coll.insert(geek, function(err, item) {
+            callback(err, item);
+        });
+    };
+
+    return {
+        insert : _insert,
+    };
+};
+module.exports = GeeksRepository;
+</pre></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Separation Of Concerns (3/3)</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><p>Put all together !</p>
+<pre class="prettyprint" data-lang="javascript">
+var express = require('express'),
+    conf = require('./conf/conf'),
+    app = express(),
+    GeeksRepository = require('./core/geeksRepository'),
+    GeeksRoutes = require('./routes/geeksRoutes');
+
+// configure geeks repository
+var geeksRepository = new GeeksRepository(conf.MONGO_URL, 'geeks');
+geeksRepository.connect();
+
+// configure routes
+var routes = new GeeksRoutes(geeksRepository);
+app.post('/geek', routes.create);
+</pre></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Unit tests with Mocha (BDD)</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><p>Tests for the routes, using some custom mock objects.</p>
+<pre class="prettyprint" data-lang="javascript">
+var assert = require('assert'),
+    GeeksRoutes = require('../../src/routes/geeksRoutes'),
+    geeksRepository = require('../mocks/geeksRepository.mock'),
+    Response = require('../mocks/response.mock'),
+    routes = new GeeksRoutes(geeksRepository);
+
+describe('GeeksRoutes', function() {
+    describe('#create()', function() {
+        it('should create geek', function() {
+            var response = new Response();
+            var req = { body : { "NOM" : "test-geek" } };
+            routes.create(req, response);
+            assert.equal(response.getStatus(), 201);
+        });
+    });
+});</article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Tooling</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul>
+<li>Mocha : Behaviour Driven Development for Javascript</li>
+</ul>
+<pre class="prettyprint" data-lang="cmd">
+$ mocha -R spec `find test/ -name "*.test.js"`
+</pre>
+
+<ul>
+<li>JSHint : static code analysis for Javascript</li>
+</ul>
+<pre class="prettyprint" data-lang="cmd">
+$ jshint src test --show-non-errors
+</pre>
+
+<ul>
+<li>YuiDocs : generates code documentation</li>
+</ul>
+<pre class="prettyprint" data-lang="cmd">
+$ yuidoc src -o reports/docs
+</pre>
+
+<ul>
+<li>Istambul : code coverage</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Exercise 3</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul>
+<li>Checkout the workspace for exercise 3 : </li>
+</ul>
+<pre class="prettyprint" data-lang="cmd">
+$ git checkout -f exercise-3
+</pre>
+
+<ul>
+<li>Write the code to manage the <code>find</code> route</li>
+<li>Complete the unit tests</li>
+<li>Execute the test with the Makefile<ul>
+<li><code>make test</code></li>
+</ul>
+</li>
+<li>Run the app and test the REST API <ul>
+<li>with your browser</li>
+<li>with a tool to make http requests (curl for example)</li>
+</ul>
+</li>
+</ul></article>
+ 
+</slide>
+
+<slide class="segue dark nobackground" >
+  
+    <aside class="gdbar"><img src="images/logo.png"></aside>
+    <hgroup class="auto-fadein">
+      <h2>Angular.js</h2>
+      <h3>Superheroic Javascript Framework !</h3>
+    </hgroup>
+  
 </slide>
 
 

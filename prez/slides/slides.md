@@ -225,12 +225,16 @@ db.geeks.find( { "likes" : /^javascript$/i } ).limit(3).skip(1)
 
 title : Exercise 1
 
+- Checkout the workspace for exercise 1
+
+<pre class="prettyprint" data-lang="cmd">
+$ git checkout -f exercise-1
+</pre>
+
 - Play with the Mongo shell !
     - Insert geeks
     - Execute some `find` queries
-    - Try `find` with regular expressions
-
-TODO : git checkout -f exercise-1
+    - Try to write a `find` query that uses a regular expression
 
 ---
 
@@ -350,8 +354,19 @@ db.collection('geeks', function(err, collection) {
 
 title : Exercise 2
 
+- Checkout the workspace for exercise 2 : 
+
+<pre class="prettyprint" data-lang="cmd">
+$ git checkout -f exercise-2
+</pre>
+
 - Write a script to populate the geeksDB database, from the `geeks.json` file.
 - Check the script execution with the Mongo shell !
+
+---
+
+title: Exercise 2 - advanced features
+
 - To go further : if you dive into the `callback hell` and do not like it, try `async` !
 
 <pre class="prettyprint" data-lang="javascript">
@@ -367,4 +382,179 @@ async.series(
 );
 </pre>
 
-TODO : git checkout -f exercise-2
+---
+
+title: REST API for geeks backend
+
+POST /geek
+
+- Creates a new geek
+- Returns the `201 - Created` status code
+
+GET /geek/likes/:like?
+
+- Find geeks by affinity
+    - `like` is an optional path parameter. If not set, it returns all the geeks.
+- Optional query parameters : 
+    - `limit` : number of geeks to return (default 12)
+    - `skip` : offset to manage pagination (default 0)
+
+---
+
+title: Hello world with Express.js 
+
+<pre class="prettyprint" data-lang="javascript">
+var express = require('express');
+var app = express();
+
+// configure routes
+app.get('/hello', function(req, res){
+  res.send('Hello World');
+});
+
+// start server
+app.listen(3000);
+console.log('Listening on port 3000');
+</pre>
+
+Run the script and make a test with your browser (`http://localhost:3000/hello`)
+
+---
+
+title: Separation Of Concerns (1/3)
+
+One module for the routes management
+
+<pre class="prettyprint" data-lang="javascript">
+var GeeksRoutes = function(geeksRepo) {
+
+    var _create = function(req, res) {
+        geeksRepo.insert(req.body, function() {
+            res.status(201).send();
+        });
+    };
+    
+    return {
+        create : _create,
+    };
+
+};
+module.exports = GeeksRoutes;
+</pre>
+---
+
+title: Separation Of Concerns (2/3)
+
+One module for the repository management
+
+<pre class="prettyprint" data-lang="javascript">
+var GeeksRepository = function(dbUrl, collectionName) {
+    var MongoClient = require('mongodb'), db, coll;
+    // some stuff here to connect to the database and retrieve the coll object.
+
+    var _insert = function(geek, callback) {
+        coll.insert(geek, function(err, item) {
+            callback(err, item);
+        });
+    };
+
+    return {
+        insert : _insert,
+    };
+};
+module.exports = GeeksRepository;
+</pre>
+
+---
+
+title: Separation Of Concerns (3/3)
+
+Put all together !
+
+<pre class="prettyprint" data-lang="javascript">
+var express = require('express'),
+    conf = require('./conf/conf'),
+    app = express(),
+    GeeksRepository = require('./core/geeksRepository'),
+    GeeksRoutes = require('./routes/geeksRoutes');
+
+// configure geeks repository
+var geeksRepository = new GeeksRepository(conf.MONGO_URL, 'geeks');
+geeksRepository.connect();
+
+// configure routes
+var routes = new GeeksRoutes(geeksRepository);
+app.post('/geek', routes.create);
+</pre>
+
+---
+
+title: Unit tests with Mocha (BDD)
+
+Tests for the routes, using some custom mock objects.
+
+<pre class="prettyprint" data-lang="javascript">
+var assert = require('assert'),
+    GeeksRoutes = require('../../src/routes/geeksRoutes'),
+    geeksRepository = require('../mocks/geeksRepository.mock'),
+    Response = require('../mocks/response.mock'),
+    routes = new GeeksRoutes(geeksRepository);
+
+describe('GeeksRoutes', function() {
+    describe('#create()', function() {
+        it('should create geek', function() {
+            var response = new Response();
+            var req = { body : { "NOM" : "test-geek" } };
+            routes.create(req, response);
+            assert.equal(response.getStatus(), 201);
+        });
+    });
+});
+
+---
+
+title: Tooling
+
+- Mocha : Behaviour Driven Development for Javascript
+
+<pre class="prettyprint" data-lang="cmd">
+$ mocha -R spec `find test/ -name "*.test.js"`
+</pre>
+
+- JSHint : static code analysis for Javascript
+
+<pre class="prettyprint" data-lang="cmd">
+$ jshint src test --show-non-errors
+</pre>
+
+- YuiDocs : generates code documentation
+
+<pre class="prettyprint" data-lang="cmd">
+$ yuidoc src -o reports/docs
+</pre>
+
+- Istambul : code coverage
+
+---
+
+title: Exercise 3
+
+- Checkout the workspace for exercise 3 : 
+
+<pre class="prettyprint" data-lang="cmd">
+$ git checkout -f exercise-3
+</pre>
+
+- Write the code to manage the `find` route
+- Complete the unit tests
+- Execute the test with the Makefile
+    - `make test`
+- Run the app and test the REST API 
+    - with your browser
+    - with a tool to make http requests (curl for example)
+
+---
+
+title: Angular.js
+subtitle: Superheroic Javascript Framework !
+class: segue dark nobackground
