@@ -115,7 +115,7 @@ module.exports = function(grunt) {
 	cssmin: {
       minify: {
         files: {
-          '<%= distDir %>/assets/styles/app.css': ['<%= distDir %>/tmp/styles/app.css', '<%= distDir %>/tmp/styles/gumby.css']
+          '<%= distDir %>/assets/styles/app.css': ['<%= distDir %>/tmp/styles/gumby.css', '<%= distDir %>/tmp/styles/app.css']
         }
       }
     },
