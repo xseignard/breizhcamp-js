@@ -47,25 +47,71 @@ URL: https://code.google.com/p/io-2012-slides
 <slide  >
   
     <hgroup>
-      <h2>Prerequisites</h2>
+      <h2>Content</h2>
       <h3></h3>
     </hgroup>
-    <article ><p>You need to have the following installed, if not, too bad for you, we won't help.</p>
+    <article ><p>Javascript is everywhere !</p>
+<p>Case study : <code>geektic</code>* written entirely in Javascript and powered by</p>
 <ul>
+<li><code>Angular.js</code> for the frontend</li>
+<li><code>Node.js</code> for the backend</li>
+<li><code>MongoDB</code> for the NoSQL database</li>
+</ul>
+<p>* geektic was originaly developed by the code-story team for DevoxxFR 2013 (see <a href="https://github.com/CodeStory/code-story-geektic">https://github.com/CodeStory/code-story-geektic</a>)</p></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Hands-on lab</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><p>3 main parts : </p>
+<ul>
+<li><code>MongoDB</code> : "NoSQL loves JSON"</li>
+<li><code>Node.js</code> : "Server-side JS"</li>
+<li><code>Angular.js</code> : "Superheroic Javascript MVW Framework"</li>
+</ul>
+<p>Exercises : </p>
+<ul>
+<li>A Git repository with some code and todos</li>
+<li>One tag per exercise</li>
+<li>Reset your workspace with the following command :</li>
+</ul>
+<pre class="prettyprint" data-lang="cmd">
+$ git checkout -f exercise-n
+</pre>
+
+<p>"n" corresponds to the exercise's number.</p></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Prerequisites - shell & make</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul>
 <li>A command line tool!</li>
-<li>A <code>Make</code> tool</li>
-<li>Git : see <a href="http://git-scm.com/">http://git-scm.com/</a><ul>
-<li><code>git --version</code> must work</li>
+<li>A <code>Make</code> tool<ul>
+<li><code>make -v</code> must work</li>
 </ul>
 </li>
-<li>Node.js : see <a href="http://nodejs.org/">http://nodejs.org/</a><ul>
-<li><code>node -v</code> and <code>npm -v</code> must work</li>
 </ul>
-</li>
-<li>MongoDB : see <a href="http://docs.mongodb.org/manual/installation/">http://docs.mongodb.org/manual/installation/</a><ul>
-<li><code>mongo --version</code> must work</li>
-</ul>
-</li>
+<pre class="prettyprint" data-lang="cmd">
+$ make -v
+GNU Make 3.81
+Copyright (C) 2006  Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.
+There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+</pre>
+
+<p>For windows users</p>
+<ul>
+<li>Git for windows comes with a command line tool (see next slide)</li>
+<li>For the make tool, you can install <code>mingw32-make</code></li>
 </ul></article>
  
 </slide>
@@ -73,13 +119,68 @@ URL: https://code.google.com/p/io-2012-slides
 <slide  >
   
     <hgroup>
-      <h2>Prerequisites</h2>
-      <h3>Windows users</h3>
+      <h2>Prerequisites - git</h2>
+      <h3></h3>
     </hgroup>
     <article ><ul>
-<li>Git for windows comes with a command line tool</li>
-<li>For the make tool, you can install <code>mingw32-make</code></li>
-</ul></article>
+<li>Git : see <a href="http://git-scm.com/">http://git-scm.com/</a><ul>
+<li><code>git --version</code> must work</li>
+</ul>
+</li>
+</ul>
+<pre class="prettyprint" data-lang="cmd">
+$ git --version
+git version 1.7.9.5
+</pre>
+
+<p><img alt="git_logo" src="http://git-scm.com/images/logos/2color-lightbg@2x.png" /></p></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Prerequisites - node.js</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul>
+<li>Node.js : see <a href="http://nodejs.org/">http://nodejs.org/</a><ul>
+<li><code>node -v</code> and <code>npm -v</code> must work</li>
+</ul>
+</li>
+</ul>
+<pre class="prettyprint" data-lang="cmd">
+$ node -v
+v0.10.7
+</pre>
+
+<pre class="prettyprint" data-lang="cmd">
+$ npm -v
+1.2.21
+</pre>
+
+<p><img alt="nodejs_logo" src="http://upload.wikimedia.org/wikipedia/en/a/a7/Nodejs_logo_light.png" /></p></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Prerequisites - mongodb</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul>
+<li>MongoDB : see <a href="http://docs.mongodb.org/manual/installation/">http://docs.mongodb.org/manual/installation/</a><ul>
+<li><code>mongo --version</code> must work</li>
+</ul>
+</li>
+</ul>
+<pre class="prettyprint" data-lang="cmd">
+$ mongo --version
+MongoDB shell version: 2.2.4
+</pre>
+
+<p><img alt="mongodb_logo" src="http://shvetsgroup.com/files/images/mongo-db-huge-logo_0.png" /></p></article>
  
 </slide>
 
@@ -110,9 +211,7 @@ URL: https://code.google.com/p/io-2012-slides
     "likes" : ["Javascript", "Breizhcamp"],
     "hates" : ["Rain"]
 }
-</pre>
-
-<p><img alt="mongodb_logo" src="http://api.mongodb.org/scala/casbah/2.1.5.0/_static/logo-mongodb.png" /></p></article>
+</pre></article>
  
 </slide>
 

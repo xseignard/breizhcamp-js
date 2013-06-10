@@ -1,23 +1,103 @@
-title: Prerequisites
+title: Content
 
-You need to have the following installed, if not, too bad for you, we won't help.
+Javascript is everywhere !
 
-- A command line tool!
-- A `Make` tool
-- Git : see [http://git-scm.com/](http://git-scm.com/)
-	- `git --version` must work
-- Node.js : see [http://nodejs.org/](http://nodejs.org/)
-	- `node -v` and `npm -v` must work
-- MongoDB : see [http://docs.mongodb.org/manual/installation/](http://docs.mongodb.org/manual/installation/)
-	- `mongo --version` must work
+Case study : `geektic`* written entirely in Javascript and powered by
+
+- `Angular.js` for the frontend
+- `Node.js` for the backend
+- `MongoDB` for the NoSQL database
+
+\* geektic was originaly developed by the code-story team for DevoxxFR 2013 (see [https://github.com/CodeStory/code-story-geektic](https://github.com/CodeStory/code-story-geektic))
 
 ---
 
-title: Prerequisites
-subtitle: Windows users
+title: Hands-on lab
 
-- Git for windows comes with a command line tool
+3 main parts : 
+
+- `MongoDB` : "NoSQL loves JSON"
+- `Node.js` : "Server-side JS"
+- `Angular.js` : "Superheroic Javascript MVW Framework"
+
+Exercises : 
+
+- A Git repository with some code and todos
+- One tag per exercise
+- Reset your workspace with the following command :
+
+<pre class="prettyprint" data-lang="cmd">
+$ git checkout -f exercise-n
+</pre>
+"n" corresponds to the exercise's number.
+
+---
+
+title: Prerequisites - shell & make
+
+- A command line tool!
+- A `Make` tool
+    - `make -v` must work
+
+<pre class="prettyprint" data-lang="cmd">
+$ make -v
+GNU Make 3.81
+Copyright (C) 2006  Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.
+There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+</pre>
+
+For windows users
+
+- Git for windows comes with a command line tool (see next slide)
 - For the make tool, you can install `mingw32-make`
+
+---
+
+title: Prerequisites - git
+
+- Git : see [http://git-scm.com/](http://git-scm.com/)
+    - `git --version` must work
+
+<pre class="prettyprint" data-lang="cmd">
+$ git --version
+git version 1.7.9.5
+</pre>
+
+![git_logo](http://git-scm.com/images/logos/2color-lightbg@2x.png)
+
+---
+
+title: Prerequisites - node.js
+
+- Node.js : see [http://nodejs.org/](http://nodejs.org/)
+    - `node -v` and `npm -v` must work
+
+<pre class="prettyprint" data-lang="cmd">
+$ node -v
+v0.10.7
+</pre>
+
+<pre class="prettyprint" data-lang="cmd">
+$ npm -v
+1.2.21
+</pre>
+
+![nodejs_logo](http://upload.wikimedia.org/wikipedia/en/a/a7/Nodejs_logo_light.png)
+
+---
+
+title: Prerequisites - mongodb
+
+- MongoDB : see [http://docs.mongodb.org/manual/installation/](http://docs.mongodb.org/manual/installation/)
+    - `mongo --version` must work
+
+<pre class="prettyprint" data-lang="cmd">
+$ mongo --version
+MongoDB shell version: 2.2.4
+</pre>
+
+![mongodb_logo](http://shvetsgroup.com/files/images/mongo-db-huge-logo_0.png)
 
 ---
 
@@ -43,8 +123,6 @@ This kind of JSON documents will be inserted into the Mongo database :
     "hates" : ["Rain"]
 }
 </pre>
-
-![mongodb_logo](http://api.mongodb.org/scala/casbah/2.1.5.0/_static/logo-mongodb.png)
 
 ---
 
