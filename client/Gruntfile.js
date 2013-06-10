@@ -25,6 +25,7 @@ module.exports = function(grunt) {
       tpljs: ['<%= distDir %>/tmp/**/*.js'],
       index: 'src/index.html',
       assets: 'src/assets',
+      test: ['test/**/*.js'],
       unit: ['test/unit/**/*.test.js'],
       e2e: ['test/e2e/**/*.e2e.js']
     },
@@ -94,8 +95,14 @@ module.exports = function(grunt) {
       assets: {
         files: [{src: ['**'], dest: '<%= distDir %>/assets/', cwd: 'src/assets', expand: true}]
       },
-      gumby: {
-        files: [{src: ['css/gumby.css', 'fonts/**'], dest: '<%= distDir %>/assets/styles/gumby', cwd: 'components/gumby', expand: true}]
+      css: {
+        files: [
+          {src: ['gumby.css'], dest: '<%= distDir %>/tmp/styles', cwd: 'components/gumby/css', expand: true},
+          {src: ['**/*.css'], dest: '<%= distDir %>/tmp/styles', cwd: 'src/assets/styles', expand: true}
+        ]
+      },
+      gumbyFonts: {
+        files: [{src: ['fonts/**'], dest: '<%= distDir %>/assets', cwd: 'components/gumby', expand: true}]
       },
       nonBower: {
         files: [{src: ['ScrollToPlugin.js'], dest: '<%= distDir %>/tmp/vendor', cwd: 'components/tweenMax/src/uncompressed/plugins/', expand: true}]
@@ -107,9 +114,17 @@ module.exports = function(grunt) {
         dest: '<%= distDir %>/tmp/vendor'
       }
 	},
+	// cssmin
+	cssmin: {
+      minify: {
+        files: {
+          '<%= distDir %>/assets/styles/app.css': ['<%= distDir %>/tmp/styles/app.css', '<%= distDir %>/tmp/styles/gumby.css']
+        }
+      }
+    },
     // js linting
     jshint: {
-      all: ['src/**/*.js', 'test/**/*.js', 'Gruntfile.js'],
+      all: ['<%= src.js %>', '<%= src.test %>', 'Gruntfile.js'],
       options: {
         jshintrc: '.jshintrc'
         //,reporter: 'checkstyle'
@@ -189,6 +204,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-bower');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-karma');
@@ -219,7 +235,7 @@ module.exports = function(grunt) {
   // run sonar
   grunt.registerTask('sonar', ['shell:mergeCov', 'shell:sonar']);
   // build
-  grunt.registerTask('build', ['clean:defaults', 'html2js', 'jshint', 'concat', 'ngmin:dist', 'copy', 'bower', 'uglify', 'index', 'clean:postBuild']);
+  grunt.registerTask('build', ['clean:defaults', 'html2js', 'jshint', 'concat', 'ngmin:dist', 'copy', 'bower', 'uglify', 'cssmin', 'index', 'clean:postBuild']);
   // dev build
   grunt.registerTask('dev-build', ['devFlag', 'build', 'karma:unit']);
   // prod build
