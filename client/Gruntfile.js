@@ -34,10 +34,7 @@ module.exports = function(grunt) {
       // delete dist folder and reports one
       defaults: ['<%= distDir %>', '<%= meta.reportsDir %>'],
       // delete artifacts produced during build
-      postBuild: [
-        '<%= distDir %>/assets/<%= pkg.name %>.annotated.js',
-        '<%= distDir %>/tmp'
-      ]
+      postBuild: ['<%= distDir %>/tmp']
     },
     // concat js files of our app
     concat: {
@@ -53,7 +50,7 @@ module.exports = function(grunt) {
     ngmin: {
       dist: {
         src: ['<%= distDir %>/assets/<%= pkg.name %>.js'],
-        dest: '<%= distDir %>/assets/<%= pkg.name %>.annotated.js'
+        dest: '<%= distDir %>/tmp/<%= pkg.name %>.annotated.js'
       }
     },
     // wrap angular templates in js files 
@@ -75,7 +72,7 @@ module.exports = function(grunt) {
           banner: '<%= meta.banner %>'
         },
         files: {
-          '<%= distDir %>/assets/<%= pkg.name %>.min.js': [ '<%= distDir %>/assets/<%= pkg.name %>.annotated.js' ]
+          '<%= distDir %>/assets/<%= pkg.name %>.min.js': [ '<%= distDir %>/tmp/<%= pkg.name %>.annotated.js' ]
         }
       },
       vendor: {
