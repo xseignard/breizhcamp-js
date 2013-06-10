@@ -14,22 +14,22 @@ Case study : `geektic`* written entirely in Javascript and powered by
 
 title: Hands-on lab
 
-3 main parts : 
+4 main parts : 
 
 - `MongoDB` : "NoSQL loves JSON"
 - `Node.js` : "Server-side JS"
 - `Angular.js` : "Superheroic Javascript MVW Framework"
+- `grunt, make and co.` : "JS tooling is good !"
 
 Exercises : 
 
 - A Git repository with some code and todos
 - One tag per exercise
-- Reset your workspace with the following command :
+- Reset your workspace with the following command ("n" is the exercise's number):
 
 <pre class="prettyprint" data-lang="cmd">
 $ git checkout -f exercise-n
 </pre>
-"n" corresponds to the exercise's number.
 
 ---
 
@@ -533,7 +533,7 @@ $ jshint src test --show-non-errors
 $ yuidoc src -o reports/docs
 </pre>
 
-- Istambul : code coverage
+- Istanbul : code coverage
 
 ---
 
@@ -558,3 +558,34 @@ $ git checkout -f exercise-3
 title: Angular.js
 subtitle: Superheroic Javascript Framework !
 class: segue dark nobackground
+
+---
+
+title: grunt, make and co.
+subtitle: JS tooling is good !
+class: segue dark nobackground
+
+---
+
+title: Server side
+
+- A POM (Plain Old Makefile), not a `pom.xml`!
+- Get the things done
+- Define targets for each task, i.e. test, linting, 
+
+<pre class="prettyprint" data-lang="makefile">
+clean:
+    rm -rf reports
+</pre>
+
+- Define variables that can be reused in tasks
+
+<pre class="prettyprint" data-lang="makefile">
+MOCHA="node_modules/.bin/mocha"
+TESTS=$(shell find test/ -name "*.test.js")
+
+test:
+    $(MOCHA) -R spec $(TESTS)
+</pre>
+
+- Run a target with `make target`

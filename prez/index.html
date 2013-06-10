@@ -67,23 +67,22 @@ URL: https://code.google.com/p/io-2012-slides
       <h2>Hands-on lab</h2>
       <h3></h3>
     </hgroup>
-    <article ><p>3 main parts : </p>
+    <article ><p>4 main parts : </p>
 <ul>
 <li><code>MongoDB</code> : "NoSQL loves JSON"</li>
 <li><code>Node.js</code> : "Server-side JS"</li>
 <li><code>Angular.js</code> : "Superheroic Javascript MVW Framework"</li>
+<li><code>grunt, make and co.</code> : "JS tooling is good !"</li>
 </ul>
 <p>Exercises : </p>
 <ul>
 <li>A Git repository with some code and todos</li>
 <li>One tag per exercise</li>
-<li>Reset your workspace with the following command :</li>
+<li>Reset your workspace with the following command ("n" is the exercise's number):</li>
 </ul>
 <pre class="prettyprint" data-lang="cmd">
 $ git checkout -f exercise-n
-</pre>
-
-<p>"n" corresponds to the exercise's number.</p></article>
+</pre></article>
  
 </slide>
 
@@ -708,7 +707,7 @@ $ yuidoc src -o reports/docs
 </pre>
 
 <ul>
-<li>Istambul : code coverage</li>
+<li>Istanbul : code coverage</li>
 </ul></article>
  
 </slide>
@@ -750,6 +749,49 @@ $ git checkout -f exercise-3
       <h3>Superheroic Javascript Framework !</h3>
     </hgroup>
   
+</slide>
+
+<slide class="segue dark nobackground" >
+  
+    <aside class="gdbar"><img src="images/logo.png"></aside>
+    <hgroup class="auto-fadein">
+      <h2>grunt, make and co.</h2>
+      <h3>JS tooling is good !</h3>
+    </hgroup>
+  
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Server side</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul>
+<li>A POM (Plain Old Makefile), not a <code>pom.xml</code>!</li>
+<li>Get the things done</li>
+<li>Define targets for each task, i.e. test, linting, </li>
+</ul>
+<pre class="prettyprint" data-lang="makefile">
+clean:
+    rm -rf reports
+</pre>
+
+<ul>
+<li>Define variables that can be reused in tasks</li>
+</ul>
+<pre class="prettyprint" data-lang="makefile">
+MOCHA="node_modules/.bin/mocha"
+TESTS=$(shell find test/ -name "*.test.js")
+
+test:
+    $(MOCHA) -R spec $(TESTS)
+</pre>
+
+<ul>
+<li>Run a target with <code>make target</code></li>
+</ul></article>
+ 
 </slide>
 
 
