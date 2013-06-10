@@ -14,9 +14,17 @@ var routes = new GeeksRoutes(geeksRepository);
 app.post('/geek', routes.create);
 app.get('/geek/likes/:like?', routes.likes);
 
-// configure index.html
-app.use(express.static(__dirname + '/../../client/src'));
-app.use('/components', express.static(__dirname + '/../../client/components'));
+// app conf
+// development only : set a NODE_ENV=development env variable on your dev machine
+// or run with NODE_ENV=development node app.js
+app.configure('development', function(){
+	app.use(express.static(__dirname + '/../../client/src'));
+	app.use('/components', express.static(__dirname + '/../../client/components'));
+});
+// production only : run with NODE_ENV=production node app.js
+app.configure('production', function(){
+  app.use(express.static(__dirname + '/../../client/dist'));
+});
 app.use(express.bodyParser());
 
 // shutdown hook
