@@ -1,0 +1,15 @@
+# Find geeks by keyword (strict search)
+db.geeks.find({"likes" : "java"})
+
+# Find geeks by keyword (ignoring case)
+db.geeks.find({"likes" : /^java$/i})
+
+# Find geeks by keyword (ignoring case) with offset and limit
+db.geeks.find({"likes" : /^java$/i}).limit(3).skip(3)
+
+# Insert geeks
+db.geeks.insert({"firstname": "Prunier", "lastname": "Sébastien", "email": "seb@domain.com", "city": "Nantes", "likes" : ["java","javascript","breizhcamp"], "hates": ["fish"]})
+
+db.geeks.insert({"firstname": "Seignard", "lastname": "Xavier", "email": "xav@domain.com", "city": "Nantes", "likes" : ["javascript","arduino","node.js"], "hates": ["scala", "idea"]})
+
+db.geeks.insert({"firstname": "your first name", "lastname": "your last name", "email": "your email", "city": "your city", "likes" : ["things you like"], "hates": ["things you hate"]})
