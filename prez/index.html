@@ -828,7 +828,7 @@ ci: clean xunit checkstyle coverage sonar
 <p>Various outputs when running the tests : spec, xunit, nyan cat, etc. (see: <a href="http://visionmedia.github.io/mocha/#reporters">http://visionmedia.github.io/mocha/#reporters</a>)</p>
 </li>
 <li>
-<p>You can use buit-in plugins or extend Mocha by creating your own.</p>
+<p>You can use buit-in reporters or extend Mocha by creating your own reporter.</p>
 </li>
 <li>
 <p>Install the xunit-file reporter to produce xunit compliant file</p>
@@ -839,7 +839,10 @@ npm install xunit-file --save-dev
 </pre>
 
 <ul>
-<li>TODO : Create a Makefile target that produce the xunit file</li>
+<li>TODO : Create a Makefile target that produce the xunit file<ul>
+<li>see the docs here : <a href="https://github.com/peerigon/xunit-file">https://github.com/peerigon/xunit-file</a></li>
+</ul>
+</li>
 </ul></article>
  
 </slide>
@@ -851,7 +854,7 @@ npm install xunit-file --save-dev
       <h3></h3>
     </hgroup>
     <article ><ul>
-<li>Straightforward, note the double dash to distinguish <code>istanbul</code> args from the <code>mocha</code> ones and the use of <code>_mocha</code> internal executable (see <a href="https://github.com/gotwarlost/istanbul/issues/44">istanbul/issues/44</a>)</li>
+<li>Pretty straightforward, but note the double dash to distinguish <code>istanbul</code> args from the <code>mocha</code> ones and the use of <code>_mocha</code> internal executable (see <a href="https://github.com/gotwarlost/istanbul/issues/44">istanbul/issues/44</a>)</li>
 </ul>
 <pre class="prettyprint" data-lang="cmd">
 istanbul cover _mocha -- -R spec test/**/*.test.js
@@ -876,9 +879,8 @@ istanbul cover _mocha -- -R spec test/**/*.test.js
       <h3></h3>
     </hgroup>
     <article ><ul>
-<li><a href="http://bower.io/">Bower</a> is a repository of packaged components</li>
-<li>It can be any type of asset (JS, CSS, or whatever)</li>
-<li>You manage your frontend dependencies through a <code>bower.json</code> file.</li>
+<li><a href="http://bower.io/">Bower</a> is a repository of packaged components (JS, CSS, or whatever)</li>
+<li>Defined in <code>bower.json</code>.</li>
 <li>
 <p>You can depend on various format of assets</p>
 <ul>
@@ -938,7 +940,8 @@ module.exports = function(grunt) {
       <h3></h3>
     </hgroup>
     <article ><ul>
-<li>Plugin based, official ones start with <code>grunt-contrib</code>, see <a href="http://gruntjs.com/plugins">http://gruntjs.com/plugins</a></li>
+<li>Plugin based</li>
+<li>Official ones start with <code>grunt-contrib</code>, see <a href="http://gruntjs.com/plugins">http://gruntjs.com/plugins</a></li>
 <li>Add the clean plugin</li>
 </ul>
 <pre class="prettyprint" data-lang="cmd">
@@ -946,7 +949,7 @@ npm install grunt-contrib-clean --save-dev
 </pre>
 
 <ul>
-<li>And add the following in <code>Gruntfile.js</code></li>
+<li>And add the following in <code>Gruntfile.js</code> to make the task available</li>
 </ul>
 <pre class="prettyprint" data-lang="javascript">
 grunt.loadNpmTasks('grunt-contrib-clean');
@@ -989,7 +992,7 @@ module.exports = function(grunt) {
       <h3></h3>
     </hgroup>
     <article ><ul>
-<li>You can define subtasks inside your task to be more specific</li>
+<li>You can define sub and super tasks inside your task to be more specific</li>
 </ul>
 <pre class="prettyprint" data-lang="javascript">
 module.exports = function(grunt) {
@@ -1004,6 +1007,8 @@ module.exports = function(grunt) {
   });
   grunt.registerTask('default', [clean:build]);
   grunt.registerTask('buildCleanUp', [clean:postbuild]);
+  grunt.registerTask('mySuperTask', [default, buidCleanUp]);
+
   grunt.loadNpmTasks('grunt-contrib-clean');
 };
 </pre></article>
@@ -1023,7 +1028,8 @@ module.exports = function(grunt) {
 <li>concatenate your JS and CSS files</li>
 <li>minify your code</li>
 <li>copy all the assest and created files in a dist folder</li>
-</ul></article>
+</ul>
+<p>You can do much more to fit exactly your needs.</p></article>
  
 </slide>
 
@@ -1040,7 +1046,7 @@ git checkout master
 
 <p>And open <code>client/Gruntfile.js</code>.</p>
 <p>TODO1 : try to run some of the defined tasks</p>
-<p>TODO2 : adapt the <code>watch</code> task to have an alway up-to-date build dir.</p></article>
+<p>TODO2 : adapt the <code>watch</code> task to have an always up-to-date build dir.</p></article>
  
 </slide>
 
@@ -1058,11 +1064,23 @@ git checkout master
  
 </slide>
 
+<slide  >
+  
+    <hgroup>
+      <h2>CI and QA</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><p>We are able to define super tasks with <code>make</code> and <code>grunt</code> so you just need to create a ci task for each.</p>
+<p>For QA you can generate reports from the tool involved in the build, or use Sonar.</p>
+<p>Sonar digests xunit files for test results and lcov files for coverage, and we shown how to generate these ones. Just install the <a href="http://docs.codehaus.org/display/SONAR/JavaScript+Plugin">Javascript plugin</a></p></article>
+ 
+</slide>
+
 
 <slide class="thank-you-slide segue nobackground">
   <aside class="gdbar right"><img src="images/logo.png"></aside>
   <article class="flexbox vleft auto-fadein">
-    <h2>&lt;Thank You!&gt;</h2>
+    <h2>&lt;Thank You!/&gt;</h2>
     <p>Any questions?</p>
   </article>
   <p class="auto-fadein" data-config-contact>

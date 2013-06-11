@@ -610,7 +610,7 @@ title: Mocha reporters
 
 - Various outputs when running the tests : spec, xunit, nyan cat, etc. (see: [http://visionmedia.github.io/mocha/#reporters](http://visionmedia.github.io/mocha/#reporters))
 
-- You can use buit-in plugins or extend Mocha by creating your own.
+- You can use buit-in reporters or extend Mocha by creating your own reporter.
 
 - Install the xunit-file reporter to produce xunit compliant file
 
@@ -619,12 +619,13 @@ npm install xunit-file --save-dev
 </pre>
 
 - TODO : Create a Makefile target that produce the xunit file
+    - see the docs here : [https://github.com/peerigon/xunit-file](https://github.com/peerigon/xunit-file)
 
 ---
 
 title: Code coverage with Istanbul
 
-- Straightforward, note the double dash to distinguish `istanbul` args from the `mocha` ones and the use of `_mocha` internal executable (see [istanbul/issues/44](https://github.com/gotwarlost/istanbul/issues/44))
+- Pretty straightforward, but note the double dash to distinguish `istanbul` args from the `mocha` ones and the use of `_mocha` internal executable (see [istanbul/issues/44](https://github.com/gotwarlost/istanbul/issues/44))
 
 <pre class="prettyprint" data-lang="cmd">
 istanbul cover _mocha -- -R spec test/**/*.test.js
@@ -639,9 +640,8 @@ istanbul cover _mocha -- -R spec test/**/*.test.js
 
 title: Frontend package management with Bower
 
-- [Bower](http://bower.io/) is a repository of packaged components
-- It can be any type of asset (JS, CSS, or whatever)
-- You manage your frontend dependencies through a `bower.json` file.
+- [Bower](http://bower.io/) is a repository of packaged components (JS, CSS, or whatever)
+- Defined in `bower.json`.
 - You can depend on various format of assets
     - Registered asset within bower : `bower install jquery`
     - Files : `bower install http://domain.com/myFile.js`
@@ -682,14 +682,15 @@ module.exports = function(grunt) {
 
 title: Grunt
 
-- Plugin based, official ones start with `grunt-contrib`, see [http://gruntjs.com/plugins](http://gruntjs.com/plugins)
+- Plugin based
+- Official ones start with `grunt-contrib`, see [http://gruntjs.com/plugins](http://gruntjs.com/plugins)
 - Add the clean plugin
 
 <pre class="prettyprint" data-lang="cmd">
 npm install grunt-contrib-clean --save-dev
 </pre>
 
-- And add the following in `Gruntfile.js`
+- And add the following in `Gruntfile.js` to make the task available
 
 <pre class="prettyprint" data-lang="javascript">
 grunt.loadNpmTasks('grunt-contrib-clean');
@@ -720,7 +721,7 @@ module.exports = function(grunt) {
 
 title: Grunt (continued)
 
-- You can define subtasks inside your task to be more specific
+- You can define sub and super tasks inside your task to be more specific
 
 <pre class="prettyprint" data-lang="javascript">
 module.exports = function(grunt) {
@@ -735,6 +736,8 @@ module.exports = function(grunt) {
   });
   grunt.registerTask('default', [clean:build]);
   grunt.registerTask('buildCleanUp', [clean:postbuild]);
+  grunt.registerTask('mySuperTask', [default, buidCleanUp]);
+
   grunt.loadNpmTasks('grunt-contrib-clean');
 };
 </pre>
@@ -751,6 +754,8 @@ It mainly consists on the following tasks:
 - minify your code
 - copy all the assest and created files in a dist folder
 
+You can do much more to fit exactly your needs.
+
 ---
 
 title: Real Gruntfile.js example
@@ -765,7 +770,7 @@ And open `client/Gruntfile.js`.
 
 TODO1 : try to run some of the defined tasks
 
-TODO2 : adapt the `watch` task to have an alway up-to-date build dir.
+TODO2 : adapt the `watch` task to have an always up-to-date build dir.
 
 ---
 
@@ -774,3 +779,13 @@ title: Moar Grunt
 - Amazing API : [http://gruntjs.com/api/grunt](http://gruntjs.com/api/grunt)
 - Super easy to create your own tasks : [http://gruntjs.com/api/grunt.task#grunt.task.registertask](http://gruntjs.com/api/grunt.task#grunt.task.registertask)
 - A ton of plugins!
+
+---
+
+title: CI and QA
+
+We are able to define super tasks with `make` and `grunt` so you just need to create a ci task for each.
+
+For QA you can generate reports from the tool involved in the build, or use Sonar.
+
+Sonar digests xunit files for test results and lcov files for coverage, and we shown how to generate these ones. Just install the [Javascript plugin](http://docs.codehaus.org/display/SONAR/JavaScript+Plugin)

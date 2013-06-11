@@ -25,10 +25,10 @@ var SLIDE_CONFIG = {
     //github: 'http://github.com/you'
   }, {
     name: 'Xavier Seignard',
-    company: 'Hire me :)',
+    //company: 'Freelancer',
     //gplus: 'http://plus.google.com/1234567890',
     twitter: '@xavier_seignard',
-    //www: 'http://www.you.com',
+    www: 'http://www.you.com',
     //github: 'http://github.com/you'
   }]
 };
