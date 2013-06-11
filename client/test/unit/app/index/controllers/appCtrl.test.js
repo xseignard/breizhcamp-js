@@ -50,7 +50,7 @@ describe('bzh.geektic.appCtrl', function() {
   // gravatar function
   it('should return the right url from gravatar function', function() {
     httpMock.flush();
-    var url = 'http://www.gravatar.com/avatar/34a47bd77922181070aef96782110714?s=140';
+    var url = 'http://www.gravatar.com/avatar/34a47bd77922181070aef96782110714?d=mm&s=140';
     expect(scope.gravatar(scope.geeks[0].email, 140)).to.equal(url);
   });
 

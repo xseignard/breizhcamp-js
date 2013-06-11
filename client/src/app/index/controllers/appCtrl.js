@@ -53,7 +53,7 @@ angular.module('bzh.geektic.appCtrl', ['ngResource']).
      * @param {Number} size - the size of the image to return
      */
     $scope.gravatar = function(email, size) {
-      return 'http://www.gravatar.com/avatar/' + md5(email) + '?s=' + size;
+      return 'http://www.gravatar.com/avatar/' + md5(email) + '?d=mm&s=' + size;
     };
 
   }]);

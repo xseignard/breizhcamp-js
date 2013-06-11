@@ -1,5 +1,5 @@
 /**
- * breizhcamp-js_frontend - v0.0.1 - 2013-06-10
+ * breizhcamp-js_frontend - v0.0.1 - 2013-06-11
  * https://github.com/xseignard/breizhcamp-js
  *
  * Copyright (c) 2013 
@@ -149,7 +149,7 @@ angular.module('bzh.geektic.appCtrl', ['ngResource']).
      * @param {Number} size - the size of the image to return
      */
     $scope.gravatar = function(email, size) {
-      return 'http://www.gravatar.com/avatar/' + md5(email) + '?s=' + size;
+      return 'http://www.gravatar.com/avatar/' + md5(email) + '?d=mm&s=' + size;
     };
 
   }]);
