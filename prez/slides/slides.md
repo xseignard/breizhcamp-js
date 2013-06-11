@@ -610,7 +610,7 @@ title: Mocha reporters
 
 - Various outputs when running the tests : spec, xunit, nyan cat, etc. (see: [http://visionmedia.github.io/mocha/#reporters](http://visionmedia.github.io/mocha/#reporters))
 
-- You can create/use your own with plugins!
+- You can use buit-in plugins or extend Mocha by creating your own.
 
 - Install the xunit-file reporter to produce xunit compliant file
 
