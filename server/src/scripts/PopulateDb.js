@@ -1,6 +1,7 @@
 'use strict';
 // require
-var MongoClient = require('mongodb').MongoClient;
+var MongoClient = require('mongodb').MongoClient,
+	async = require('async');
 
 // mongodb uri
 var uri = require('../conf/conf').MONGO_URL;
@@ -22,15 +23,32 @@ MongoClient.connect(uri, function(err, db) {
 		if (err) {
 			exitWithError(err);
 		}
-		// 1- remove the collection (if existing)
-		collection.remove({}, function(err, removed){
-			if (err) {
-				exitWithError(err);
+		async.series(
+			[
+				// 1- remove the collection (if existing)
+				function(callback) {
+					collection.remove({}, function(err, removed){
+						callback(err, removed + " geek(s) removed !");
+					});
+				},
+        
+				// 2- insert geeks !
+				function(callback) {
+					collection.insert(geeks, {safe : true},	function(err, result) {
+						callback(err, result.length + " geek(s) inserted !");
+					});
+				}
+			],
+			// final callback function
+			function(err, results) {
+				if (err) {
+					exitWithError(err);
+				}
+				results.map(function(result) {
+					console.log(result);
+				});
+				process.exit(0);
 			}
-			console.log(removed + " geek(s) removed !");
-
-			// 2- insert geeks !
-			// TODO write the query to insert geeks into the database !
-		});
+		);
 	});
 });
