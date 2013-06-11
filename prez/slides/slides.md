@@ -567,7 +567,7 @@ class: segue dark nobackground
 
 ---
 
-title: Server side
+title: Building the server side
 
 - A POM (Plain Old Makefile), not a `pom.xml`!
 - Get the things done
@@ -589,3 +589,52 @@ test:
 </pre>
 
 - Run a target with `make target`
+
+---
+
+title: Continuous integration
+
+- Jenkins ready!
+
+- The tooling we use, can produce various reports (unit testing, checkstyle, coverage, ...)
+
+- Define a continuous integration target that call other targets
+
+<pre class="prettyprint" data-lang="makefile">
+ci: clean xunit checkstyle coverage sonar
+</pre>
+
+---
+
+title: Mocha reporters
+
+- Various outputs when running the tests : spec, xunit, nyan cat, etc. (see: [http://visionmedia.github.io/mocha/#reporters](http://visionmedia.github.io/mocha/#reporters))
+
+- You can create/use your own with plugins!
+
+- Install the xunit-file reporter to produce xunit compliant file
+
+<pre class="prettyprint" data-lang="cmd">
+npm install xunit-file --save-dev
+</pre>
+
+- TODO : Create a Makefile target that produce the xunit file
+
+---
+
+title: Code coverage with Istanbul
+
+- Straightforward, note the double dash to distinguish `istanbul` args from the `mocha` ones and the use of `_mocha` internal executable (see [istanbul/issues/44](https://github.com/gotwarlost/istanbul/issues/44))
+
+<pre class="prettyprint" data-lang="cmd">
+istanbul cover _mocha -- -R spec test/**/*.test.js
+</pre>
+
+- TODO : Create a Makefile target that only produce a lcov file
+
+- lcov format is directly usable by Sonar
+- To display coverage results in Jenkins, use [lcov-to-cobertura](http://eriwen.github.io/lcov-to-cobertura-xml/) + [jenkins coverage plugin](https://wiki.jenkins-ci.org/display/JENKINS/Cobertura+Plugin)
+
+---
+
+title: Building the client side

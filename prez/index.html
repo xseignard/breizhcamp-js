@@ -764,7 +764,7 @@ $ git checkout -f exercise-3
 <slide  >
   
     <hgroup>
-      <h2>Server side</h2>
+      <h2>Building the server side</h2>
       <h3></h3>
     </hgroup>
     <article ><ul>
@@ -791,6 +791,91 @@ test:
 <ul>
 <li>Run a target with <code>make target</code></li>
 </ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Continuous integration</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul>
+<li>
+<p>Jenkins ready!</p>
+</li>
+<li>
+<p>The tooling we use, can produce various reports (unit testing, checkstyle, coverage, ...)</p>
+</li>
+<li>
+<p>Define a continuous integration target that call other targets</p>
+</li>
+</ul>
+<pre class="prettyprint" data-lang="makefile">
+ci: clean xunit checkstyle coverage sonar
+</pre></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Mocha reporters</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul>
+<li>
+<p>Various outputs when running the tests : spec, xunit, nyan cat, etc. (see: <a href="http://visionmedia.github.io/mocha/#reporters">http://visionmedia.github.io/mocha/#reporters</a>)</p>
+</li>
+<li>
+<p>You can create/use your own with plugins!</p>
+</li>
+<li>
+<p>Install the xunit-file reporter to produce xunit compliant file</p>
+</li>
+</ul>
+<pre class="prettyprint" data-lang="cmd">
+npm install xunit-file --save-dev
+</pre>
+
+<ul>
+<li>TODO : Create a Makefile target that produce the xunit file</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Code coverage with Istanbul</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul>
+<li>Straightforward, note the double dash to distinguish <code>istanbul</code> args from the <code>mocha</code> ones and the use of <code>_mocha</code> internal executable (see <a href="https://github.com/gotwarlost/istanbul/issues/44">istanbul/issues/44</a>)</li>
+</ul>
+<pre class="prettyprint" data-lang="cmd">
+istanbul cover _mocha -- -R spec test/**/*.test.js
+</pre>
+
+<ul>
+<li>
+<p>TODO : Create a Makefile target that only produce a lcov file</p>
+</li>
+<li>
+<p>lcov format is directly usable by Sonar</p>
+</li>
+<li>To display coverage results in Jenkins, use <a href="http://eriwen.github.io/lcov-to-cobertura-xml/">lcov-to-cobertura</a> + <a href="https://wiki.jenkins-ci.org/display/JENKINS/Cobertura+Plugin">jenkins coverage plugin</a></li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Building the client side</h2>
+      <h3></h3>
+    </hgroup>
+    <article ></article>
  
 </slide>
 
