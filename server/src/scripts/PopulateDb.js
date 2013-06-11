@@ -30,13 +30,7 @@ MongoClient.connect(uri, function(err, db) {
 			console.log(removed + " geek(s) removed !");
 
 			// 2- insert geeks !
-			collection.insert(geeks, {safe : true},	function(err, result) {
-				if (err) {
-					exitWithError(err);
-				}
-				console.log(result.length + " geek(s) inserted !");
-				process.exit(0);
-			});
+			// TODO write the query to insert geeks into the database !
 		});
 	});
 });
