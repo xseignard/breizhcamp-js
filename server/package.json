@@ -19,8 +19,7 @@
     "xunit-file": "0.0.3",
     "jshint": "~2.0.1",
     "yuidocjs": "~0.3.44",
-    "istanbul": "~0.1.36",
-    "mocha-istanbul": "~0.2.0"
+    "istanbul": "~0.1.36"
   },
   "engines": {
     "node": "0.10.x",
