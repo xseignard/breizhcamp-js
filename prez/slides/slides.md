@@ -28,7 +28,7 @@ Exercises :
 - Reset your workspace with the following command ("n" is the exercise's number):
 
 <pre class="prettyprint" data-lang="cmd">
-$ git checkout -f exercise-n
+git checkout -f exercise-n
 </pre>
 
 ---
@@ -40,7 +40,7 @@ title: Prerequisites - shell & make
     - `make -v` must work
 
 <pre class="prettyprint" data-lang="cmd">
-$ make -v
+make -v
 GNU Make 3.81
 Copyright (C) 2006  Free Software Foundation, Inc.
 This is free software; see the source for copying conditions.
@@ -60,7 +60,7 @@ title: Prerequisites - git
     - `git --version` must work
 
 <pre class="prettyprint" data-lang="cmd">
-$ git --version
+git --version
 git version 1.7.9.5
 </pre>
 
@@ -74,12 +74,12 @@ title: Prerequisites - node.js
     - `node -v` and `npm -v` must work
 
 <pre class="prettyprint" data-lang="cmd">
-$ node -v
+node -v
 v0.10.7
 </pre>
 
 <pre class="prettyprint" data-lang="cmd">
-$ npm -v
+npm -v
 1.2.21
 </pre>
 
@@ -93,7 +93,7 @@ title: Prerequisites - mongodb
     - `mongo --version` must work
 
 <pre class="prettyprint" data-lang="cmd">
-$ mongo --version
+mongo --version
 MongoDB shell version: 2.2.4
 </pre>
 
@@ -228,7 +228,7 @@ title : Exercise 1
 - Checkout the workspace for exercise 1
 
 <pre class="prettyprint" data-lang="cmd">
-$ git checkout -f exercise-1
+git checkout -f exercise-1
 </pre>
 
 - Play with the Mongo shell !
@@ -357,7 +357,7 @@ title : Exercise 2
 - Checkout the workspace for exercise 2 : 
 
 <pre class="prettyprint" data-lang="cmd">
-$ git checkout -f exercise-2
+git checkout -f exercise-2
 </pre>
 
 - Write a script to populate the geeksDB database, from the `geeks.json` file.
@@ -518,19 +518,19 @@ title: Tooling
 - Mocha : Behaviour Driven Development for Javascript
 
 <pre class="prettyprint" data-lang="cmd">
-$ mocha -R spec `find test/ -name "*.test.js"`
+mocha -R spec `find test/ -name "*.test.js"`
 </pre>
 
 - JSHint : static code analysis for Javascript
 
 <pre class="prettyprint" data-lang="cmd">
-$ jshint src test --show-non-errors
+jshint src test --show-non-errors
 </pre>
 
 - YuiDocs : generates code documentation
 
 <pre class="prettyprint" data-lang="cmd">
-$ yuidoc src -o reports/docs
+yuidoc src -o reports/docs
 </pre>
 
 - Istanbul : code coverage
@@ -542,7 +542,7 @@ title: Exercise 3
 - Checkout the workspace for exercise 3 : 
 
 <pre class="prettyprint" data-lang="cmd">
-$ git checkout -f exercise-3
+git checkout -f exercise-3
 </pre>
 
 - Write the code to manage the `find` route
@@ -637,4 +637,140 @@ istanbul cover _mocha -- -R spec test/**/*.test.js
 
 ---
 
-title: Building the client side
+title: Frontend package management with Bower
+
+- [Bower](http://bower.io/) is a repository of packaged components
+- It can be any type of asset (JS, CSS, or whatever)
+- You manage your frontend dependencies through a `bower.json` file.
+- You can depend on various format of assets
+    - Registered asset within bower : `bower install jquery`
+    - Files : `bower install http://domain.com/myFile.js`
+    - Archives : `bower install http://domain.com/myArchive.zip`
+    - Github repo : `bower install repoOwner/repo`
+    - Github tag/commit `bower install jquery#1.9.1`
+
+- TODO : create the `bower.json` file with `bower init` and manage angular libs with bower.
+- Use `bower search` and `bower install XXX --save`
+
+---
+
+title: Building the client side with Grunt
+
+- [Grunt](http://gruntjs.com) is a JS task runner.
+- Install `grunt-cli` globally, and `grunt` as a dev dependency in your project.
+
+<pre class="prettyprint" data-lang="cmd">
+npm install grunt-cli -g;npm install grunt --save-dev
+</pre>
+
+- Create a `Gruntfile.js`
+
+<pre class="prettyprint" data-lang="javascript">
+module.exports = function(grunt) {
+  // project configuration
+  grunt.initConfig({
+    pkg: grunt.file.readJSON('package.json')
+    // the tasks definition goes here
+  });
+  grunt.registerTask('default', []);
+};
+</pre>
+
+- Run `grunt` (will do nothing but without errors :))
+
+---
+
+title: Grunt
+
+- Plugin based, official ones start with `grunt-contrib`, see [http://gruntjs.com/plugins](http://gruntjs.com/plugins)
+- Add the clean plugin
+
+<pre class="prettyprint" data-lang="cmd">
+npm install grunt-contrib-clean --save-dev
+</pre>
+
+- And add the following in `Gruntfile.js`
+
+<pre class="prettyprint" data-lang="javascript">
+grunt.loadNpmTasks('grunt-contrib-clean');
+</pre>
+
+---
+
+title: Grunt (continued)
+
+- You can now define the `clean` task (JSON object or array) and plug this task in your build lifecycle.
+
+<pre class="prettyprint" data-lang="javascript">
+module.exports = function(grunt) {
+  // project configuration
+  grunt.initConfig({
+    pkg: grunt.file.readJSON('package.json')
+    // the tasks definition goes here
+    clean: ['myDistDir']
+  });
+  grunt.registerTask('default', [clean]);
+  grunt.loadNpmTasks('grunt-contrib-clean');
+};
+</pre>
+
+- The command `grunt` is a shorthand for `grunt default`. You can also call single tasks, e.g. `grunt clean`
+
+---
+
+title: Grunt (continued)
+
+- You can define subtasks inside your task to be more specific
+
+<pre class="prettyprint" data-lang="javascript">
+module.exports = function(grunt) {
+  // project configuration
+  grunt.initConfig({
+    pkg: grunt.file.readJSON('package.json')
+    // the tasks definition goes here
+    clean: {
+      build: ['myDistDir'],
+      postbuild: ['myDistDir/tmp']
+    }
+  });
+  grunt.registerTask('default', [clean:build]);
+  grunt.registerTask('buildCleanUp', [clean:postbuild]);
+  grunt.loadNpmTasks('grunt-contrib-clean');
+};
+</pre>
+
+---
+
+title: Frontend build process
+
+It mainly consists on the following tasks:
+
+- lint your code
+- run tests
+- concatenate your JS and CSS files
+- minify your code
+- copy all the assest and created files in a dist folder
+
+---
+
+title: Real Gruntfile.js example
+
+We are going to change of branch, save and commit what you want to keep.
+
+<pre class="prettyprint" data-lang="cmd">
+git checkout master
+</pre>
+
+And open `client/Gruntfile.js`.
+
+TODO1 : try to run some of the defined tasks
+
+TODO2 : adapt the `watch` task to have an alway up-to-date build dir.
+
+---
+
+title: Moar Grunt
+
+- Amazing API : [http://gruntjs.com/api/grunt](http://gruntjs.com/api/grunt)
+- Super easy to create your own tasks : [http://gruntjs.com/api/grunt.task#grunt.task.registertask](http://gruntjs.com/api/grunt.task#grunt.task.registertask)
+- A ton of plugins!

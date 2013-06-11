@@ -81,7 +81,7 @@ URL: https://code.google.com/p/io-2012-slides
 <li>Reset your workspace with the following command ("n" is the exercise's number):</li>
 </ul>
 <pre class="prettyprint" data-lang="cmd">
-$ git checkout -f exercise-n
+git checkout -f exercise-n
 </pre></article>
  
 </slide>
@@ -100,7 +100,7 @@ $ git checkout -f exercise-n
 </li>
 </ul>
 <pre class="prettyprint" data-lang="cmd">
-$ make -v
+make -v
 GNU Make 3.81
 Copyright (C) 2006  Free Software Foundation, Inc.
 This is free software; see the source for copying conditions.
@@ -128,7 +128,7 @@ There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR P
 </li>
 </ul>
 <pre class="prettyprint" data-lang="cmd">
-$ git --version
+git --version
 git version 1.7.9.5
 </pre>
 
@@ -149,12 +149,12 @@ git version 1.7.9.5
 </li>
 </ul>
 <pre class="prettyprint" data-lang="cmd">
-$ node -v
+node -v
 v0.10.7
 </pre>
 
 <pre class="prettyprint" data-lang="cmd">
-$ npm -v
+npm -v
 1.2.21
 </pre>
 
@@ -175,7 +175,7 @@ $ npm -v
 </li>
 </ul>
 <pre class="prettyprint" data-lang="cmd">
-$ mongo --version
+mongo --version
 MongoDB shell version: 2.2.4
 </pre>
 
@@ -333,7 +333,7 @@ db.geeks.find( { "likes" : /^javascript$/i } ).limit(3).skip(1)
 <li>Checkout the workspace for exercise 1</li>
 </ul>
 <pre class="prettyprint" data-lang="cmd">
-$ git checkout -f exercise-1
+git checkout -f exercise-1
 </pre>
 
 <ul>
@@ -490,7 +490,7 @@ db.collection('geeks', function(err, collection) {
 <li>Checkout the workspace for exercise 2 : </li>
 </ul>
 <pre class="prettyprint" data-lang="cmd">
-$ git checkout -f exercise-2
+git checkout -f exercise-2
 </pre>
 
 <ul>
@@ -689,21 +689,21 @@ describe('GeeksRoutes', function() {
 <li>Mocha : Behaviour Driven Development for Javascript</li>
 </ul>
 <pre class="prettyprint" data-lang="cmd">
-$ mocha -R spec `find test/ -name "*.test.js"`
+mocha -R spec `find test/ -name "*.test.js"`
 </pre>
 
 <ul>
 <li>JSHint : static code analysis for Javascript</li>
 </ul>
 <pre class="prettyprint" data-lang="cmd">
-$ jshint src test --show-non-errors
+jshint src test --show-non-errors
 </pre>
 
 <ul>
 <li>YuiDocs : generates code documentation</li>
 </ul>
 <pre class="prettyprint" data-lang="cmd">
-$ yuidoc src -o reports/docs
+yuidoc src -o reports/docs
 </pre>
 
 <ul>
@@ -722,7 +722,7 @@ $ yuidoc src -o reports/docs
 <li>Checkout the workspace for exercise 3 : </li>
 </ul>
 <pre class="prettyprint" data-lang="cmd">
-$ git checkout -f exercise-3
+git checkout -f exercise-3
 </pre>
 
 <ul>
@@ -872,10 +872,189 @@ istanbul cover _mocha -- -R spec test/**/*.test.js
 <slide  >
   
     <hgroup>
-      <h2>Building the client side</h2>
+      <h2>Frontend package management with Bower</h2>
       <h3></h3>
     </hgroup>
-    <article ></article>
+    <article ><ul>
+<li><a href="http://bower.io/">Bower</a> is a repository of packaged components</li>
+<li>It can be any type of asset (JS, CSS, or whatever)</li>
+<li>You manage your frontend dependencies through a <code>bower.json</code> file.</li>
+<li>
+<p>You can depend on various format of assets</p>
+<ul>
+<li>Registered asset within bower : <code>bower install jquery</code></li>
+<li>Files : <code>bower install http://domain.com/myFile.js</code></li>
+<li>Archives : <code>bower install http://domain.com/myArchive.zip</code></li>
+<li>Github repo : <code>bower install repoOwner/repo</code></li>
+<li>Github tag/commit <code>bower install jquery#1.9.1</code></li>
+</ul>
+</li>
+<li>
+<p>TODO : create the <code>bower.json</code> file with <code>bower init</code> and manage angular libs with bower.</p>
+</li>
+<li>Use <code>bower search</code> and <code>bower install XXX --save</code></li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Building the client side with Grunt</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul>
+<li><a href="http://gruntjs.com">Grunt</a> is a JS task runner.</li>
+<li>Install <code>grunt-cli</code> globally, and <code>grunt</code> as a dev dependency in your project.</li>
+</ul>
+<pre class="prettyprint" data-lang="cmd">
+npm install grunt-cli -g;npm install grunt --save-dev
+</pre>
+
+<ul>
+<li>Create a <code>Gruntfile.js</code></li>
+</ul>
+<pre class="prettyprint" data-lang="javascript">
+module.exports = function(grunt) {
+  // project configuration
+  grunt.initConfig({
+    pkg: grunt.file.readJSON('package.json')
+    // the tasks definition goes here
+  });
+  grunt.registerTask('default', []);
+};
+</pre>
+
+<ul>
+<li>Run <code>grunt</code> (will do nothing but without errors :))</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Grunt</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul>
+<li>Plugin based, official ones start with <code>grunt-contrib</code>, see <a href="http://gruntjs.com/plugins">http://gruntjs.com/plugins</a></li>
+<li>Add the clean plugin</li>
+</ul>
+<pre class="prettyprint" data-lang="cmd">
+npm install grunt-contrib-clean --save-dev
+</pre>
+
+<ul>
+<li>And add the following in <code>Gruntfile.js</code></li>
+</ul>
+<pre class="prettyprint" data-lang="javascript">
+grunt.loadNpmTasks('grunt-contrib-clean');
+</pre></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Grunt (continued)</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul>
+<li>You can now define the <code>clean</code> task (JSON object or array) and plug this task in your build lifecycle.</li>
+</ul>
+<pre class="prettyprint" data-lang="javascript">
+module.exports = function(grunt) {
+  // project configuration
+  grunt.initConfig({
+    pkg: grunt.file.readJSON('package.json')
+    // the tasks definition goes here
+    clean: ['myDistDir']
+  });
+  grunt.registerTask('default', [clean]);
+  grunt.loadNpmTasks('grunt-contrib-clean');
+};
+</pre>
+
+<ul>
+<li>The command <code>grunt</code> is a shorthand for <code>grunt default</code>. You can also call single tasks, e.g. <code>grunt clean</code></li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Grunt (continued)</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul>
+<li>You can define subtasks inside your task to be more specific</li>
+</ul>
+<pre class="prettyprint" data-lang="javascript">
+module.exports = function(grunt) {
+  // project configuration
+  grunt.initConfig({
+    pkg: grunt.file.readJSON('package.json')
+    // the tasks definition goes here
+    clean: {
+      build: ['myDistDir'],
+      postbuild: ['myDistDir/tmp']
+    }
+  });
+  grunt.registerTask('default', [clean:build]);
+  grunt.registerTask('buildCleanUp', [clean:postbuild]);
+  grunt.loadNpmTasks('grunt-contrib-clean');
+};
+</pre></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Frontend build process</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><p>It mainly consists on the following tasks:</p>
+<ul>
+<li>lint your code</li>
+<li>run tests</li>
+<li>concatenate your JS and CSS files</li>
+<li>minify your code</li>
+<li>copy all the assest and created files in a dist folder</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Real Gruntfile.js example</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><p>We are going to change of branch, save and commit what you want to keep.</p>
+<pre class="prettyprint" data-lang="cmd">
+git checkout master
+</pre>
+
+<p>And open <code>client/Gruntfile.js</code>.</p>
+<p>TODO1 : try to run some of the defined tasks</p>
+<p>TODO2 : adapt the <code>watch</code> task to have an alway up-to-date build dir.</p></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Moar Grunt</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul>
+<li>Amazing API : <a href="http://gruntjs.com/api/grunt">http://gruntjs.com/api/grunt</a></li>
+<li>Super easy to create your own tasks : <a href="http://gruntjs.com/api/grunt.task#grunt.task.registertask">http://gruntjs.com/api/grunt.task#grunt.task.registertask</a></li>
+<li>A ton of plugins!</li>
+</ul></article>
  
 </slide>
 
