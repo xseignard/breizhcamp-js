@@ -772,6 +772,8 @@ TODO1 : try to run some of the defined tasks
 
 TODO2 : adapt the `watch` task to have an always up-to-date build dir.
 
+See [livereload](http://livereload.com/) or the livereload script definition in `client/src/index.html` 
+
 ---
 
 title: Moar Grunt

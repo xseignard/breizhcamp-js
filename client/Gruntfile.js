@@ -189,6 +189,7 @@ module.exports = function(grunt) {
         files: ['src/app/**/*.js', 'test/unit/**/*.js'],
         tasks: ['karma:dev:run']
       }
+      // TODO : update this task to always have an up-to-date dist dir
     }
   });
 
@@ -225,7 +226,7 @@ module.exports = function(grunt) {
     grunt.config.set('dev', false);
   });
 
-  // TODO : dev task
+  // TODO : watch task
   
   // run e2e scenario
   grunt.registerTask('e2e', ['shell:e2e']);
