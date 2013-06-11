@@ -12,11 +12,7 @@ clean:
 test:
 	$(MOCHA) -R spec $(TESTS)
 	
-xunit:
-	@# check if reports folder exists, if not create it
-	@test -d reports || mkdir reports
-	export XUNIT_FILE="reports/TESTS-xunit.xml"; \
-	$(MOCHA) -R xunit-file $(TESTS)
+# TODO add a xunit target that generate the xunit file
 
 jshint:
 	$(JSHINT) src test --show-non-errors
@@ -42,6 +38,6 @@ docs:
 
 all: clean test jshint
 
-ci: clean xunit checkstyle coverage sonar
+ci: clean checkstyle coverage sonar
 
-.PHONY: test xunit jshint
+.PHONY: test jshint
