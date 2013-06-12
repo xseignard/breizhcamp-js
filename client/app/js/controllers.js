@@ -8,9 +8,7 @@ function GeeksListCtrl($scope, $http) {
   });
 
   $scope.update = function() {
-    $http.get('geek/likes/' + $scope.query).success(function(data){
-      $scope.geeks = data;
-  });
+    // TODO write the code to get geeks corresponding to the search query
   }
 
   $scope.orderProp = 'firstname';
