@@ -567,6 +567,21 @@ git checkout -f exercise-3
 
 ---
 
+title: Node.js good reads
+
+Node.js overview :
+
+- [http://nodejs.org/api/](http://nodejs.org/api/) RTFM FTW!
+- [http://www.nodebeginner.org/](http://www.nodebeginner.org/)
+- [http://visionmedia.github.io/masteringnode/book.html](http://visionmedia.github.io/masteringnode/book.html) by [TJ Holowaychuk](https://github.com/visionmedia/) (express & mocha creator)
+
+Node.js good practices :
+
+- [http://nodeguide.com/style.html](http://nodeguide.com/style.html) by [Felix Geisendörfer](https://github.com/felixge) (node.js core developer)
+- [http://caolanmcmahon.com/posts/nodejs_style_and_structure/](http://caolanmcmahon.com/posts/nodejs_style_and_structure/) by Caolan McMahon (async creator)
+
+---
+
 title: Angular.js
 subtitle: Superheroic Javascript Framework !
 class: segue dark nobackground
@@ -806,9 +821,10 @@ See [livereload](http://livereload.com/) or the livereload script definition in 
 
 title: Moar Grunt
 
+- [http://gruntjs.com/getting-started](http://gruntjs.com/getting-started) RTFM FTW!
 - Amazing API : [http://gruntjs.com/api/grunt](http://gruntjs.com/api/grunt)
 - Super easy to create your own tasks : [http://gruntjs.com/api/grunt.task#grunt.task.registertask](http://gruntjs.com/api/grunt.task#grunt.task.registertask)
-- A ton of plugins!
+- A ton of [plugins](http://gruntjs.com/plugins)!
 
 ---
 
@@ -816,6 +832,17 @@ title: CI and QA
 
 We are able to define super tasks with `make` and `grunt` so you just need to create a ci task for each.
 
-For QA you can generate reports from the tool involved in the build, or use Sonar.
+For QA you can generate reports from the tools involved in the build, or use Sonar.
 
 Sonar digests xunit files for test results and lcov files for coverage, and we shown how to generate these ones. Just install the [Javascript plugin](http://docs.codehaus.org/display/SONAR/JavaScript+Plugin)
+
+---
+
+title: Node.js (continuous) deployment
+
+- Use [nginx](http://wiki.nginx.org/Main) (or similar) to serve static content and as a reverse proxy for your node.js server.
+- Use git post commit hooks (or a secure copy) to update your production code.
+- Use a service manager to run your app
+    - [init](http://man.he.net/man8/init), [upstart](http://upstart.ubuntu.com/), [systemd](http://freedesktop.org/wiki/Software/systemd/)
+
+- Icing on the cake : try Socket based activation! Run your app only when people are using it. (see [systemd.socket](http://www.freedesktop.org/software/systemd/man/systemd.socket.html) as potential solution)

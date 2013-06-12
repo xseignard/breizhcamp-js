@@ -758,6 +758,26 @@ git checkout -f exercise-3
  
 </slide>
 
+<slide  >
+  
+    <hgroup>
+      <h2>Node.js good reads</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><p>Node.js overview :</p>
+<ul>
+<li><a href="http://nodejs.org/api/">http://nodejs.org/api/</a> RTFM FTW!</li>
+<li><a href="http://www.nodebeginner.org/">http://www.nodebeginner.org/</a></li>
+<li><a href="http://visionmedia.github.io/masteringnode/book.html">http://visionmedia.github.io/masteringnode/book.html</a> by <a href="https://github.com/visionmedia/">TJ Holowaychuk</a> (express &amp; mocha creator)</li>
+</ul>
+<p>Node.js good practices :</p>
+<ul>
+<li><a href="http://nodeguide.com/style.html">http://nodeguide.com/style.html</a> by <a href="https://github.com/felixge">Felix Geisendörfer</a> (node.js core developer)</li>
+<li><a href="http://caolanmcmahon.com/posts/nodejs_style_and_structure/">http://caolanmcmahon.com/posts/nodejs_style_and_structure/</a> by Caolan McMahon (async creator)</li>
+</ul></article>
+ 
+</slide>
+
 <slide class="segue dark nobackground" >
   
     <aside class="gdbar"><img src="images/logo.png"></aside>
@@ -1097,9 +1117,10 @@ git checkout master
       <h3></h3>
     </hgroup>
     <article ><ul>
+<li><a href="http://gruntjs.com/getting-started">http://gruntjs.com/getting-started</a> RTFM FTW!</li>
 <li>Amazing API : <a href="http://gruntjs.com/api/grunt">http://gruntjs.com/api/grunt</a></li>
 <li>Super easy to create your own tasks : <a href="http://gruntjs.com/api/grunt.task#grunt.task.registertask">http://gruntjs.com/api/grunt.task#grunt.task.registertask</a></li>
-<li>A ton of plugins!</li>
+<li>A ton of <a href="http://gruntjs.com/plugins">plugins</a>!</li>
 </ul></article>
  
 </slide>
@@ -1111,8 +1132,30 @@ git checkout master
       <h3></h3>
     </hgroup>
     <article ><p>We are able to define super tasks with <code>make</code> and <code>grunt</code> so you just need to create a ci task for each.</p>
-<p>For QA you can generate reports from the tool involved in the build, or use Sonar.</p>
+<p>For QA you can generate reports from the tools involved in the build, or use Sonar.</p>
 <p>Sonar digests xunit files for test results and lcov files for coverage, and we shown how to generate these ones. Just install the <a href="http://docs.codehaus.org/display/SONAR/JavaScript+Plugin">Javascript plugin</a></p></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Node.js (continuous) deployment</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul>
+<li>Use <a href="http://wiki.nginx.org/Main">nginx</a> (or similar) to serve static content and as a reverse proxy for your node.js server.</li>
+<li>Use git post commit hooks (or a secure copy) to update your production code.</li>
+<li>
+<p>Use a service manager to run your app</p>
+<ul>
+<li><a href="http://man.he.net/man8/init">init</a>, <a href="http://upstart.ubuntu.com/">upstart</a>, <a href="http://freedesktop.org/wiki/Software/systemd/">systemd</a></li>
+</ul>
+</li>
+<li>
+<p>Icing on the cake : try Socket based activation! Run your app only when people are using it. (see <a href="http://www.freedesktop.org/software/systemd/man/systemd.socket.html">systemd.socket</a> as potential solution)</p>
+</li>
+</ul></article>
  
 </slide>
 
