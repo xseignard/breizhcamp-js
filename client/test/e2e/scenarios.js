@@ -18,5 +18,7 @@ describe('breizhcamp-js backend app', function() {
       expect(repeater('.geeks div').count()).toBe(2);
     });
 
+    // TODO add a test to check the geeks' sorting with the select box
+
   });
 });

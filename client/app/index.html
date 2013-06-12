@@ -26,10 +26,7 @@
 
         <ul class="geeks">
           <div class="well" ng-repeat="geek in geeks | filter:query | orderBy:orderProp">
-            <h4><i class="icon-user icon-black"></i> {{geek.lastname}} {{geek.firstname}}</h4>
-            <p>From {{geek.city}}</p>
-            <p>Likes : <span class="label label-success" ng-repeat="like in geek.likes">{{like}} </span></p>
-            <p>Hates : <span class="label label-important" ng-repeat="hate in geek.hates">{{hate}} </span></p>
+            <!-- TODO print the geek info here -->
           </div>
         </ul>
 
