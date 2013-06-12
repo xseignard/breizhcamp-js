@@ -2,9 +2,16 @@
 
 /* Controllers */
 
-function GeeksListCtrl($scope) {
-  // TODO add some geeks here !
-  $scope.geeks = [];
+function GeeksListCtrl($scope, $http) {
+  $http.get('geek/likes').success(function(data){
+    $scope.geeks = data;
+  });
+
+  $scope.update = function() {
+    $http.get('geek/likes/' + $scope.query).success(function(data){
+      $scope.geeks = data;
+  });
+  }
 
   $scope.orderProp = 'firstname';
 }

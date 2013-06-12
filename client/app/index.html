@@ -13,7 +13,7 @@
       <div class="span2">
         <!--Sidebar content-->
 
-        Search: <input ng-model="query">
+        Likes: <input ng-model="query" ng-change="update()">
         Sort by:
         <select ng-model="orderProp">
           <option value="firstname">Name</option>
@@ -25,8 +25,11 @@
         <!--Body content-->
 
         <ul class="geeks">
-          <div class="well" ng-repeat="geek in geeks | filter:query | orderBy:orderProp">
-            <!-- TODO print the geek info here -->
+          <div class="well" ng-repeat="geek in geeks | orderBy:orderProp">
+            <h4><i class="icon-user icon-black"></i> {{geek.lastname}} {{geek.firstname}}</h4>
+            <p>From {{geek.city}}</p>
+            <p>Likes : <span class="label label-success" ng-repeat="like in geek.likes"> {{like}} </span></p>
+            <p>Hates : <span class="label label-important" ng-repeat="hate in geek.hates"> {{hate}} </span></p>
           </div>
         </ul>
 

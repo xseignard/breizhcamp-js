@@ -14,9 +14,12 @@ describe('breizhcamp-js backend controllers', function() {
 
 
     it('should create "geeks" model with 3 geeks', function() {
-      // TODO write the test assertion here : expect(...).toBe(...);
+      expect(scope.geeks.length).toBe(3);
     });
 
-    // TODO write a test to check the default value of orderProp model
+
+    it('should set the default value of orderProp model', function() {
+      expect(scope.orderProp).toBe('firstname');
+    });
   });
 });
