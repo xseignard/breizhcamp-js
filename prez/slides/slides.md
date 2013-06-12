@@ -247,6 +247,7 @@ class: segue dark nobackground
 title: Node.js
 
 - Javascript on the server side !
+- Single threaded
 - Event-driven model
 - Asynchronous I/O
 - Google's V8 Javascript engine
@@ -601,6 +602,179 @@ title: Angular.js
 
 
 ![angular_logo](http://t3.gstatic.com/images?q=tbn:ANd9GcTZazTKcUtj-8Dsjj4ETOjeALpJ7JffXxWbYlQrmtWb3Y9qnhTyWW_y-b0IKg)
+
+---
+
+title: How to start ?
+
+A solution : `Angular Seed` !
+
+This is a skeleton for a typical AngularJS web app
+
+- HTML template and views
+- Controller
+- Examples of code for directives, filters and services
+- Unit tests and End-to-end tests
+
+Clone the Github repository and start hacking ...
+
+[https://github.com/angular/angular-seed](https://github.com/angular/angular-seed)
+
+---
+
+title: View and template
+
+`app/index.html`
+
+<pre class="prettyprint" data-lang="html">
+&lt;html lang="en" ng-app&gt;
+&lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;title&gt;Geektic&lt;/title&gt;
+&lt;/head&gt;
+&lt;body ng-controller="GeeksListCtrl"&gt;
+    &lt;div ng-repeat="geek in geeks"&gt;
+        &lt;h4&gt;{{geek.lastname}} {{geek.firstname}}&lt;/h4&gt;
+        &lt;p&gt;From {{geek.city}}&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;script src="lib/angular/angular.js"&gt;&lt;/script&gt;
+    &lt;script src="js/controllers.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+---
+
+title: Model and controller
+
+`app/js/controllers.js`
+
+<pre class="prettyprint" data-lang="javascript">
+function GeeksListCtrl($scope) {
+    $scope.geeks = [
+        {...},
+        {...}
+    ];
+}
+</pre>
+
+Remember ...
+
+<pre class="prettyprint" data-lang="html">
+&lt;body ng-controller="GeeksListCtrl"&gt;
+</pre>
+
+and
+
+<pre class="prettyprint" data-lang="html">
+&lt;div ng-repeat="geek in geeks"&gt;
+</pre>
+
+---
+
+title: Unit tests
+
+`test/unit/controllersSpec.js`
+
+<pre class="prettyprint" data-lang="javascript">
+describe('breizhcamp-js backend controllers', function() {
+  describe('GeeksListCtrl', function(){
+    var scope, ctrl;
+
+    beforeEach(function() {
+      scope = {}, ctrl = new GeeksListCtrl(scope);
+    });
+
+    it('should create "geeks" model with 3 geeks', function() {
+      expect(scope.geeks.length).toBe(3);
+    });
+  });
+});
+</pre>
+
+Take a look at `scripts/test.sh` and run it !
+
+---
+
+title: End-to-end tests
+
+`test/e2e/scenario.js`
+
+<pre class="prettyprint" data-lang="javascript">
+describe('breizhcamp-js backend app', function() {
+  describe('Geeks list view', function() {
+
+    beforeEach(function() {
+      browser().navigateTo('../../app/index.html');
+    });
+
+
+    it('should filter the geeks list as user types into the search box', function() {
+      expect(repeater('.geeks div').count()).toBe(3);
+    });
+  });
+});
+</pre>
+
+Take a look at `scripts/e2e-test.sh` and run it !
+
+---
+
+title: Exercise 4
+
+- Checkout the workspace for exercise 4 : 
+
+<pre class="prettyprint" data-lang="cmd">
+git checkout -f exercise-4
+</pre>
+
+- Complete the model with some "static geeks"
+- Complete the index.html view to rendre the geeks
+- Play with the filtering
+    - add an input text to filter the data
+    - use the filter in the ng-repeat directive
+
+<pre class="prettyprint" data-lang="html">
+&lt;input ng-model="query" /&gt;
+...
+&lt;div ng-repeat="geek in geeks | filter:query" &gt;
+</pre>
+
+---
+
+title: XHR
+
+With the angular's `$http` service, it's easy to make HTTP requests to the backend.
+
+<pre class="prettyprint" data-lang="html">
+function GeeksListCtrl($scope, $http) {
+    $http.get('geek/likes').success(function(data){
+        $scope.geeks = data;
+    });
+}
+</pre>
+
+---
+
+title: Exercise 5
+
+- Checkout the workspace for exercise 5 : 
+
+<pre class="prettyprint" data-lang="cmd">
+git checkout -f exercise-5
+</pre>
+
+- Use the `$http` service to request the backend
+- Use the `ng-change` directive to update the model when the search query changes
+
+To go further ...
+
+- Try to use the `$resource` service
+
+<pre class="prettyprint" data-lang="javascript">
+var Geeks = $resource('/geek/likes/:like?');
+$scope.geeks = Geeks.get({like : $scope.query});
+</pre>
 
 ---
 
