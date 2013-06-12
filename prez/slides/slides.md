@@ -244,6 +244,18 @@ class: segue dark nobackground
 
 ---
 
+title: Node.js
+
+- Javascript on the server side !
+- Event-driven model
+- Asynchronous I/O
+- Google's V8 Javascript engine
+- NPM : Node Packaged Modules
+
+![nodejs_logo](http://upload.wikimedia.org/wikipedia/en/a/a7/Nodejs_logo_light.png)
+
+---
+
 title: "Hello World" with Node.js
 
 Create a file named `hello.js`
@@ -489,7 +501,7 @@ app.post('/geek', routes.create);
 
 ---
 
-title: Unit tests with Mocha (BDD)
+title: Unit tests with Mocha (TDD)
 
 Tests for the routes, using some custom mock objects.
 
@@ -515,7 +527,7 @@ describe('GeeksRoutes', function() {
 
 title: Tooling
 
-- Mocha : Behaviour Driven Development for Javascript
+- Mocha : Test Driven Development for Javascript
 
 <pre class="prettyprint" data-lang="cmd">
 mocha -R spec `find test/ -name "*.test.js"`
@@ -558,6 +570,22 @@ git checkout -f exercise-3
 title: Angular.js
 subtitle: Superheroic Javascript Framework !
 class: segue dark nobackground
+
+---
+
+title: Angular.js
+
+- Superheroic Javascript Framework !
+- Angular's Philosophy :
+    - Declarative programming for UI (HTML)
+    - Imperative programming for business logic (Javascript)
+    - Two-way data binding
+    - No DOM manipulation
+    - HTML extension (directives)
+    - Focus on application testing
+
+
+![angular_logo](http://t3.gstatic.com/images?q=tbn:ANd9GcTZazTKcUtj-8Dsjj4ETOjeALpJ7JffXxWbYlQrmtWb3Y9qnhTyWW_y-b0IKg)
 
 ---
 
