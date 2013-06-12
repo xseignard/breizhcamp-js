@@ -1,28 +1,45 @@
 <!doctype html>
-<html lang="en" ng-app="myApp">
+<html lang="en" ng-app>
 <head>
   <meta charset="utf-8">
   <title>My AngularJS App</title>
   <link rel="stylesheet" href="css/app.css"/>
+  <link rel="stylesheet" href="css/bootstrap.css">
 </head>
-<body>
-  <ul class="menu">
-    <li><a href="#/view1">view1</a></li>
-    <li><a href="#/view2">view2</a></li>
-  </ul>
+<body ng-controller="GeeksListCtrl">
 
-  <div ng-view></div>
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span2">
+        <!--Sidebar content-->
 
-  <div>Angular seed app: v<span app-version></span></div>
+        Search: <input ng-model="query">
+        Sort by:
+        <select ng-model="orderProp">
+          <option value="firstname">Name</option>
+          <option value="city">City</option>
+        </select>
 
+      </div>
+      <div class="span10">
+        <!--Body content-->
+
+        <ul class="geeks">
+          <div class="well" ng-repeat="geek in geeks | filter:query | orderBy:orderProp">
+            <h4><i class="icon-user icon-black"></i> {{geek.lastname}} {{geek.firstname}}</h4>
+            <p>From {{geek.city}}</p>
+            <p>Likes : <span class="label label-success" ng-repeat="like in geek.likes">{{like}} </span></p>
+            <p>Hates : <span class="label label-important" ng-repeat="hate in geek.hates">{{hate}} </span></p>
+          </div>
+        </ul>
+
+      </div>
+    </div>
+  </div>
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
-  -->
-  <script src="lib/angular/angular.js"></script>
-  <script src="js/app.js"></script>
-  <script src="js/services.js"></script>
-  <script src="js/controllers.js"></script>
-  <script src="js/filters.js"></script>
-  <script src="js/directives.js"></script>
+-->
+<script src="lib/angular/angular.js"></script>
+<script src="js/controllers.js"></script>
 </body>
 </html>
