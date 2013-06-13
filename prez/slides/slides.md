@@ -97,6 +97,10 @@ mongo --version
 MongoDB shell version: 2.2.4
 </pre>
 
+- Installation
+    - Unzip the bundle
+    - add the `bin` directory to your PATH
+
 ![mongodb_logo](http://shvetsgroup.com/files/images/mongo-db-huge-logo_0.png)
 
 ---
