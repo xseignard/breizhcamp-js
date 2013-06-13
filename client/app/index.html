@@ -46,18 +46,14 @@
 var app = angular.module('test', ['ngMockE2E']);
 app.run(function($httpBackend) {
 
-  var phones = [{name: 'phone1'}, {name: 'phone2'}]; 
+  var geeks = [
+    {firstname:'Xavier', name:'Seignard', city:'Nantes', likes:['Breizhcamp'], hate:['Scala']},
+    {firstname:'Sebastien', name:'Prunier', city:'Nantes', likes:['Breizhcamp'], hate:['Cheap wine']},
+    {firstname:'Super', name:'Coder', city:'Rennes', likes:['Rain'], hate:['Breizhcamp']}
+  ]; 
   
-  $httpBackend.whenPOST('/phones').respond(function(method, url, data, headers){
-    console.log('Received these data:', method, url, data, headers);
-    phones.push(angular.fromJson(data));
-    return [200, {}, {}];
-  });
-  
-  $httpBackend.whenGET('/phones').respond(function(method,url,data) {
-    console.log("Getting phones");
-    return [200, phones, {}];
-  });
+  $httpBackend.whenGET('geek/likes/Nantes').respond(geeks.slice(0,2));
+  $httpBackend.whenGET('geek/likes').respond(geeks);
 });
 </script>
 

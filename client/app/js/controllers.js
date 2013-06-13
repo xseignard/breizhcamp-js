@@ -8,8 +8,10 @@ function GeeksListCtrl($scope, $http) {
   });
 
   $scope.update = function() {
-    // TODO write the code to get geeks corresponding to the search query
-  }
+      $http.get('geek/likes/' + $scope.query).success(function(data){
+    	$scope.geeks = data;
+	});
+  };
 
   $scope.orderProp = 'firstname';
 }
