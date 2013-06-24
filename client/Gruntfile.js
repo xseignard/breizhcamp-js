@@ -110,9 +110,9 @@ module.exports = function(grunt) {
       dev: {
         dest: '<%= distDir %>/tmp/vendor'
       }
-	},
-	// cssmin
-	cssmin: {
+    },
+    // cssmin
+    cssmin: {
       minify: {
         files: {
           '<%= distDir %>/assets/styles/app.css': ['<%= distDir %>/tmp/styles/gumby.css', '<%= distDir %>/tmp/styles/app.css']
@@ -123,8 +123,9 @@ module.exports = function(grunt) {
     jshint: {
       all: ['<%= src.js %>', '<%= src.test %>', 'Gruntfile.js'],
       options: {
-        jshintrc: '.jshintrc'
-        //,reporter: 'checkstyle'
+        jshintrc: '.jshintrc',
+        reporter: 'checkstyle',
+        reporterOutput: 'reports/jshint.xml'
       }
     },
     // karma runner testing
