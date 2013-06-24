@@ -179,6 +179,13 @@ mongo --version
 MongoDB shell version: 2.2.4
 </pre>
 
+<ul>
+<li>Installation<ul>
+<li>Unzip the bundle</li>
+<li>add the <code>bin</code> directory to your PATH</li>
+</ul>
+</li>
+</ul>
 <p><img alt="mongodb_logo" src="http://shvetsgroup.com/files/images/mongo-db-huge-logo_0.png" /></p></article>
  
 </slide>
@@ -365,6 +372,7 @@ git checkout -f exercise-1
     </hgroup>
     <article ><ul>
 <li>Javascript on the server side !</li>
+<li>Single threaded</li>
 <li>Event-driven model</li>
 <li>Asynchronous I/O</li>
 <li>Google's V8 Javascript engine</li>
@@ -807,6 +815,208 @@ git checkout -f exercise-3
 </li>
 </ul>
 <p><img alt="angular_logo" src="http://t3.gstatic.com/images?q=tbn:ANd9GcTZazTKcUtj-8Dsjj4ETOjeALpJ7JffXxWbYlQrmtWb3Y9qnhTyWW_y-b0IKg" /></p></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>How to start ?</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><p>A solution : <code>Angular Seed</code> !</p>
+<p>This is a skeleton for a typical AngularJS web app</p>
+<ul>
+<li>HTML template and views</li>
+<li>Controller</li>
+<li>Examples of code for directives, filters and services</li>
+<li>Unit tests and End-to-end tests</li>
+</ul>
+<p>Clone the Github repository and start hacking ...</p>
+<p><a href="https://github.com/angular/angular-seed">https://github.com/angular/angular-seed</a></p></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>View and template</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><p><code>app/index.html</code></p>
+<pre class="prettyprint" data-lang="html">
+&lt;html lang="en" ng-app&gt;
+&lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;title&gt;Geektic&lt;/title&gt;
+&lt;/head&gt;
+&lt;body ng-controller="GeeksListCtrl"&gt;
+    &lt;div ng-repeat="geek in geeks"&gt;
+        &lt;h4&gt;{{geek.lastname}} {{geek.firstname}}&lt;/h4&gt;
+        &lt;p&gt;From {{geek.city}}&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;script src="lib/angular/angular.js"&gt;&lt;/script&gt;
+    &lt;script src="js/controllers.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Model and controller</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><p><code>app/js/controllers.js</code></p>
+<pre class="prettyprint" data-lang="javascript">
+function GeeksListCtrl($scope) {
+    $scope.geeks = [
+        {...},
+        {...}
+    ];
+}
+</pre>
+
+<p>Remember ...</p>
+<pre class="prettyprint" data-lang="html">
+&lt;body ng-controller="GeeksListCtrl"&gt;
+</pre>
+
+<p>and</p>
+<pre class="prettyprint" data-lang="html">
+&lt;div ng-repeat="geek in geeks"&gt;
+</pre></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Unit tests</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><p><code>test/unit/controllersSpec.js</code></p>
+<pre class="prettyprint" data-lang="javascript">
+describe('breizhcamp-js backend controllers', function() {
+  describe('GeeksListCtrl', function(){
+    var scope, ctrl;
+
+    beforeEach(function() {
+      scope = {}, ctrl = new GeeksListCtrl(scope);
+    });
+
+    it('should create "geeks" model with 3 geeks', function() {
+      expect(scope.geeks.length).toBe(3);
+    });
+  });
+});
+</pre>
+
+<p>Take a look at <code>scripts/test.sh</code> and run it !</p></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>End-to-end tests</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><p><code>test/e2e/scenario.js</code></p>
+<pre class="prettyprint" data-lang="javascript">
+describe('breizhcamp-js backend app', function() {
+  describe('Geeks list view', function() {
+
+    beforeEach(function() {
+      browser().navigateTo('../../app/index.html');
+    });
+
+
+    it('should filter the geeks list as user types into the search box', function() {
+      expect(repeater('.geeks div').count()).toBe(3);
+    });
+  });
+});
+</pre>
+
+<p>Take a look at <code>scripts/e2e-test.sh</code> and run it !</p></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Exercise 4</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul>
+<li>Checkout the workspace for exercise 4 : </li>
+</ul>
+<pre class="prettyprint" data-lang="cmd">
+git checkout -f exercise-4
+</pre>
+
+<ul>
+<li>Complete the model with some "static geeks"</li>
+<li>Complete the index.html view to rendre the geeks</li>
+<li>Play with the filtering<ul>
+<li>add an input text to filter the data</li>
+<li>use the filter in the ng-repeat directive</li>
+</ul>
+</li>
+</ul>
+<pre class="prettyprint" data-lang="html">
+&lt;input ng-model="query" /&gt;
+...
+&lt;div ng-repeat="geek in geeks | filter:query" &gt;
+</pre></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>XHR</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><p>With the angular's <code>$http</code> service, it's easy to make HTTP requests to the backend.</p>
+<pre class="prettyprint" data-lang="html">
+function GeeksListCtrl($scope, $http) {
+    $http.get('geek/likes').success(function(data){
+        $scope.geeks = data;
+    });
+}
+</pre></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Exercise 5</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul>
+<li>Checkout the workspace for exercise 5 : </li>
+</ul>
+<pre class="prettyprint" data-lang="cmd">
+git checkout -f exercise-5
+</pre>
+
+<ul>
+<li>Use the <code>$http</code> service to request the backend</li>
+<li>Use the <code>ng-change</code> directive to update the model when the search query changes</li>
+</ul>
+<p>To go further ...</p>
+<ul>
+<li>Try to use the <code>$resource</code> service</li>
+</ul>
+<pre class="prettyprint" data-lang="javascript">
+var Geeks = $resource('/geek/likes/:like?');
+$scope.geeks = Geeks.get({like : $scope.query});
+</pre></article>
  
 </slide>
 
