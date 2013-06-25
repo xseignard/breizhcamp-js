@@ -125,7 +125,7 @@ module.exports = function(grunt) {
       options: {
         jshintrc: '.jshintrc',
         reporter: 'checkstyle',
-        reporterOutput: 'reports/jshint.xml'
+        reporterOutput: '<%= meta.reportsDir %>/jshint.xml'
       }
     },
     // karma runner testing
