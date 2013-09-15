@@ -159,6 +159,18 @@ module.exports = function(grunt) {
       }
 
     },
+    // google pagespeed insight check
+    pagespeed: {
+      prod: {
+        url: 'http://xseignard.github.io/breizhcamp-js/client/dist/index-e2e.html#/',
+        locale: 'en_GB',
+        strategy: 'desktop',
+        threshold: 85
+      },
+      options: {
+        key: 'AIzaSyBmGs_cJWV5LY05kfcaI3PjcDRnnRgghHY'
+      }
+    },
     // custom shell commands
     shell: {
       e2e: {
@@ -208,6 +220,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-karma');
   grunt.loadNpmTasks('grunt-shell');
+  grunt.loadNpmTasks('grunt-pagespeed');
   
   // task to process src/index.html and return the regular index.html and the one for e2e testing (index-e2e.html)
   grunt.registerTask('index', 'Process index.html template', function () {
@@ -238,7 +251,7 @@ module.exports = function(grunt) {
   // dev build
   grunt.registerTask('dev-build', ['devFlag', 'build', 'karma:unit']);
   // prod build
-  grunt.registerTask('prod-build', ['prodFlag', 'build', 'karma:unit', 'e2e']);
+  grunt.registerTask('prod-build', ['prodFlag', 'build', 'karma:unit', 'e2e', 'pagespeed:prod']);
   // ci task
   grunt.registerTask('ci', ['dev-build', 'sonar']);
 
