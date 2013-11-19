@@ -1,0 +1,12 @@
+{
+  "name": "angular-scenario",
+  "_cacheHeaders": {
+    "Last-Modified": "Thu, 07 Nov 2013 00:08:54 GMT",
+    "Content-Length": "905933",
+    "Content-Type": "application/x-javascript"
+  },
+  "main": "index.js",
+  "_source": "http://code.angularjs.org/1.1.5/angular-scenario.js",
+  "_target": "*",
+  "_originalSource": "http://code.angularjs.org/1.1.5/angular-scenario.js"
+}

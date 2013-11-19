@@ -94,15 +94,15 @@ module.exports = function(grunt) {
       },
       css: {
         files: [
-          {src: ['gumby.css'], dest: '<%= distDir %>/tmp/styles', cwd: 'components/gumby/css', expand: true},
+          {src: ['gumby.css'], dest: '<%= distDir %>/tmp/styles', cwd: 'bower_components/gumby/css', expand: true},
           {src: ['**/*.css'], dest: '<%= distDir %>/tmp/styles', cwd: 'src/assets/styles', expand: true}
         ]
       },
       gumbyFonts: {
-        files: [{src: ['fonts/**'], dest: '<%= distDir %>/assets', cwd: 'components/gumby', expand: true}]
+        files: [{src: ['fonts/**'], dest: '<%= distDir %>/assets', cwd: 'bower_components/gumby', expand: true}]
       },
       nonBower: {
-        files: [{src: ['ScrollToPlugin.js'], dest: '<%= distDir %>/tmp/vendor', cwd: 'components/tweenMax/src/uncompressed/plugins/', expand: true}]
+        files: [{src: ['ScrollToPlugin.js'], dest: '<%= distDir %>/tmp/vendor', cwd: 'bower_components/greensock/src/uncompressed/plugins/', expand: true}]
       }
     },
     // copy bower deps

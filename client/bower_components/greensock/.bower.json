@@ -1,0 +1,14 @@
+{
+  "name": "greensock",
+  "homepage": "https://github.com/greensock/GreenSock-JS",
+  "version": "1.9.8",
+  "_release": "1.9.8",
+  "_resolution": {
+    "type": "version",
+    "tag": "1.9.8",
+    "commit": "ab62042130fa8f6a875b92bd2532d1f39d7a18f4"
+  },
+  "_source": "git://github.com/greensock/GreenSock-JS.git",
+  "_target": "~1.9.7",
+  "_originalSource": "greensock"
+}

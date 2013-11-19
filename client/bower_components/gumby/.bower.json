@@ -1,0 +1,18 @@
+{
+  "name": "gumby",
+  "version": "2.2.17",
+  "main": [
+    "./js/libs/gumby.min.js",
+    "./css/gumby.css"
+  ],
+  "homepage": "https://github.com/GumbyFramework/Gumby",
+  "_release": "2.2.17",
+  "_resolution": {
+    "type": "version",
+    "tag": "2.2.17",
+    "commit": "a24ac5e031fce561252bbf981d231e10a6d96d19"
+  },
+  "_source": "git://github.com/GumbyFramework/Gumby.git",
+  "_target": "~2.2.9",
+  "_originalSource": "gumby"
+}

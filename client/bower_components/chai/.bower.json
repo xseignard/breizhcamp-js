@@ -1,0 +1,14 @@
+{
+  "name": "chai",
+  "homepage": "https://github.com/chaijs/chai",
+  "version": "1.6.1",
+  "_release": "1.6.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "1.6.1",
+    "commit": "053f91901e4d0b2488476cd0b888fb38622f37c8"
+  },
+  "_source": "git://github.com/chaijs/chai.git",
+  "_target": "~1.6.0",
+  "_originalSource": "chai"
+}

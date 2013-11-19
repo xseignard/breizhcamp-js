@@ -8,14 +8,14 @@ var files = [
   MOCHA,
   MOCHA_ADAPTER,
   // bower libs
-  'components/angular/index.js',
-  'components/jquery/jquery.js',
-  'components/angular-resource/index.js',
-  'components/angular-mocks/index.js',
-  'components/tweenMax/src/uncompressed/TweenMax.js',
-  'components/tweenMax/src/uncompressed/plugins/ScrollToPlugin.js',
-  'components/JavaScript-MD5/md5.js',
-  'components/chai/chai.js',
+  'bower_components/angular/index.js',
+  'bower_components/jquery/jquery.js',
+  'bower_components/angular-resource/index.js',
+  'bower_components/angular-mocks/index.js',
+  'bower_components/greensock/src/uncompressed/TweenMax.js',
+  'bower_components/greensock/src/uncompressed/plugins/ScrollToPlugin.js',
+  'bower_components/JavaScript-MD5/js/md5.js',
+  'bower_components/chai/chai.js',
   // chai config file
   'test/chai.conf.js',
   // response mock

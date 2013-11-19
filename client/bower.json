@@ -4,7 +4,7 @@
   "dependencies": {
     "angular": "http://code.angularjs.org/1.1.5/angular.js",
     "angular-resource": "http://code.angularjs.org/1.1.5/angular-resource.js",
-    "tweenMax": "~1.9.7",
+    "greensock": "~1.9.7",
     "JavaScript-MD5": "latest",
     "jquery": "~2.0.0",
     "gumby": "~2.2.9"

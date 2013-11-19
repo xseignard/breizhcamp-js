@@ -1,5 +1,5 @@
 /**
- * breizhcamp-js_frontend - v0.0.1 - 2013-06-11
+ * breizhcamp-js_frontend - v0.0.1 - 2013-11-19
  * https://github.com/xseignard/breizhcamp-js
  *
  * Copyright (c) 2013 
